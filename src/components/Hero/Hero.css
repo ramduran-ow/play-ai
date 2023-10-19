@@ -1,0 +1,147 @@
+#root {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero {
+    position: relative;
+    width: 100%;
+  }
+  
+  .header-players {
+    position: relative;
+    width: 100%;
+    height: 300vh;
+  }
+  
+  .players-slider {
+    position: sticky;
+    position:-webkit-sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  
+    /* INITIAL State */
+  
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+  
+    background: linear-gradient(
+      116deg,
+      #ffde9f 1.25%,
+      #fff2d0 29.54%,
+      #ffe3cf 65.02%,
+      #ffb7a0 100%
+    );
+  }
+  
+  .players-slider_texts {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .players-slider_title {
+    position: relative;
+    color: #202020;
+    /* Title 1 [Desktop] */
+    font-family: Noe Display;
+    text-transform: uppercase;
+    font-size: 31rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 95%; /* 29.45rem */
+  }
+  .players-slider_subtitle {
+    color: #202020;
+    /* Title 3 [Desktop] */
+    font-family: Noe Display;
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 3.75rem */
+  }
+  
+  /* */
+  
+  .hero-swiper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    
+  }
+  .swiper-slide {
+    opacity: 0.6;
+    scale: 0.7;
+  }
+  
+  .swiper-slide-active {
+    opacity: 1;
+    scale: 1;
+  }
+  
+  .navigation {
+    position: absolute;
+    bottom: 8%;
+    z-index: 10;
+    display: flex;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 40rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .navigation_next {
+    width: 2rem;
+    height: 2rem;
+    background: url(assets/nav-next.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .navigation_prev {
+    width: 2rem;
+    height: 2rem;
+    background: url(assets/nav-prev.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .navigation_select {
+    display: inline-flex;
+    padding: 1rem 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #000;
+    background: rgba(255, 255, 255, 0.5);
+    color: #000;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    margin: 0 2rem;
+    cursor: pointer;
+  }
+  
+  /* CONTENT */
+  .section-player_hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("assets/backs/back_1.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  

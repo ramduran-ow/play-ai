@@ -1,3 +1,15 @@
+:root {
+  font-size: 62.5%;
+  --black: #202020;
+  --dark-gray: #6F6F6F;
+  --pink: #E8DDFF;
+  /* --oncourse-blue: #0364D8;
+  --support-yellow: #FFE36C;
+  --background-gray: #F8F8F8;
+  --green: #A6CB95;
+  --support-purple: #0D1680; */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +22,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+mark {
+  background-color: var(--pink);
+}
+
+li, ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'Noe Display';
+  src: url('fonts/Noe_Display_Medium.otf');
 }
