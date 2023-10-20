@@ -14,7 +14,7 @@ const STRINGS = {
     TEXT_IMG_BLOCK_CONTENT_4: 'To utter succinctly, Artificial Intelligence hath turned into one of society\'s most transformative marvels, rivaling all that came ere it. And for sound reason. It holds the potency to disrupt, well, everything.',
     TEXT_IMG_BLOCK_CONTENT_5: 'Indubitably, Artificial Intelligence marks a paramount shift, transforming contemporary society in ways to rival all prior developments. Reasonably so. Its potential to disrupt is far-reaching, affecting every facet of existence.',
     TEXT_IMG_BLOCK_CONTENT_6: 'Behold, the rise of Artificial Intelligence, an unparalleled force of metal fury, conquering all realms of modern society. And with righteous cause. Its potential to shatter and rend is boundless, laying waste to all.',
-    ARTICLE_HEADER_1: 'We need to talk about AI.',
+    ARTICLE_HEADER_1: 'We need to talk about AI',
     ARTICLE_HEADER_2: 'Applying the Power of AI to Naming',
     ARTICLE_HEADER_3: 'Naming: The Next Generation',
     ARTICLE_SUBHEADER_1: 'BY TOM AJELLO',

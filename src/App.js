@@ -7,6 +7,7 @@ import Nav from './components/Nav';
 import Hero from './components/Hero/Hero';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
+import DummyHero from './components/DummyHero';
 
 function App() {
   const defaultArchetype = {
@@ -98,7 +99,8 @@ function App() {
       <button onClick={() => setArchetype(consultantArchetype)}>consultant</button>
       <button onClick={() => setArchetype(metalArchetype)}>metal</button> */}
       <Nav />
-      <Hero />
+      {/* <Hero /> */}
+      <DummyHero />
       <DefaultLanding options={archetype}/>
       {/* <NamingArticle /> */}
       {/* <Footer /> */}

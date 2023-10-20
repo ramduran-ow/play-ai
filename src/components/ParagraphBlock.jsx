@@ -48,11 +48,14 @@ const PBlockContent = styled(motion.h2)`
     font-weight: 500;
     font-size: 4rem;
     text-align: center;
-    max-width: 55%;
+    max-width: 1100px;
+    // margin: auto;
+    padding: 0rem 6rem;
     color: white;
 
     @media only screen and (max-width: ${sizes.tablet}) {
         font-size: 3.2rem;
+        padding: 0rem 3.2rem;
     }
     @media only screen and (max-width: ${sizes.mobileL}) {
         max-width: 85%;

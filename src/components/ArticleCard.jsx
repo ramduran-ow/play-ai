@@ -12,6 +12,13 @@ const ArticleCardContainer = styled.article`
     /* height: 860px; */
     /* position: relative; */
     min-height: 55em;
+    transition: transform .3s ease-out;
+
+    &:hover {
+        transform: translate(0, -8px);
+        cursor: pointer;
+        // mix-blend-mode: screen;
+    }
 
     @media only screen and (max-width: ${sizes.tablet}) {
         max-height: 42.5em;

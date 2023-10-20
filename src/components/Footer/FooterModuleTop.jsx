@@ -12,10 +12,6 @@ const FooterModuleTopContainer = styled.div`
     margin-bottom: 6rem;
 `;
 
-const TextImage = styled.div`
-
-`;
-
 const HeaderContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -53,14 +49,22 @@ const Button = styled.button`
     background: transparent;
     border-style: none;
     border: 1px solid white;
-    cursor: pointer;
     border-radius: 8px;
     color: white; 
+
+
+    &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        -webkit-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease
+    }
 
     @media only screen and (max-width: ${sizes.tablet}) {
         font-size: 1.6rem;
     }
-
 `;
 
 const FooterModuleTop = () => {

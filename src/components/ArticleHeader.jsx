@@ -3,19 +3,6 @@ import { styled } from 'styled-components';
 import { sizes } from './constants/devices';
 import { motion, useScroll, scrollYProgress, cubicBezier, useMotionValueEvent } from 'framer-motion';
 
-// const HeaderContainer = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     gap: 4rem;
-//     position: fixed;
-// `;
-
-// const Text = styled.p`
-//     font-family: 'Noto Sans';
-//     color: white;
-//     font-size: 2rem;
-// `;
-
 const Block = styled.div`
     min-height: 300vh;
     // background-color: black;
@@ -83,7 +70,6 @@ font-family: 'Noto Sans';
 const ContentSubheader2 = styled.p`
     font-size: 2rem;
 `;
-
 
 const ArticleHeader = ({ headerBackground }) => {
     const ref = useRef(null);

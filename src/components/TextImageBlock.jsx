@@ -69,8 +69,8 @@ const TextImage = styled.div`
     }
     @media only screen and (max-width: ${sizes.tablet}) {
         gap: 3.2rem;
+        margin-top: 3.2rem;
     }
-
 `;
 
 const TextImageBlockImg = styled(motion.img)`
@@ -150,15 +150,14 @@ const TextImageBlock = ({ gradient, image, header, content}) => {
                             ease: cubicBezier(0.3,0,0.1,1)
                         }}
                         variants={{
-                            visible: { opacity: 1, marginLeft: !isLaptop && 0 },
-                            hidden: { opacity: 0, marginLeft: !isLaptop && '100px' }
+                            visible: { opacity: 1, x: 0 },
+                            hidden: { opacity: 0, x: 100 }
                         }}
                     >
                         {content}
                     </TextImageBlockContent>
                 </TextImage>
             </Wrapper>
-
         </TextImageBlockContainer>
     );
 };

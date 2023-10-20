@@ -27,8 +27,20 @@ const NavContentWrapper = styled.div`
     margin: auto;
 `;
 
-const Logo = styled.img`
+const ImageWrapper = styled.div`
     max-width: 273px;
+
+    @media only screen and (max-width: ${sizes.tablet}) {
+            max-width: 220px;
+        }
+        @media only screen and (max-width: ${sizes.mobileL}) {
+            max-width: 175px;
+        }
+`;
+
+const Logo = styled.img`
+    width: 100%;
+    // height: 100%;
 
     // @media only screen and (max-width: ${sizes.tablet}) {
     //     max-width: 20px;
@@ -61,7 +73,9 @@ const Nav = ({ options }) => {
     return (
         <NavContainer $top={top}>
             <NavContentWrapper>
-                <Logo src="images/lip-logo-black.png"/>
+                <ImageWrapper>
+                    <Logo src="images/lip-logo-black.png"/>
+                </ImageWrapper>
             </NavContentWrapper>
         </NavContainer>
     );

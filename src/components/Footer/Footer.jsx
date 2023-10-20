@@ -3,12 +3,6 @@ import './Footer.css';
 import { styled } from 'styled-components';
 import FooterModuleTop from './FooterModuleTop';
 
-const DummyHeroContainer = styled.section`
-min-height: 100vh;
-background-color: lightblue;
-`;
-
-
 const Footer = () => {
     return (
         <footer class="footer">

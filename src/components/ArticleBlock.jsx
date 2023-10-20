@@ -40,6 +40,7 @@ const ArticleBlockHeader = styled.h3`
 
     @media only screen and (max-width: ${sizes.mobileL}) {
         font-size: 3.2rem;
+        width: 300px; /* Need a specific value to work */
     }
 `;
 
