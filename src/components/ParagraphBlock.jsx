@@ -12,6 +12,10 @@ const PBlockContainer = styled(motion.section)`
     display: flex;
     justify-content: center;
     z-index: -1;
+
+    @media screen and (min-height: 900px) {
+        min-height: 200vh;
+    }
 `;
 
 const PBlockBackground = styled.div`
@@ -22,7 +26,7 @@ const PBlockBackground = styled.div`
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    max-height: 120vh;
+    max-height: 100vh;
     /* height: 100%; */
     width: 100%;
 `;
