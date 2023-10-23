@@ -61,41 +61,42 @@ const CardContainer = styled.div`
         padding: 4rem 3.2rem 6rem 3.2rem;
     }
 `;
-const SeeAllLinkWrapper = styled.div`
-    @media only screen and (max-width: ${sizes.tablet}) {
-        position: relative;
-        margin-bottom: 6rem;
-    }
-`;
 
-const SeeAllLink = styled.a`
-    font: 'Noto Sans';
-    font-size: 2rem;
-    font-weight: 500;
-    padding: .4rem;
-    color: white;
-    border-bottom: 1px solid white;
-    position: absolute;
-    right: 6rem;
-    bottom: 10rem;
+// const SeeAllLinkWrapper = styled.div`
+//     @media only screen and (max-width: ${sizes.tablet}) {
+//         position: relative;
+//         margin-bottom: 6rem;
+//     }
+// `;
 
-    @media only screen and (min-width: 1560px) {
-        right: calc((100vw - 1440px) / 2);
-    }
+// const SeeAllLink = styled.a`
+//     font: 'Noto Sans';
+//     font-size: 2rem;
+//     font-weight: 500;
+//     padding: .4rem;
+//     color: white;
+//     border-bottom: 1px solid white;
+//     position: absolute;
+//     right: 6rem;
+//     bottom: 10rem;
 
-    @media only screen and (max-width: ${sizes.tablet}) {
-        position: relative;
-        margin-bottom: 6rem;
-        bottom: auto;
-        left: 0; 
-        right: 0; 
-        margin-left: auto; 
-        margin-right: auto; 
-        width: 172px; /* Need a specific value to work */
-    }
-`;
+//     @media only screen and (min-width: 1560px) {
+//         right: calc((100vw - 1440px) / 2);
+//     }
 
-const ArticleBlock = ({ articleImages }) => {
+//     @media only screen and (max-width: ${sizes.tablet}) {
+//         position: relative;
+//         margin-bottom: 6rem;
+//         bottom: auto;
+//         left: 0; 
+//         right: 0; 
+//         margin-left: auto; 
+//         margin-right: auto; 
+//         width: 172px; /* Need a specific value to work */
+//     }
+// `;
+
+const ArticleBlock = () => {
     return (
         <ArticleBlockContainer>
             <ArticleBlockHeader>

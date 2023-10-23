@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import { styled } from 'styled-components';
 import FooterModuleTop from './FooterModuleTop';
 
 const Footer = () => {
@@ -86,7 +85,7 @@ const Footer = () => {
               </nav>
             </div> */}
             <div class="footer__logo">
-              <img class="icon--logo" role="presentation" src="images/lip-logo.png">
+              <img class="icon--logo" alt="" src="images/lip-logo.png">
                 {/* <use xlink:href="https://lippincott.com/app/themes/sage/dist/images/sprites.svg#logo"></use> */}
               </img>    
             </div>

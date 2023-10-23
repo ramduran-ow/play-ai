@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { sizes } from './constants/devices';
-import STRINGS from './constants/strings';
+// import STRINGS from './constants/strings';
 
 const ArticleCardContainer = styled.article`
     background-color: white;
@@ -96,7 +96,7 @@ const ArticleCard = ({ headerImg, header, subHeader, articleInfo }) => {
                     &nbsp;NAMING&nbsp;&nbsp;+&nbsp;&nbsp;AI&nbsp;&nbsp;&gt;&nbsp;&nbsp;SERIES INTRO&nbsp;
                 </mark>
             );
-            break;    
+            break;
         case('naming-experiment'):
             infoString = (
                 <mark>
@@ -104,8 +104,12 @@ const ArticleCard = ({ headerImg, header, subHeader, articleInfo }) => {
                 </mark>
             );
             break;
-        
-
+        default:
+            infoString = (
+                <mark style={{backgroundColor: '#E5FFD1' }}>
+                    &nbsp;ARTICLE INFO&nbsp;
+                </mark>
+            );
     }
 
     return (

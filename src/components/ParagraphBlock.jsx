@@ -1,7 +1,7 @@
-import React, {forwardRef} from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
-import STRINGS from './constants/strings';
-import { motion, useScroll, useTransform, cubicBezier } from 'framer-motion';
+// import STRINGS from './constants/strings';
+import { motion, useScroll, cubicBezier } from 'framer-motion';
 import { sizes } from './constants/devices';
 
 

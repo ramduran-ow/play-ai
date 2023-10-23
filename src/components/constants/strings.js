@@ -6,7 +6,7 @@ const STRINGS = {
     TEXT_IMG_BLOCK_HEADER_2: 'AI, we gotta bark it out!',
     TEXT_IMG_BLOCK_HEADER_3: 'How we\'re manifesting AI',
     TEXT_IMG_BLOCK_HEADER_4: 'Pray, we must converse of AI',
-    TEXT_IMG_BLOCK_HEADER_5: 'Let\s circle back on AI',
+    TEXT_IMG_BLOCK_HEADER_5: 'Let\'s circle back on AI',
     TEXT_IMG_BLOCK_HEADER_6: 'Calling all AI headbangers',
     TEXT_IMG_BLOCK_CONTENT_1: 'To say the least, Artificial Intelligence has become one of the most transformative things to ever happen to modern society—rivaling everything that’s come before it. And for good reason. It has the potential to disrupt, well, everything.',
     TEXT_IMG_BLOCK_CONTENT_2: 'Bark bark! Artificial Intelligence is like a magic bone that\'s changin\' everything in our world! It\'s takin\' on all the past stuff, and for good reason. It\'s got the power to shake up, well, everything!',

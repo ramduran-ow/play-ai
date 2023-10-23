@@ -1,11 +1,11 @@
 import React, {useRef} from 'react';
 import { styled } from 'styled-components';
-import { motion, useScroll, useTransform, cubicBezier } from 'framer-motion';
-import STRINGS from './constants/strings';
+import { motion, useScroll, cubicBezier } from 'framer-motion';
+// import STRINGS from './constants/strings';
 import TypeIt from "typeit-react";
 import useOnScreen from '../useOnScreenHook';
-import { sizes, devices } from './constants/devices';
-import { useMediaQuery } from 'react-responsive';
+import { sizes } from './constants/devices';
+// import { useMediaQuery } from 'react-responsive';
 
 
 const TextImageBlockContainer = styled.section`
@@ -108,7 +108,7 @@ const TextImageBlock = ({ gradient, image, header, content}) => {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
     const { scrollYProgress } = useScroll();
-    const isLaptop = useMediaQuery({ query: devices.laptop });
+    // const isLaptop = useMediaQuery({ query: devices.laptop });
 
     return (
         <TextImageBlockContainer $gradient={gradient}>

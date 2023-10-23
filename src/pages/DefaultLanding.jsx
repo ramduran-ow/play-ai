@@ -1,9 +1,7 @@
 import React from 'react';
-import DummyHero from '../components/DummyHero';
 import ParagraphBlock from '../components/ParagraphBlock';
 import TextImageBlock from '../components/TextImageBlock';
 import ArticleBlock from '../components/ArticleBlock';
-import TeamBlock from '../components/TeamBlock';
 import Footer from '../components/Footer/Footer';
 
 const DefaultLanding = ({ options }) => {
