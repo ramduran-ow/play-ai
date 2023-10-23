@@ -85,8 +85,8 @@ const ParagraphBlock = ({ backgroundImage, contentString }) => {
                         ease: cubicBezier(0.3,0,0.1,1)
                     }}
                     variants={{
-                        visible: { opacity: 1, marginBottom: 0 },
-                        hidden: { opacity: 0, marginBottom: '-200px' }
+                        visible: { opacity: 1, y: 0 },
+                        hidden: { opacity: 0, y: 200 }
                     }}
                 >
                     {contentString}
