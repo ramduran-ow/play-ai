@@ -5,6 +5,8 @@ import DefaultLanding from './pages/DefaultLanding';
 import Nav from './components/Nav';
 // import { Route, Routes } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
+// import { ManifestoSection } from './pages/ManifestoSection';
+// import { useImageLoader } from './components/constants/manifestoImgContent';
 
 function App() {
 
@@ -36,7 +38,7 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-3.webp',
-        contentString: STRINGS.P_BLOCK_2,
+        contentString: STRINGS.P_BLOCK_3,
       },
       textImageBlock: {
         gradient: 'images/gradient-3.webp',
@@ -48,7 +50,7 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-4.webp',
-        contentString: STRINGS.P_BLOCK_2,
+        contentString: STRINGS.P_BLOCK_4,
       },
       textImageBlock: {
         gradient: 'images/gradient-4.webp',
@@ -60,7 +62,7 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-5.webp',
-        contentString: STRINGS.P_BLOCK_2,
+        contentString: STRINGS.P_BLOCK_5,
       },
       textImageBlock: {
         gradient: 'images/gradient-5.webp',
@@ -72,7 +74,7 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-6.webp',
-        contentString: STRINGS.P_BLOCK_2,
+        contentString: STRINGS.P_BLOCK_6,
       },
       textImageBlock: {
         gradient: 'images/gradient-6.webp',
@@ -166,6 +168,8 @@ function App() {
     setArchetype(players[newPlayer]);
   }
 
+  // const MANIFESTO_IMAGES = useImageLoader();
+
   return (
     <div className="App">
       {/* <button onClick={() => setArchetype(defaultArchetype)}>default</button>
@@ -177,6 +181,7 @@ function App() {
       <Hero handlePlayerChange={handlePlayerChange} />
       <Nav />
       <DefaultLanding options={archetype}/>
+      {/* <ManifestoSection images={MANIFESTO_IMAGES} /> */}
     </div>
   );
 }

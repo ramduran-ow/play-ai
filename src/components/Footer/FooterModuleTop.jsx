@@ -41,7 +41,7 @@ const SubHeader = styled.p`
 
 const ButtonWrapper = styled.div``;
 
-const Button = styled.button`
+const Button = styled.a`
     font-family: "Noto Sans";
     font-weight: 500;
     padding: 1.6rem 3.2rem;
@@ -79,7 +79,7 @@ const FooterModuleTop = () => {
                 </SubHeader>
             </HeaderContainer>
             <ButtonWrapper>
-                <Button>LET'S TALK</Button>
+                <Button href="mailto:tom.ajello@lippincott.com?subject=Reaching out to talk about AI">LET'S TALK</Button>
             </ButtonWrapper>
         </FooterModuleTopContainer>
     );

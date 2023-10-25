@@ -154,10 +154,10 @@ function Hero({ handlePlayerChange }) {
           //console.log(e.detail.intersection);
           if (e.detail.intersection) {
             e.target._spline.play();
-            const resetObj = e.target._spline.findObjectById(
-              "c0f7bdf9-6453-42af-808a-a35519934bc5"
-            );
-            resetObj.emitEventReverse("mouseUp");
+            // const resetObj = e.target._spline.findObjectById(
+            //   "c0f7bdf9-6453-42af-808a-a35519934bc5"
+            // );
+            // resetObj.emitEventReverse("mouseUp");
           } else {
             e.target._spline.stop();
           }

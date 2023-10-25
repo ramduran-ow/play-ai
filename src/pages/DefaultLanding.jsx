@@ -7,7 +7,6 @@ import Footer from '../components/Footer/Footer';
 const DefaultLanding = ({ options }) => {
     return (
         <div>
-            {/* <DummyHero /> */}
             <ParagraphBlock 
                 backgroundImage={options.pBlock.backgroundImage} 
                 contentString={options.pBlock.contentString}

@@ -4,8 +4,8 @@ import { motion, useScroll, cubicBezier } from 'framer-motion';
 // import STRINGS from './constants/strings';
 import TypeIt from "typeit-react";
 import useOnScreen from '../useOnScreenHook';
-import { sizes } from './constants/devices';
-// import { useMediaQuery } from 'react-responsive';
+import { sizes, devices } from './constants/devices';
+import { useMediaQuery } from 'react-responsive';
 
 
 const TextImageBlockContainer = styled.section`
@@ -89,7 +89,7 @@ const TextImageBlockContent = styled(motion.p)`
     font-size: 2rem;
     max-width: 30%;
     margin: 0;
-    margin-top: 16%;
+    margin-top: 12%;
     text-align: left;
 
     @media only screen and (max-width: 1024px) {
@@ -108,13 +108,49 @@ const TextImageBlock = ({ gradient, image, header, content}) => {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
     const { scrollYProgress } = useScroll();
-    // const isLaptop = useMediaQuery({ query: devices.laptop });
+    const isLaptop = useMediaQuery({ query: devices.laptop });
+
+    const desktopContent = (
+        <TextImageBlockContent
+            initial="hidden"
+            whileInView="visible"
+            transition={{
+                duration: 1.3, 
+                delay: scrollYProgress * 0.6,
+                ease: cubicBezier(0.3,0,0.1,1)
+            }}
+            variants={{
+                visible: { opacity: 1, x: 0 },
+                hidden: { opacity: 0, x: 100 }
+            }}
+        >
+            {content}
+        </TextImageBlockContent>
+    );
+
+    const mobileContent = (
+        <TextImageBlockContent
+            initial="hidden"
+            whileInView="visible"
+            transition={{
+                duration: 1.3, 
+                delay: scrollYProgress * 0.6,
+                ease: cubicBezier(0.3,0,0.1,1)
+            }}
+            variants={{
+                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: 50}
+            }}
+        >
+            {content}
+        </TextImageBlockContent>
+    );
 
     return (
         <TextImageBlockContainer $gradient={gradient}>
             <Wrapper>
                 <TextImageBlockHeader ref={ref}>
-                    { isVisible &&
+                    {isVisible &&
                         <TypeIt
                             options={{
                                 strings: [header],
@@ -141,21 +177,7 @@ const TextImageBlock = ({ gradient, image, header, content}) => {
                             hidden: { opacity: 0 }
                         }}
                     />
-                    <TextImageBlockContent
-                        initial="hidden"
-                        whileInView="visible"
-                        transition={{
-                            duration: 1.3, 
-                            delay: scrollYProgress * 0.6,
-                            ease: cubicBezier(0.3,0,0.1,1)
-                        }}
-                        variants={{
-                            visible: { opacity: 1, x: 0 },
-                            hidden: { opacity: 0, x: 100 }
-                        }}
-                    >
-                        {content}
-                    </TextImageBlockContent>
+                {isLaptop ? mobileContent : desktopContent}
                 </TextImage>
             </Wrapper>
         </TextImageBlockContainer>
