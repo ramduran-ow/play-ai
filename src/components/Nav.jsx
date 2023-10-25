@@ -9,17 +9,17 @@ const NavContainer = styled.nav`
     background-color: white;
     border-bottom: 1px solid black;
     width: 100%;
-    height: 100px; 
+    height: 64px; 
     z-index: 99999;
     display: flex;
     justify-content: center;
 
-    @media only screen and (max-width: ${sizes.tablet}) {
-        height: 70px;
-    }
-    @media only screen and (max-width: ${sizes.mobileL}) {
-        height: 50px;
-    }
+    // @media only screen and (max-width: ${sizes.tablet}) {
+    //     height: 32px;
+    // }
+    // @media only screen and (max-width: ${sizes.mobileL}) {
+    //     height: 50px;
+    // }
 `;
 
 const NavContentWrapper = styled.div`
