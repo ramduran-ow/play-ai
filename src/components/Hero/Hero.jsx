@@ -101,6 +101,15 @@ function Hero({ handlePlayerChange }) {
     sliderRef.current.swiper.slideToLoop(i);
   };
 
+  // SELECT Player //
+  const selectPlayerScroll = () => {
+    let pageHeight = window.innerHeight;
+    window.scrollBy({
+      top: pageHeight * 2,
+      behavior: "smooth",
+    });
+  };
+
   // FRAMER SCROLL ANIMATIONS //
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -174,6 +183,10 @@ function Hero({ handlePlayerChange }) {
     }, 1000);
     return () => clearTimeout(timer);
   }, []); // eslint-disable-line
+
+  const _getTop = (index) => {    
+    return (playerSelected == index) ? topProgress : 0    
+  }
 
   return (
     <div className="hero">
@@ -268,7 +281,7 @@ function Hero({ handlePlayerChange }) {
                     width: "100%",
                     height: "100%",
                     position: "absolute",
-                    top: playerSelected === index ? topProgress : 0,
+                    top: _getTop(index),
                     opacity: playerSelected === -1 ? 1 : opacityControlsProgress,
                   }}
                 >
@@ -327,6 +340,7 @@ function Hero({ handlePlayerChange }) {
                 backgroundColor: "#000000",
                 color: "#FFFFFF",
               }}
+              onClick={selectPlayerScroll}
             >
               Select player
             </motion.div>
@@ -339,11 +353,6 @@ function Hero({ handlePlayerChange }) {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* CONTENT */}
-      {/* <div className="content">
-        <motion.div className="section-player_hero"></motion.div>
-      </div> */}
       <Menu
         items={headerSlides}
         selected={playerSelected}
