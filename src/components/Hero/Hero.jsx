@@ -185,7 +185,7 @@ function Hero({ handlePlayerChange }) {
   }, []); // eslint-disable-line
 
   const _getTop = (index) => {    
-    return (playerSelected == index) ? topProgress : 0    
+    return (playerSelected === index) ? topProgress : 0    
   }
 
   return (

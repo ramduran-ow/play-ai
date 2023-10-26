@@ -50,9 +50,9 @@ const Logo = styled.img`
     // }
 `;
 
-const Nav = ({ options }) => {
+const Nav = () => {
     const [position, setPosition] = useState(window.scrollY);
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
 
     const handleScroll = () => {
         let moving = window.scrollY;
@@ -68,7 +68,7 @@ const Nav = ({ options }) => {
         })
     })
 
-    const top = visible ? '-100px' : '0';
+    const top = visible ? '-64px' : '0';
 
     return (
         <NavContainer $top={top}>
