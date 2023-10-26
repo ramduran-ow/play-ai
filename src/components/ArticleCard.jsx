@@ -3,8 +3,9 @@ import { styled } from 'styled-components';
 import { sizes } from './constants/devices';
 // import STRINGS from './constants/strings';
 
-const ArticleCardContainer = styled.article`
+const ArticleCardContainer = styled.a`
     background-color: white;
+    color: black;
     border-radius: 16px;
     flex: 1;
     min-width: 386px;
@@ -17,7 +18,8 @@ const ArticleCardContainer = styled.article`
     &:hover {
         transform: translate(0, -8px);
         cursor: pointer;
-        // mix-blend-mode: screen;
+        color: black;
+        mix-blend-mode: screen;
     }
 
     @media only screen and (max-width: ${sizes.tablet}) {
@@ -80,7 +82,7 @@ const ArticleSubheader = styled.p`
     }
 `;
 
-const ArticleCard = ({ headerImg, header, subHeader, articleInfo }) => {
+const ArticleCard = ({ headerImg, header, subHeader, articleInfo, link }) => {
     let infoString;
     switch(articleInfo){
         case('manifesto'):
@@ -113,7 +115,7 @@ const ArticleCard = ({ headerImg, header, subHeader, articleInfo }) => {
     }
 
     return (
-        <ArticleCardContainer>
+        <ArticleCardContainer href={link}>
             <div>
                 <ArticleImg src={headerImg} />
                 <ArticleContent>

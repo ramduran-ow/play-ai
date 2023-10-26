@@ -109,18 +109,21 @@ const ArticleBlock = () => {
                         header={STRINGS.ARTICLE_HEADER_1}
                         subHeader={STRINGS.ARTICLE_SUBHEADER_1}
                         articleInfo={'manifesto'}
+                        link={'https://scrollingmodules--meek-kataifi-4c3a70.netlify.app/'}
                     />
                     <ArticleCard 
                         headerImg='images/article-img-2.webp'
                         header={STRINGS.ARTICLE_HEADER_2}
                         subHeader={STRINGS.ARTICLE_SUBHEADER_2}
                         articleInfo={'naming-intro'}
+                        link={'https://scrollingmodules--meek-kataifi-4c3a70.netlify.app/'}
                     />
                     <ArticleCard 
                         headerImg='images/article-img-3.webp'
                         header={STRINGS.ARTICLE_HEADER_3}
                         subHeader={STRINGS.ARTICLE_SUBHEADER_3}
                         articleInfo={'naming-experiment'}
+                        link={'https://scrollingmodules--meek-kataifi-4c3a70.netlify.app/'}
                     />
                 </CardContainer>
             </CardContainerWrapper>
