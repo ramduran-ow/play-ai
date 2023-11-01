@@ -5,8 +5,8 @@ import DefaultLanding from './pages/DefaultLanding';
 import Nav from './components/Nav';
 // import { Route, Routes } from 'react-router-dom';
 import Hero from './components/Hero/Hero';
-// import { ManifestoSection } from './pages/ManifestoSection';
-// import { useImageLoader } from './components/constants/manifestoImgContent';
+import { ManifestoSection } from './components/Manifesto/ManifestoSection';
+import { useImageLoader } from './components/Manifesto/manifestoImgContent';
 
 function App() {
 
@@ -168,7 +168,7 @@ function App() {
     setArchetype(players[newPlayer]);
   }
 
-  // const MANIFESTO_IMAGES = useImageLoader();
+  const MANIFESTO_IMAGES = useImageLoader();
 
   return (
     <div className="App">
@@ -180,7 +180,7 @@ function App() {
       <button onClick={() => setArchetype(metalArchetype)}>metal</button> */}
       <Hero handlePlayerChange={handlePlayerChange} />
       <Nav />
-      <DefaultLanding options={archetype}/>
+      <DefaultLanding options={archetype} manifestoImages={MANIFESTO_IMAGES}/>
       {/* <ManifestoSection images={MANIFESTO_IMAGES} /> */}
     </div>
   );
