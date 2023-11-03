@@ -9,7 +9,7 @@ function TransformingContent({ child, positions, scrollInfo, alignment }) {
 
     const visibleInfo = [0, scrollInfo[0], scrollInfo[scrollInfo.length - 1], 1]
     const { scrollYProgress } = useScroll();
-    // 0.2
+
     const x = useTransform(scrollYProgress, scrollInfo, positions[0]) //[x1, x2, x3, x4]
     const y = useTransform(scrollYProgress, scrollInfo, positions[1]) //[-34, 29, 29, 126]
     const visible = useTransform(scrollYProgress, visibleInfo, ['none', 'none', 'inline', 'none'])
@@ -88,7 +88,8 @@ TransformingContent.propTypes = {
 
 function TransformingTextBox({ child, positions, scrollInfo, alignment }) {
     const { scrollYProgress } = useScroll();
-
+    const pointersInfo = [0, scrollInfo[0], scrollInfo[scrollInfo.length - 1], 1]
+    const pointers = useTransform(scrollYProgress, pointersInfo, ['none', 'none', 'auto', 'none'])
     const y = useTransform(scrollYProgress, scrollInfo, positions) //[-34, 29, 29, 126]
     const tY = useMotionTemplate`${y}vh`
 
@@ -98,6 +99,7 @@ function TransformingTextBox({ child, positions, scrollInfo, alignment }) {
                 position: "fixed",
                 top: tY,
                 width: "100%",
+                pointerEvents: pointers
             }}>
                 <div style={{ position: "relative", textAlign: "center" }}>
                     {child}
@@ -110,6 +112,7 @@ function TransformingTextBox({ child, positions, scrollInfo, alignment }) {
                 position: "fixed",
                 width: "100%",
                 bottom: tY,
+                pointerEvents: pointers
             }}>
                 <div style={{ position: "relative", textAlign: "center" }}>
                     {child}
@@ -124,6 +127,7 @@ function TransformingTextBox({ child, positions, scrollInfo, alignment }) {
                 left: 0,
                 width: "100%",
                 height: "100%",
+                pointerEvents: pointers
             }}>
                 <div style={{ position: "relative", textAlign: "center" }}>
                     {child}

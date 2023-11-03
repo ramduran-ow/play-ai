@@ -243,9 +243,7 @@ function ManifestoSection({ images }) {
             {isMobile ? mobileBeach : desktopBeach}
             {isMobile ? mobileHowWell : desktopHowWell}
             {isLaptop ? mobileHowPlay : desktopHowPlay}
-
-            {/* ENDBLOCK */}
-            {/* <Background background={"#202020"} height={endblock} /> */}
+            
         </div>
     )
 }
