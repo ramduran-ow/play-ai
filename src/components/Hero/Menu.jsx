@@ -9,7 +9,6 @@ export default function Menu(props) {
 	const [items] = useState(props.items);
 	const [open, setOpen] = useState(false);
 
-
 	useEffect(() => {
 	    setSelected(props.selected);	    
 	},[props.selected]);

@@ -1,50 +1,70 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { styled } from 'styled-components';
 // import STRINGS from './constants/strings';
-import { motion, useScroll, cubicBezier } from 'framer-motion';
+import { motion, useScroll, cubicBezier, useTransform } from 'framer-motion';
 import { sizes } from './constants/devices';
+// import TypeIt from "typeit-react";
+// import useOnScreen from '../useOnScreenHook';
+import PBlockMenu from './PBlockMenu';
+import { OpacityHeading } from './Manifesto/interactions/OpacityContent';
+import { TransformingTextBox } from './Manifesto/interactions/TransformingContent';
 
 
 const PBlockContainer = styled(motion.section)`
-    min-height: 250vh;
+    min-height: 200vh;
     position: sticky;
     top: 0;
-    display: flex;
-    justify-content: center;
-    z-index: -1;
+    // display: flex;
+    // justify-content: center;
+    background-image: url(${props => props.$backgroundImage});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+    // border: 3px solid red;
 
     @media screen and (min-height: 900px) {
         min-height: 200vh;
     }
 `;
 
-const PBlockBackground = styled.div`
-    background-image: url(${props => props.$backgroundImage});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    max-height: 100vh;
-    /* height: 100%; */
-    width: 100%;
-`;
+// const PBlockBackground = styled.div`
+//     background-image: url(${props => props.$backgroundImage});
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     background-attachment: fixed;
+//     margin: 0;
+//     padding: 0;
+//     max-height: 100vh;
+//     /* height: 100%; */
+//     width: 100%;
+// `;
 
 const PBlockOverlay = styled(motion.div)`
+    //position: sticky;
     min-height: 100vh;
     width: 100%;
     background-color: black;
     position: absolute;
+    // background-image: url(${props => props.$backgroundImage});
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-attachment: fixed;
+    z-index: -2;
 `;
 
 const PBlockContentWrapper = styled.div`
     min-height: 100vh;
     width: 100%;
-    position: absolute;
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10rem;
 `;
 
 const PBlockContent = styled(motion.h2)`
@@ -66,35 +86,81 @@ const PBlockContent = styled(motion.h2)`
     }
 `;
 
-const ParagraphBlock = ({ backgroundImage, contentString }) => {
-    const { scrollYProgress } = useScroll();
+const ParagraphBlock = ({ 
+    backgroundImage, 
+    contentString, 
+    scrollYArray, 
+    opacityArray, 
+    opacityOverride, 
+    scrollOffset,
+    typed,
+    handlePlayerChange,
+    hasMenu,
+    scrollInfo
+}) => {
+    const ref = useRef(null);
+    const contentRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: scrollOffset
+      });
+    const opacity = useTransform(scrollYProgress, scrollYArray, opacityArray);
+
+    // const isVisible = useOnScreen(contentRef);
+    // const typedContent = (
+    //     <PBlockContent>
+    //         <TypeIt
+    //             options={{
+    //                 strings: [contentString],
+    //                 speed: 20,
+    //                 waitUntilVisible: true,
+    //                 lifeLike: true,
+    //             }}
+    //         />
+    //     </PBlockContent>
+    // );
+
+    const normalContent = (
+        <PBlockContent
+            // className='p-block-content'
+            // initial={{ opacity: 0 }}
+            // whileInView={{ opacity: 1 }}
+            initial="hidden"
+            whileInView="visible"
+            // viewport={{ once: true }}
+            transition={{
+                duration: 1, 
+                delay: opacity * 0.6,
+                ease: cubicBezier(0.3,0,0.1,1)
+            }}
+            variants={{
+                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: 200 }
+            }}
+        >
+            {contentString}
+        </PBlockContent>
+    );
 
     return (
-        <PBlockContainer>
-            <PBlockBackground $backgroundImage={backgroundImage} />
+        <PBlockContainer $backgroundImage={backgroundImage} ref={ref}>
+            {/* <PBlockBackground $backgroundImage={backgroundImage} /> */}
             <PBlockOverlay 
-                style={{ opacity: scrollYProgress }}
+                style={{ opacity: (opacityOverride || opacityOverride === 0) ? opacityOverride : opacity }}
+                $backgroundImage={backgroundImage}
             />
-            <PBlockContentWrapper>
-                <PBlockContent
-                // className='p-block-content'
-                //   initial={{ opacity: 0 }}
-                //   whileInView={{ opacity: 1 }}
-                    initial="hidden"
-                    whileInView="visible"
-                    // viewport={{ once: true }}
-                    transition={{
-                        duration: 1, 
-                        delay: scrollYProgress * 0.6,
-                        ease: cubicBezier(0.3,0,0.1,1)
-                    }}
-                    variants={{
-                        visible: { opacity: 1, y: 0 },
-                        hidden: { opacity: 0, y: 200 }
-                    }}
-                >
-                    {contentString}
-                </PBlockContent>
+            <PBlockContentWrapper ref={contentRef}>
+                {/* {(isVisible && typed) ? typedContent : normalContent} */}
+                {/* {normalContent} */}
+                {hasMenu ? normalContent : 
+                    <TransformingTextBox positions={[0, 0, 0, 0]} scrollInfo={scrollInfo} alignment={'center'} child={
+                        <OpacityHeading scrollInfo={scrollInfo} simpleFade={true} baseOpacity={0} text={
+                            [contentString]
+                        } />
+                    } />
+                }
+
+                {hasMenu && <PBlockMenu handlePlayerChange={handlePlayerChange}/>}
             </PBlockContentWrapper>
         </PBlockContainer>
     );

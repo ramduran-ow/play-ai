@@ -104,13 +104,13 @@ const ArticleBlock = () => {
             </ArticleBlockHeader>
             <CardContainerWrapper>
                 <CardContainer>
-                    <ArticleCard 
+                    {/* <ArticleCard 
                         headerImg='images/article-img-1.webp'
                         header={STRINGS.ARTICLE_HEADER_1}
                         subHeader={STRINGS.ARTICLE_SUBHEADER_1}
                         articleInfo={'manifesto'}
                         link={'https://scrollingmodules--meek-kataifi-4c3a70.netlify.app/'}
-                    />
+                    /> */}
                     <ArticleCard 
                         headerImg='images/article-img-2.webp'
                         header={STRINGS.ARTICLE_HEADER_2}
@@ -121,8 +121,15 @@ const ArticleBlock = () => {
                     <ArticleCard 
                         headerImg='images/article-img-3.webp'
                         header={STRINGS.ARTICLE_HEADER_3}
-                        subHeader={STRINGS.ARTICLE_SUBHEADER_3}
+                        subHeader={STRINGS.ARTICLE_SUBHEADER_4}
                         articleInfo={'naming-experiment'}
+                        link={'https://scrollingmodules--meek-kataifi-4c3a70.netlify.app/'}
+                    />
+                    <ArticleCard 
+                        isGhost
+                        header={STRINGS.ARTICLE_HEADER_4}
+                        subHeader={STRINGS.ARTICLE_SUBHEADER_3}
+                        articleInfo={'customer-research-ghost'}
                         link={'https://scrollingmodules--meek-kataifi-4c3a70.netlify.app/'}
                     />
                 </CardContainer>

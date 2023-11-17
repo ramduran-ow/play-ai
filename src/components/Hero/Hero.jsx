@@ -9,19 +9,29 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // FRAMER MOTION //
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-import Menu from "./Menu";
+// import Menu from "./Menu";
 
-function Hero({ handlePlayerChange }) {
+function Hero({ handlePlayerChange, player }) {
   const [playerSelected, SetPlayerSelected] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    console.log("playerSelected updated in Hero")
     handlePlayerChange(playerSelected);
   }, [playerSelected]); // eslint-disable-line
 
+  useEffect(() => {
+
+    SetPlayerSelected(player);
+    _changeItem(player)
+  }, [player]); // eslint-disable-line
   /////////////
   // PLAYERS //
   /////////////
@@ -34,6 +44,7 @@ function Hero({ handlePlayerChange }) {
       backGradient:
         "linear-gradient(116deg, rgba(164, 179, 255, 0.40) 1.25%, rgba(189, 203, 255, 0.40) 29.79%, rgba(206, 184, 255, 0.40) 71.6%, rgba(204, 167, 255, 0.40) 100%)",
       playerShadow: "url('images/shadows/symbol_shadow.png') no-repeat center bottom",
+      text:'/Prompt: <b>Futuristic</b>'
     },
     {
       player: "https://prod.spline.design/tFZcT93-fk0rHYBE/scene.splinecode",
@@ -43,15 +54,7 @@ function Hero({ handlePlayerChange }) {
       backGradient:
         "linear-gradient(116deg,#ffde9f 1.25%,#fff2d0 29.54%,#ffe3cf 65.02%,#ffb7a0 100%)",
       playerShadow: "url(images/shadows/dog_shadow.png) no-repeat center bottom",
-    },
-    {
-      player: "https://prod.spline.design/RnD9t6cTp-QAsGEQ/scene.splinecode",
-      playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
-      playerPNG: "images/players/SphereBase.png",
-      icon: "sphere",
-      backGradient:
-        "linear-gradient(116deg, rgba(129, 218, 202, 0.40) 1.25%, rgba(118, 228, 202, 0.40) 29.02%, rgba(149, 236, 255, 0.40) 67.6%, rgba(149, 147, 255, 0.40) 100%)",
-      playerShadow: "url(images/shadows/sphere_shadow.png) no-repeat center bottom",
+      text: '/Prompt: <b>Doge-Mode</b>'
     },
     {
       player: "https://prod.spline.design/VQE9YISAlTwDj5Ff/scene.splinecode",
@@ -61,15 +64,7 @@ function Hero({ handlePlayerChange }) {
       backGradient:
         "linear-gradient(116deg, #DDD3F1 1.25%, #EEEDFF 31.59%, #FFDBE1 71.71%, #FBB 100%)",
       playerShadow: "url(images/shadows/quill_shadow.png) no-repeat center bottom",
-    },
-    {
-      player: "https://prod.spline.design/jwecqQbTKPfCRagW/scene.splinecode",
-      playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
-      playerPNG: "images/players/PortfolioBase.png",
-      icon: "portfolio",
-      backGradient:
-        "linear-gradient(116deg, #FFF2D0 1.25%, #F1FFD4 33.14%, #E1FFE6 65.02%, #D4FFF5 100%)",
-      playerShadow: "url(images/shadows/portfolio_shadow.png) no-repeat center bottom",
+      text: '/Prompt: <b>Shakespearinator</b>'
     },
     {
       player: "https://prod.spline.design/jtAWEZhNQYMpZVNw/scene.splinecode",
@@ -77,14 +72,25 @@ function Hero({ handlePlayerChange }) {
       playerPNG: "images/players/GuitarBase.png",
       icon: "guitar",
       backGradient:
-        "linear-gradient(116deg, rgba(134, 79, 255, 0.30) 1.25%, rgba(174, 167, 255, 0.30) 31.59%, rgba(255, 160, 223, 0.30) 71.71%, rgba(255, 60, 60, 0.30) 100%)",
-      playerShadow: "url('images/shadows/guitar_shadow.png') no-repeat center bottom",
+        "linear-gradient(116deg, #FFF2D0 1.25%, #F1FFD4 33.14%, #E1FFE6 65.02%, #D4FFF5 100%)",      playerShadow: "url('images/shadows/guitar_shadow.png') no-repeat center bottom",
+      text: '/Prompt: <b>Heavy Metal-ic</b>'
+    },
+    {
+      player: "https://prod.spline.design/RnD9t6cTp-QAsGEQ/scene.splinecode",
+      playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
+      playerPNG: "images/players/SphereBase.png",
+      icon: "sphere",
+      backGradient:
+        "linear-gradient(116deg, rgba(129, 218, 202, 0.40) 1.25%, rgba(118, 228, 202, 0.40) 29.02%, rgba(149, 236, 255, 0.40) 67.6%, rgba(149, 147, 255, 0.40) 100%)",
+      playerShadow: "url(images/shadows/sphere_shadow.png) no-repeat center bottom",
+      text:'/Prompt: <b>Gen-Zify</b>'
     },
   ];
   ///////////////////
   /// PLAYERS REF ///
   ///////////////////
   const playersEl = useRef([]);
+  const playersSlidesEl = useRef([]);
 
   ////////////
   // SLIDER //
@@ -102,18 +108,23 @@ function Hero({ handlePlayerChange }) {
   };
 
   // SELECT Player //
-  const selectPlayerScroll = () => {
-    let pageHeight = window.innerHeight;
-    window.scrollBy({
-      top: pageHeight * 2,
-      behavior: "smooth",
-    });
-  };
+  // const content = useRef(null);
+  // const selectPlayer = () => {
+  //   window.scrollTo({ top: window.innerHeight * 2, behavior: "smooth" })
+  // };
+
+  // const selectPlayerScroll = () => {
+  //   let pageHeight = window.innerHeight;
+  //   window.scrollBy({
+  //     top: pageHeight * 2,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   // FRAMER SCROLL ANIMATIONS //
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
-    offset: ["0 0", "0.3 1"],
+    offset: ["0 0", "0.1 1"],
   });
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const opacityControlsProgress = useTransform(scrollYProgress, [0, 1], [1, 0]);
@@ -123,21 +134,21 @@ function Hero({ handlePlayerChange }) {
 
   const topProgress = useTransform(scrollYProgress, [0, 1], [0, -1000]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", listenToScroll);
+  //   return () => window.removeEventListener("scroll", listenToScroll);
+  // }, []);
 
-  const listenToScroll = () => {
-    let heightToHideFrom = 2000;
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    if (winScroll > heightToHideFrom) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+  // const listenToScroll = () => {
+  //   let heightToHideFrom = 2000;
+  //   const winScroll =
+  //     document.body.scrollTop || document.documentElement.scrollTop;
+  //   if (winScroll > heightToHideFrom) {
+  //     setIsVisible(true);
+  //   } else {
+  //     setIsVisible(false);
+  //   }
+  // };
 
   // SPLINE VIEWER //
   useEffect(() => {
@@ -163,17 +174,18 @@ function Hero({ handlePlayerChange }) {
           //console.log(e.detail.intersection);
           if (e.detail.intersection) {
             e.target._spline.play();
-            // const resetObj = e.target._spline.findObjectById(
-            //   "c0f7bdf9-6453-42af-808a-a35519934bc5"
-            // );
-            // resetObj.emitEventReverse("mouseUp");
+            const resetObj = e.target._spline.findObjectById(
+              "c0f7bdf9-6453-42af-808a-a35519934bc5"
+            );
+            resetObj.emitEventReverse("mouseUp");
           } else {
             e.target._spline.stop();
           }
         }
       );
       playersEl.current[index].addEventListener("load-complete", (e) => {
-        console.log(e, "que?");
+        SetPlayerSelected(0);
+        e.target._spline.stop();
       });
     });
   };
@@ -184,8 +196,15 @@ function Hero({ handlePlayerChange }) {
     return () => clearTimeout(timer);
   }, []); // eslint-disable-line
 
-  const _getTop = (index) => {    
-    return (playerSelected === index) ? topProgress : 0    
+  const _getTop = (i) => {    
+    if (playersSlidesEl.current[playerSelected]) {
+      if (
+        playersSlidesEl.current[i].id ===
+        playersSlidesEl.current[playerSelected].id
+      ) {
+        return playerSelected === i ? topProgress : 0;
+      }
+    }
   }
 
   return (
@@ -230,30 +249,22 @@ function Hero({ handlePlayerChange }) {
               setSwiper(s);
               SetPlayerSelected(s.realIndex);
             }}
-            onSlideChange={(s) => {
+            onTransitionEnd={(s) => {
               SetPlayerSelected(s.realIndex);
             }}
+            onRealIndexChange={(s) => {}}
             keyboard={{
               enabled: true,
             }}
-            modules={[Keyboard]}
-            breakpoints={{
-              640: {
-                slidesPerView: 1,
-              },
-              768: {
-                slidesPerView: 1,
-              },
-              1024: {
-                slidesPerView: 1,
-              },
-              1200: {
-                slidesPerView: 1.85,
-              },
-            }}
+            modules={[Keyboard]}            
             className="hero-swiper"
             ref={sliderRef}
-          >
+            navigation={{
+              nextEl: "image-swiper-button-next",
+              prevEl: "image-swiper-button-prev",
+              disabledClass: "swiper-button-disabled"
+            }}
+          >   
             {headerSlides.map((data, index) => (
               <SwiperSlide
                 key={index}
@@ -277,6 +288,8 @@ function Hero({ handlePlayerChange }) {
                 className={playerSelected === index ? data.icon : ""}
               >
                 <motion.div
+                  id={data.icon}
+                  ref={(element) => playersSlidesEl.current.push(element)}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -289,8 +302,7 @@ function Hero({ handlePlayerChange }) {
                     style={{
                       position: "absolute",
                       width: "100%",
-                      height: "100%",
-                      display: playerSelected === index ? "block" : "none",
+                      height: "100%",                      
                     }}
                   >
                     <spline-viewer
@@ -301,7 +313,7 @@ function Hero({ handlePlayerChange }) {
                     ></spline-viewer>
                     {/* <Spline scene={data.player} onLoad={onLoad} /> */}
                   </div>
-
+{/* 
                   <div
                     style={{
                       position: "absolute",
@@ -318,7 +330,7 @@ function Hero({ handlePlayerChange }) {
                           "url(" + data.playerPNG + ") no-repeat center center",
                       }}
                     ></div>
-                  </div>
+                  </div> */}
                 </motion.div>
               </SwiperSlide>
             ))}
@@ -328,7 +340,7 @@ function Hero({ handlePlayerChange }) {
             className="navigation"
             style={{ opacity: opacityControlsProgress }}
           >
-            <div
+            {/* <div
               className="navigation_prev"
               onClick={() => {
                 prevto();
@@ -349,16 +361,21 @@ function Hero({ handlePlayerChange }) {
               onClick={() => {
                 nexto();
               }}
-            ></div>
+            ></div> */}
+            <p className="prompt" dangerouslySetInnerHTML={{ __html: headerSlides[playerSelected].text }}></p>
+          </motion.div>
+          <motion.div className="swiper-button image-swiper-button-next" style={{ opacity: opacityControlsProgress }}  onClick={() => { nexto(); }}>            
+          </motion.div>
+          <motion.div className="swiper-button image-swiper-button-prev" style={{ opacity: opacityControlsProgress }} onClick={() => { prevto(); }}>          
           </motion.div>
         </motion.div>
       </div>
-      <Menu
+      {/* <Menu
         items={headerSlides}
         selected={playerSelected}
         onChange={(i) => _changeItem(i)}
         isVisible={isVisible}
-      />
+      /> */}
     </div>
   );
 }

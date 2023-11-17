@@ -6,10 +6,10 @@ const NavContainer = styled.nav`
     position: fixed;
     top: ${props => props.$top};
     transition: top 0.4s ease-out;
-    background-color: white;
-    border-bottom: 1px solid black;
+    background-color: transparent;
+    // border-bottom: 1px solid black;
     width: 100%;
-    height: 64px; 
+    height: 100px; 
     z-index: 99999;
     display: flex;
     justify-content: center;
@@ -40,14 +40,6 @@ const ImageWrapper = styled.div`
 
 const Logo = styled.img`
     width: 100%;
-    // height: 100%;
-
-    // @media only screen and (max-width: ${sizes.tablet}) {
-    //     max-width: 20px;
-    // }
-    // @media only screen and (max-width: ${sizes.mobileL}) {
-    //     height: 50px;
-    // }
 `;
 
 const Nav = () => {
