@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 // import STRINGS from './constants/strings';
 import { motion, useScroll, cubicBezier, useTransform } from 'framer-motion';
 import { sizes } from './constants/devices';
-// import TypeIt from "typeit-react";
+//import TypeIt from "typeit-react";
 // import useOnScreen from '../useOnScreenHook';
 import PBlockMenu from './PBlockMenu';
 import { OpacityHeading } from './Manifesto/interactions/OpacityContent';
@@ -96,7 +96,8 @@ const ParagraphBlock = ({
     typed,
     handlePlayerChange,
     hasMenu,
-    scrollInfo
+    scrollInfo,
+    selectedPlayer
 }) => {
     const ref = useRef(null);
     const contentRef = useRef(null);
@@ -112,7 +113,7 @@ const ParagraphBlock = ({
     //         <TypeIt
     //             options={{
     //                 strings: [contentString],
-    //                 speed: 20,
+    //                 speed: 4,
     //                 waitUntilVisible: true,
     //                 lifeLike: true,
     //             }}
@@ -152,15 +153,14 @@ const ParagraphBlock = ({
             <PBlockContentWrapper ref={contentRef}>
                 {/* {(isVisible && typed) ? typedContent : normalContent} */}
                 {/* {normalContent} */}
-                {hasMenu ? normalContent : 
+                {hasMenu ? normalContent :
                     <TransformingTextBox positions={[0, 0, 0, 0]} scrollInfo={scrollInfo} alignment={'center'} child={
                         <OpacityHeading scrollInfo={scrollInfo} simpleFade={true} baseOpacity={0} text={
                             [contentString]
                         } />
                     } />
                 }
-
-                {hasMenu && <PBlockMenu handlePlayerChange={handlePlayerChange}/>}
+                {hasMenu && <PBlockMenu selectedPlayer={selectedPlayer} handlePlayerChange={handlePlayerChange}/>}
             </PBlockContentWrapper>
         </PBlockContainer>
     );

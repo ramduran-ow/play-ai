@@ -70,18 +70,19 @@ function App() {
         content: STRINGS.TEXT_IMG_BLOCK_CONTENT_3
       },
     },
-    {
-      pBlock: {
-        backgroundImage: 'images/p-block-5.webp',
-        contentString: STRINGS.P_BLOCK_5,
-      },
-      textImageBlock: {
-        gradient: 'images/gradient-5.webp',
-        image: 'images/text-img-block-5.webp',
-        header: STRINGS.TEXT_IMG_BLOCK_HEADER_5,
-        content: STRINGS.TEXT_IMG_BLOCK_CONTENT_5
-      },
-    },
+    // Consultant archetype
+    // {
+    //   pBlock: {
+    //     backgroundImage: 'images/p-block-5.webp',
+    //     contentString: STRINGS.P_BLOCK_5,
+    //   },
+    //   textImageBlock: {
+    //     gradient: 'images/gradient-5.webp',
+    //     image: 'images/text-img-block-5.webp',
+    //     header: STRINGS.TEXT_IMG_BLOCK_HEADER_5,
+    //     content: STRINGS.TEXT_IMG_BLOCK_CONTENT_5
+    //   },
+    // },
   ];
 
   const [archetype, setArchetype] = useState(0);

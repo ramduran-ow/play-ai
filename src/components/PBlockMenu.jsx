@@ -5,6 +5,7 @@ const PBlockMenuContainer = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+    padding: 0rem 3.2rem;
 `;
 const MenuHeaderWrapper = styled.div`
     display: flex;
@@ -16,16 +17,20 @@ const MenuHeaderWrapper = styled.div`
 const MenuHeader = styled.div`
     font-family: "Noto Sans";
     font-weight: 500;
-    padding: .8rem;
+    padding: .6rem 1.1rem;
     border-radius: 4px;
     font-size: 16px;
-    background-color: white;
-    opacity: 0.3;
+    // background-color: white;
+    // opacity: 0.3;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
 
 `;
 
 const MenuItemWrapper = styled.div`
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 5.4rem;
 `;
 
@@ -53,9 +58,45 @@ const Label = styled.p`
     font-size: 1.6rem;
     margin: 0;
     color: white;
+    ${props => props.$isActive && 'border-bottom: 1px solid white'};
 `;
 
-const PBlockMenu = ({ handlePlayerChange }) => {
+const PBlockMenu = ({ selectedPlayer, handlePlayerChange }) => {
+    let options=[
+        {
+            label: 'FUTURISTIC',
+            icon:  'images/menu-images/symbol.png'
+        },
+        {
+            label: 'DO(G)E MODE',
+            icon:  'images/menu-images/dog.png'
+        },
+        {
+            label: 'SHAKESPEARINATOR',
+            icon:  'images/menu-images/quill.png'
+        },
+        {
+            label: 'HEAVY METAL-IC',
+            icon:  'images/menu-images/guitar.png'
+        },
+        {
+            label: 'GEN-Z-IFY',
+            icon:  'images/menu-images/sphere.png'
+        },
+    ]
+
+    const menuItems = options.map((option, index) => {
+            return (
+                <MenuItem onClick={() => handlePlayerChange(index)}>
+                    <Icon src={option.icon}/>
+                    <Label $isActive={selectedPlayer === index}>
+                        {option.label}
+                    </Label>
+                </MenuItem>
+            );
+        }
+    );
+
     return (
         <PBlockMenuContainer>
             <MenuHeaderWrapper>
@@ -64,7 +105,8 @@ const PBlockMenu = ({ handlePlayerChange }) => {
                 </MenuHeader>
             </MenuHeaderWrapper>
             <MenuItemWrapper>
-                <MenuItem onClick={() => handlePlayerChange(0)}>
+            {menuItems}
+                {/* <MenuItem onClick={() => handlePlayerChange(0)}>
                     <Icon src={'images/menu-images/symbol.png'}/>
                     <Label>
                         FUTURISTIC
@@ -93,8 +135,7 @@ const PBlockMenu = ({ handlePlayerChange }) => {
                     <Label>
                         GEN-Z-IFY
                     </Label>
-                </MenuItem>
-
+                </MenuItem> */}
             </MenuItemWrapper>
         </PBlockMenuContainer>
     )

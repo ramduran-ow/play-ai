@@ -20,7 +20,6 @@ const ArticleCardContainer = styled.a`
         }`
         :
         `&:hover {
-            transform: translate(0, -8px);
             cursor: pointer;
             color: black;
             mix-blend-mode: screen;
@@ -40,7 +39,15 @@ const ArticleCardContainer = styled.a`
 
 const ArticleImg = styled.img`
     width: 100%;
+    height: 354px;
     border-radius: 16px 16px 0px 0px;
+
+    @media only screen and (max-width: ${sizes.tablet}) {
+        max-height: 275px;
+    }
+    @media only screen and (max-width: ${sizes.mobileL}) {
+        max-height: 235px;
+    }
 `;
 
 const GhostImg = styled.div`
@@ -54,6 +61,13 @@ const GhostImg = styled.div`
     border-bottom: 1px solid white;
     font-family: 'Noe Display';
     font-size: 3.2rem;
+
+    @media only screen and (max-width: ${sizes.tablet}) {
+        max-height: 275px;
+    }
+    @media only screen and (max-width: ${sizes.mobileL}) {
+        max-height: 235px;
+    }
 `;
 
 const ArticleContent = styled.div`
@@ -62,6 +76,11 @@ const ArticleContent = styled.div`
     flex-direction: column;
     gap: 1.6em;
     white-space: wrap;
+
+    @media only screen and (max-width: ${sizes.mobileL}) {
+        padding: 1.6rem;
+        gap: 0.8em;
+    }
 `;
 
 const ArticleInfo = styled.div`
@@ -73,7 +92,7 @@ const ArticleInfo = styled.div`
 
 
     @media only screen and (max-width: ${sizes.mobileL}) {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 `;
 

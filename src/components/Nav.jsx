@@ -43,13 +43,14 @@ const Logo = styled.img`
 `;
 
 const Nav = () => {
-    const [position, setPosition] = useState(window.scrollY);
+    //const [position, setPosition] = useState(window.scrollY);
     const [visible, setVisible] = useState(false);
 
     const handleScroll = () => {
-        let moving = window.scrollY;
-        setVisible(position < moving);
-        setPosition(moving);
+        // let moving = window.scrollY;
+        // setVisible(position < moving);
+        // setPosition(moving);
+        setVisible(window.scrollY > 0);
     };
 
     useEffect(()=> {
@@ -60,7 +61,7 @@ const Nav = () => {
         })
     })
 
-    const top = visible ? '-64px' : '0';
+    const top = visible ? '-100px' : '0';
 
     return (
         <NavContainer $top={top}>

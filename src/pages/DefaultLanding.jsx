@@ -38,6 +38,7 @@ const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }
                 typed
                 handlePlayerChange={handlePlayerChange}
                 hasMenu
+                selectedPlayer={player}
                 scrollInfo={[0.3, 0.33, 0.38, 0.4]}
             />
             {/* <TextImageBlock 
