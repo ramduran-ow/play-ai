@@ -68,7 +68,7 @@ const PBlockMenu = ({ selectedPlayer, handlePlayerChange }) => {
             icon:  'images/menu-images/symbol.png'
         },
         {
-            label: 'DO(G)E MODE',
+            label: 'DOG(E) MODE',
             icon:  'images/menu-images/dog.png'
         },
         {

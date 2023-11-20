@@ -14,6 +14,7 @@ function App() {
       pBlock: {
         backgroundImage: 'images/p-block-1.webp',
         contentString: STRINGS.P_BLOCK,
+        subHeaderString: STRINGS.P_BLOCK_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-1.webp',
@@ -26,6 +27,7 @@ function App() {
       pBlock: {
         backgroundImage: 'images/p-block-2.webp',
         contentString: STRINGS.P_BLOCK_2,
+        subHeaderString: STRINGS.P_BLOCK_2_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-2.webp',
@@ -38,6 +40,7 @@ function App() {
       pBlock: {
         backgroundImage: 'images/p-block-4.webp',
         contentString: STRINGS.P_BLOCK_4,
+        subHeaderString: STRINGS.P_BLOCK_4_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-4.webp',
@@ -50,6 +53,7 @@ function App() {
       pBlock: {
         backgroundImage: 'images/p-block-6.webp',
         contentString: STRINGS.P_BLOCK_6,
+        subHeaderString: STRINGS.P_BLOCK_6_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-6.webp',
@@ -62,6 +66,7 @@ function App() {
       pBlock: {
         backgroundImage: 'images/p-block-3.webp',
         contentString: STRINGS.P_BLOCK_3,
+        subHeaderString: STRINGS.P_BLOCK_3_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-3.webp',

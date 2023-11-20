@@ -8,6 +8,7 @@ import { ManifestoSection } from '../components/Manifesto/ManifestoSection';
 // import { TransitionBackground } from '../components/Manifesto/interactions/Background';
 import ImageStillBlock from '../components/ImageStillBlock';
 import Hero from '../components/Hero/Hero';
+import STRINGS from '../components/constants/strings';
 
 const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }) => {
     return (
@@ -22,7 +23,8 @@ const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }
             />
             <ParagraphBlock
                 backgroundImage={options.pBlock.backgroundImage}
-                contentString={options.pBlock.contentString}
+                contentString={STRINGS.P_BLOCK_DEFAULT}
+                subHeaderString={STRINGS.P_BLOCK_DEFAULT_SUB}
                 scrollYArray={[0, 1]}
                 opacityArray={[0, 0.6]}
                 opacityOverride={0.6}
@@ -31,6 +33,7 @@ const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }
             <ParagraphBlock
                 backgroundImage={options.pBlock.backgroundImage}
                 contentString={options.pBlock.contentString}
+                subHeaderString={options.pBlock.subHeaderString}
                 scrollOffset={["start center", "start start"]}
                 scrollYArray={[0, 0.5, 0.5, 1]}
                 opacityArray={[0, 0.6, 0.6, 1]}

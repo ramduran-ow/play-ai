@@ -54,7 +54,7 @@ function Hero({ handlePlayerChange, player }) {
       backGradient:
         "linear-gradient(116deg,#ffde9f 1.25%,#fff2d0 29.54%,#ffe3cf 65.02%,#ffb7a0 100%)",
       playerShadow: "url(images/shadows/dog_shadow.png) no-repeat center bottom",
-      text: '/Prompt: <b>Doge-Mode</b>'
+      text: '/Prompt: <b>Dog(e)-Mode</b>'
     },
     {
       player: "https://prod.spline.design/VQE9YISAlTwDj5Ff/scene.splinecode",

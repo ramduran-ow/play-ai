@@ -76,6 +76,7 @@ const PBlockContent = styled(motion.h2)`
     // margin: auto;
     padding: 0rem 6rem;
     color: white;
+    margin: 0;
 
     @media only screen and (max-width: ${sizes.tablet}) {
         font-size: 3.2rem;
@@ -86,9 +87,25 @@ const PBlockContent = styled(motion.h2)`
     }
 `;
 
+const TextWrapper = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: ${props => props.$hasMenu ? '2rem' : '6rem'};
+`;
+
+const PBlockSubheader = styled(motion.p)`
+    margin: 0;
+    font-family: 'Noto Sans';
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+`;
+
 const ParagraphBlock = ({ 
     backgroundImage, 
     contentString, 
+    subHeaderString,
     scrollYArray, 
     opacityArray, 
     opacityOverride, 
@@ -122,25 +139,38 @@ const ParagraphBlock = ({
     // );
 
     const normalContent = (
-        <PBlockContent
-            // className='p-block-content'
-            // initial={{ opacity: 0 }}
-            // whileInView={{ opacity: 1 }}
-            initial="hidden"
-            whileInView="visible"
-            // viewport={{ once: true }}
-            transition={{
-                duration: 1, 
-                delay: opacity * 0.6,
-                ease: cubicBezier(0.3,0,0.1,1)
-            }}
-            variants={{
-                visible: { opacity: 1, y: 0 },
-                hidden: { opacity: 0, y: 200 }
-            }}
-        >
-            {contentString}
-        </PBlockContent>
+        <TextWrapper 
+            $hasMenu={hasMenu}
+>
+            <PBlockContent
+                initial="hidden"
+                whileInView="visible"
+                transition={{
+                    duration: 1, 
+                    delay: opacity * 0.6,
+                    ease: cubicBezier(0.3,0,0.1,1)
+                }}
+                variants={{
+                    visible: { opacity: 1, y: 0 },
+                    hidden: { opacity: 0, y: 200 }
+            }}>
+                {contentString}
+            </PBlockContent>
+            <PBlockSubheader
+                initial="hidden"
+                whileInView="visible"
+                transition={{
+                    duration: 1, 
+                    delay: opacity * 0.5,
+                    ease: cubicBezier(0.3,0,0.1,1)
+                }}
+                variants={{
+                    visible: { opacity: 1, y: 0 },
+                    hidden: { opacity: 0, y: 200 }
+            }}>
+                {subHeaderString}
+            </PBlockSubheader>    
+        </TextWrapper>
     );
 
     return (
@@ -158,6 +188,7 @@ const ParagraphBlock = ({
                         <OpacityHeading scrollInfo={scrollInfo} simpleFade={true} baseOpacity={0} text={
                             [contentString]
                         } />
+                        
                     } />
                 }
                 {hasMenu && <PBlockMenu selectedPlayer={selectedPlayer} handlePlayerChange={handlePlayerChange}/>}
