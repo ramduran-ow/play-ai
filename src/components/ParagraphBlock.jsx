@@ -103,6 +103,15 @@ const TextWrapper = styled(motion.div)`
     min-height: 370px;
 `;
 
+const RegenerateBadge = styled.div`
+    font-family: 'B612 Mono', monospace;
+    padding: .6rem 1.1rem;
+    border-radius: 4px;
+    font-size: 3.2rem;
+    background: rgba(0, 0, 0, 1);
+    color: white;
+`;
+
 export const PBlockSubheader = styled(motion.p)`
     margin: 0;
     font-family: 'Noto Sans';
@@ -167,7 +176,13 @@ const ParagraphBlock = ({
     // );
 
     const GlitchImage = (
-        <PBlockContainer $backgroundImage={glitchImage}></PBlockContainer>
+        <PBlockContainer $backgroundImage={glitchImage}>
+            <PBlockContentWrapper>
+                <RegenerateBadge>
+                    ...regenerating content...
+                </RegenerateBadge>
+            </PBlockContentWrapper>
+        </PBlockContainer>
     );
 
     const NormalContent = (

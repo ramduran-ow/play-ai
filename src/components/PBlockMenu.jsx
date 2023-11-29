@@ -26,7 +26,6 @@ const MenuHeader = styled.div`
     // opacity: 0.3;
     background: rgba(255, 255, 255, 0.3);
     color: white;
-
 `;
 
 const MenuItemWrapper = styled.div`
