@@ -1,7 +1,11 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { sizes } from './constants/devices';
 
 const PBlockMenuContainer = styled.nav`
+    font-family: "noto-sans-display-semiconden", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
@@ -15,8 +19,6 @@ const MenuHeaderWrapper = styled.div`
 // `;
 
 const MenuHeader = styled.div`
-    font-family: "Noto Sans";
-    font-weight: 500;
     padding: .6rem 1.1rem;
     border-radius: 4px;
     font-size: 16px;
@@ -51,17 +53,21 @@ const Icon = styled.img`
     background-position: center;
     background-attachment: fixed;
     cursor: pointer;
+
+    @media only screen and (max-width: ${sizes.mobileL}) {
+        max-height: 80px;
+        max-width: 80px;
+    }
 `;
 
 const Label = styled.p`
-    font-family: "Noto Sans";
     font-size: 1.6rem;
     margin: 0;
     color: white;
     ${props => props.$isActive && 'border-bottom: 1px solid white'};
 `;
 
-const PBlockMenu = ({ selectedPlayer, handlePlayerChange }) => {
+const PBlockMenu = ({ selectedPlayer, handlePlayerChange, handleSubHeaderChange, handleBackgroundChange }) => {
     let options=[
         {
             label: 'FUTURISTIC',
@@ -87,7 +93,16 @@ const PBlockMenu = ({ selectedPlayer, handlePlayerChange }) => {
 
     const menuItems = options.map((option, index) => {
             return (
-                <MenuItem onClick={() => handlePlayerChange(index)}>
+                <MenuItem 
+                    onClick={() => {
+                        if(selectedPlayer !== index) {
+                            handleBackgroundChange()
+                            handlePlayerChange(index)
+                            handleSubHeaderChange(false)
+                            
+                        }
+                    }
+                }>
                     <Icon src={option.icon}/>
                     <Label $isActive={selectedPlayer === index}>
                         {option.label}

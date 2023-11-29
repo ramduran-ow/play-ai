@@ -1,13 +1,14 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import { styled } from 'styled-components';
-// import STRINGS from './constants/strings';
+import STRINGS from './constants/strings';
 import { motion, useScroll, cubicBezier, useTransform } from 'framer-motion';
 import { sizes } from './constants/devices';
-//import TypeIt from "typeit-react";
+import TypeIt from "typeit-react";
 // import useOnScreen from '../useOnScreenHook';
 import PBlockMenu from './PBlockMenu';
 import { OpacityHeading } from './Manifesto/interactions/OpacityContent';
 import { TransformingTextBox } from './Manifesto/interactions/TransformingContent';
+// import { TypeAnimation } from 'react-type-animation';
 
 
 const PBlockContainer = styled(motion.section)`
@@ -65,14 +66,18 @@ const PBlockContentWrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10rem;
+
+    @media only screen and (max-width: ${sizes.tablet}) {
+        gap: 6.4rem;
+    }
 `;
 
 const PBlockContent = styled(motion.h2)`
     font-family: 'Noe Display';
     font-weight: 500;
-    font-size: 4rem;
+    font-size: 5rem;
     text-align: center;
-    max-width: 1100px;
+    max-width: 1200px;
     // margin: auto;
     padding: 0rem 6rem;
     color: white;
@@ -81,8 +86,10 @@ const PBlockContent = styled(motion.h2)`
     @media only screen and (max-width: ${sizes.tablet}) {
         font-size: 3.2rem;
         padding: 0rem 3.2rem;
+        padding-top: 7.4rem;
     }
     @media only screen and (max-width: ${sizes.mobileL}) {
+        padding-top: 7.4rem;
         max-width: 85%;
     }
 `;
@@ -90,16 +97,23 @@ const PBlockContent = styled(motion.h2)`
 const TextWrapper = styled(motion.div)`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    //justify-content: center;
+    align-items: center;
     gap: ${props => props.$hasMenu ? '2rem' : '6rem'};
+    min-height: 370px;
 `;
 
-const PBlockSubheader = styled(motion.p)`
+export const PBlockSubheader = styled(motion.p)`
     margin: 0;
     font-family: 'Noto Sans';
     font-size: 2rem;
     text-align: center;
     color: white;
+    max-width: 700px;
+
+    @media only screen and (max-width: ${sizes.tablet}) {
+        font-size: 1.6rem;
+    }
 `;
 
 const ParagraphBlock = ({ 
@@ -114,8 +128,11 @@ const ParagraphBlock = ({
     handlePlayerChange,
     hasMenu,
     scrollInfo,
-    selectedPlayer
+    selectedPlayer,
+    glitchImage
 }) => {
+    const [subHeaderVisible, setSubHeaderVisible] = useState(true);
+    const [glitchVisible, setGlitchVisible] = useState(false);
     const ref = useRef(null);
     const contentRef = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -123,6 +140,17 @@ const ParagraphBlock = ({
         offset: scrollOffset
       });
     const opacity = useTransform(scrollYProgress, scrollYArray, opacityArray);
+
+    const handleSubHeaderChange = (newState) => {
+        setSubHeaderVisible(newState);
+    }
+
+    const handleBackgroundChange = () => {
+        setGlitchVisible(true);
+        setTimeout(() => {
+            setGlitchVisible(false);
+          }, 1000);
+    }
 
     // const isVisible = useOnScreen(contentRef);
     // const typedContent = (
@@ -138,27 +166,52 @@ const ParagraphBlock = ({
     //     </PBlockContent>
     // );
 
-    const normalContent = (
-        <TextWrapper 
-            $hasMenu={hasMenu}
->
+    const GlitchImage = (
+        <PBlockContainer $backgroundImage={glitchImage}></PBlockContainer>
+    );
+
+    const NormalContent = (
+        <TextWrapper $hasMenu={hasMenu}>
             <PBlockContent
                 initial="hidden"
                 whileInView="visible"
                 transition={{
-                    duration: 1, 
+                    duration: 1.5, 
                     delay: opacity * 0.6,
                     ease: cubicBezier(0.3,0,0.1,1)
                 }}
                 variants={{
-                    visible: { opacity: 1, y: 0 },
-                    hidden: { opacity: 0, y: 200 }
+                    visible: { opacity: 1 },
+                    hidden: { opacity: 0 }
             }}>
-                {contentString}
+                {/* <TypeAnimation
+                    key={contentString}
+                    sequence={[
+                        contentString,
+                        1000,
+                    ]}
+                    speed={90}
+                    repeat={1}
+                /> */}
+                {/* {contentString} */}
+                <TypeIt
+                    key={contentString}
+                    options={{
+                        strings: [contentString],
+                        speed: 1,
+                        waitUntilVisible: true,
+                        lifeLike: true,
+                        afterComplete: () => setSubHeaderVisible(true)
+                    }}
+                />
             </PBlockContent>
             <PBlockSubheader
+                key={subHeaderString}
                 initial="hidden"
                 whileInView="visible"
+                style={{
+                    display: subHeaderVisible ? 'block' : 'none'
+                }}
                 transition={{
                     duration: 1, 
                     delay: opacity * 0.5,
@@ -173,27 +226,43 @@ const ParagraphBlock = ({
         </TextWrapper>
     );
 
-    return (
-        <PBlockContainer $backgroundImage={backgroundImage} ref={ref}>
+    const PBlock = (
+        <PBlockContainer 
+            $backgroundImage={backgroundImage} 
+            ref={ref}
+        >
             {/* <PBlockBackground $backgroundImage={backgroundImage} /> */}
             <PBlockOverlay 
                 style={{ opacity: (opacityOverride || opacityOverride === 0) ? opacityOverride : opacity }}
-                $backgroundImage={backgroundImage}
             />
             <PBlockContentWrapper ref={contentRef}>
-                {/* {(isVisible && typed) ? typedContent : normalContent} */}
-                {/* {normalContent} */}
-                {hasMenu ? normalContent :
+                {/* {(isVisible && typed) ? typedContent : NormalContent} */}
+                {/* {NormalContent} */}
+                {hasMenu ? NormalContent :
                     <TransformingTextBox positions={[0, 0, 0, 0]} scrollInfo={scrollInfo} alignment={'center'} child={
-                        <OpacityHeading scrollInfo={scrollInfo} simpleFade={true} baseOpacity={0} text={
-                            [contentString]
-                        } />
-                        
+                        <OpacityHeading 
+                            scrollInfo={scrollInfo} 
+                            simpleFade={true} 
+                            baseOpacity={0} 
+                            text={[contentString]}
+                            subHeader={STRINGS.P_BLOCK_DEFAULT_SUB}
+                        />
                     } />
                 }
-                {hasMenu && <PBlockMenu selectedPlayer={selectedPlayer} handlePlayerChange={handlePlayerChange}/>}
+                {hasMenu && 
+                    <PBlockMenu 
+                        selectedPlayer={selectedPlayer} 
+                        handlePlayerChange={handlePlayerChange}
+                        handleSubHeaderChange={handleSubHeaderChange}
+                        handleBackgroundChange={handleBackgroundChange}
+                    />
+                }
             </PBlockContentWrapper>
         </PBlockContainer>
+    );
+
+    return (
+        glitchVisible ? GlitchImage : PBlock
     );
 };
 

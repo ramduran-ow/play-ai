@@ -12,7 +12,7 @@ export { ManifestoSection }
 
 function ManifestoSection({ images }) {
 
-    const startHeight = 990
+    const startHeight = 740
     const endblock = 1320 / window.innerHeight * 100
 
     //Heights

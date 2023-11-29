@@ -3,23 +3,26 @@ import { styled } from 'styled-components';
 // import STRINGS from './constants/strings';
 import { sizes } from '../constants/devices';
 
-const ArticleHeader = styled.p`
+const ArticleHeader = styled.div`
     position: fixed;
     font-family: 'Noe Display Medium';
     font-weight: 500;
     font-size: 5rem;
     text-align: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
 
-    padding-left: 32rem;
-    padding-right: 32rem;
+    padding-left: clamp(6rem, calc((100vw - 1220px)/2), calc((100vw - 1220px)/2));
+    padding-right: clamp(6rem, calc((100vw - 1220px)/2), calc((100vw - 1220px)/2));
     transform: translateY(-50%);
     top: 50%;
 
-    @media only screen and (max-width: ${sizes.laptop}) {
-        font-size: 5rem;
-        padding-left: 3.2rem;
-        padding-right: 3.2rem;
+    @media only screen and (max-width: ${sizes.tablet}) {
+        font-size: 4rem;
+        gap: 4rem;
     }
 
     @media only screen and (max-width: ${sizes.mobileL}) {

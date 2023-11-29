@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArticleBody, ArticleSubHeading, ArticleHeader, ArticleList } from "../ArticleStyles"
+import { PBlockSubheader } from "../../ParagraphBlock"
 
 export { OpacityContent, OpacityHeading, OpacityParagraph, OpacityList, OpacitySubheading }
 
@@ -177,7 +178,7 @@ OpacitySubheading.propTypes = {
 }
 
 // Opacity Header
-function OpacityHeading({ text, scrollInfo, baseOpacity, dark, simpleFade }) {
+function OpacityHeading({ text, scrollInfo, baseOpacity, dark, simpleFade, subHeader }) {
     let scrollReference = [scrollInfo[0], scrollInfo[1], scrollInfo[1], scrollInfo[2], scrollInfo[2], scrollInfo[3]]
     let opacityTransform = [baseOpacity, baseOpacity, 1, 1, baseOpacity, baseOpacity]
 
@@ -196,13 +197,20 @@ function OpacityHeading({ text, scrollInfo, baseOpacity, dark, simpleFade }) {
     let color = 'black'
     if (dark) { color = 'white' }
 
+    const pBlockSubheader = (
+        <PBlockSubheader>
+            {subHeader}
+        </PBlockSubheader>
+    );
+
     return (
         <>
             {text.map(string =>
                 <motion.div key={string} style={{ opacity: opacity, display: visible, color: color }}>
                     <ArticleHeader>
                         {string}
-                    </ArticleHeader>
+                        {subHeader && pBlockSubheader}
+                    </ArticleHeader>  
                 </motion.div>
             )}
         </>

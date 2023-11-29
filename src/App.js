@@ -13,12 +13,13 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-1.webp',
+        glitchImage: 'images/glitch-1.webp',
         contentString: STRINGS.P_BLOCK,
         subHeaderString: STRINGS.P_BLOCK_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-1.webp',
-        image: 'images/text-img-block-1.webp',
+        image: 'images/glitch-1.webp',
         header: STRINGS.TEXT_IMG_BLOCK_HEADER_1,
         content: STRINGS.TEXT_IMG_BLOCK_CONTENT_1
       },
@@ -26,12 +27,13 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-2.webp',
+        glitchImage: 'images/glitch-2.webp',
         contentString: STRINGS.P_BLOCK_2,
         subHeaderString: STRINGS.P_BLOCK_2_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-2.webp',
-        image: 'images/text-img-block-2.webp',
+        image: 'images/glitch-1.webp',
         header: STRINGS.TEXT_IMG_BLOCK_HEADER_2,
         content: STRINGS.TEXT_IMG_BLOCK_CONTENT_2
       },
@@ -39,6 +41,7 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-4.webp',
+        glitchImage: 'images/glitch-3.webp',
         contentString: STRINGS.P_BLOCK_4,
         subHeaderString: STRINGS.P_BLOCK_4_SUB
       },
@@ -52,12 +55,13 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-6.webp',
+        glitchImage: 'images/glitch-4.webp',
         contentString: STRINGS.P_BLOCK_6,
         subHeaderString: STRINGS.P_BLOCK_6_SUB
       },
       textImageBlock: {
         gradient: 'images/gradient-6.webp',
-        image: 'images/text-img-block-6.webp',
+        image: 'images/glitch-1.webp',
         header: STRINGS.TEXT_IMG_BLOCK_HEADER_6,
         content: STRINGS.TEXT_IMG_BLOCK_CONTENT_6
       },
@@ -65,6 +69,7 @@ function App() {
     {
       pBlock: {
         backgroundImage: 'images/p-block-3.webp',
+        glitchImage: 'images/glitch-5.webp',
         contentString: STRINGS.P_BLOCK_3,
         subHeaderString: STRINGS.P_BLOCK_3_SUB
       },

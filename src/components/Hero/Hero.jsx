@@ -16,11 +16,11 @@ import {
 } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-// import Menu from "./Menu";
+//import Menu from "./Menu";
 
 function Hero({ handlePlayerChange, player }) {
   const [playerSelected, SetPlayerSelected] = useState(0);
-  // const [isVisible, setIsVisible] = useState(false);
+  //const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     console.log("playerSelected updated in Hero")
