@@ -67,6 +67,9 @@ const PBlockContentWrapper = styled.div`
     align-items: center;
     gap: 10rem;
 
+    @media only screen and (max-width: 957px) {
+        gap: 8rem;
+    }
     @media only screen and (max-width: ${sizes.tablet}) {
         gap: 6.4rem;
     }
@@ -83,10 +86,11 @@ const PBlockContent = styled(motion.h2)`
     color: white;
     margin: 0;
 
-    @media only screen and (max-width: ${sizes.tablet}) {
+    @media only screen and (max-width: ${sizes.laptop}) {
+        font-size: 4rem;
+    }
+    @media only screen and (max-width: 957px) {
         font-size: 3.2rem;
-        padding: 0rem 3.2rem;
-        padding-top: 7.4rem;
     }
     @media only screen and (max-width: ${sizes.mobileL}) {
         padding-top: 7.4rem;
@@ -100,7 +104,14 @@ const TextWrapper = styled(motion.div)`
     //justify-content: center;
     align-items: center;
     gap: ${props => props.$hasMenu ? '2rem' : '6rem'};
-    min-height: 370px;
+    min-height: 432px;
+
+    @media only screen and (max-width: ${sizes.laptop}) {
+        min-height: 456px;
+    }
+    @media only screen and (max-width: 957px) {
+        min-height: 305px;
+    }
 `;
 
 const RegenerateBadge = styled.div`
@@ -188,26 +199,35 @@ const ParagraphBlock = ({
     const SubHeader = (
         <PBlockSubheader
             key={subHeaderString}
-            initial="hidden"
-            whileInView="visible"
-            style={{
-                display: subHeaderVisible ? 'block' : 'none'
-            }}
-            transition={{
-                duration: 1, 
-                delay: opacity * 0.5,
-                ease: cubicBezier(0.3,0,0.1,1)
-            }}
-            variants={{
-                visible: { opacity: 1, y: 0 },
-                hidden: { opacity: 0, y: 200 }
-        }}>
-            {subHeaderString}
+            // initial="hidden"
+            // whileInView="visible"
+            // style={{
+            //     display: subHeaderVisible ? 'block' : 'none'
+            // }}
+            // transition={{
+            //     duration: 1, 
+            //     delay: opacity * 0.5,
+            //     ease: cubicBezier(0.3,0,0.1,1)
+            // }}
+            // variants={{
+            //     visible: { opacity: 1, y: 0 },
+            //     hidden: { opacity: 0, y: 200 }
+            // }}
+        >
+            <TypeIt
+                key={subHeaderString}
+                options={{
+                    strings: [subHeaderString],
+                    speed: 1,
+                    waitUntilVisible: true,
+                    lifeLike: true,
+                }}
+            />
         </PBlockSubheader>    
     );
 
     const NormalContent = (
-        <TextWrapper $hasMenu={hasMenu}>
+        <TextWrapper key={contentString} $hasMenu={hasMenu}>
             <PBlockContent
                 initial="hidden"
                 whileInView="visible"

@@ -33,6 +33,10 @@ const MenuItemWrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     gap: 5.4rem;
+
+    @media only screen and (max-width: 950px) {
+        max-width: 696px;
+    }
 `;
 
 const MenuItem = styled.div`
