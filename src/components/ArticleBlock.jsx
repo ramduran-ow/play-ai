@@ -116,14 +116,14 @@ const ArticleBlock = () => {
                         header={STRINGS.ARTICLE_HEADER_2}
                         subHeader={STRINGS.ARTICLE_SUBHEADER_2}
                         articleInfo={'naming-intro'}
-                        link={''}
+                        link={'/naming'}
                     />
                     <ArticleCard 
                         headerImg='images/article-img-3.webp'
                         header={STRINGS.ARTICLE_HEADER_3}
                         subHeader={STRINGS.ARTICLE_SUBHEADER_4}
                         articleInfo={'naming-experiment'}
-                        link={'/naming-experiment'}
+                        link={'/naming-experiments'}
                     />
                     <ArticleCard 
                         isGhost
