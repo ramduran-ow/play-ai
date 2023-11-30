@@ -5,8 +5,9 @@ import DefaultLanding from './pages/DefaultLanding';
 import Nav from './components/Nav';
 // import Hero from './components/Hero/Hero';
 // import { ManifestoSection } from './components/Manifesto/ManifestoSection';
-import { useImageLoader } from './components/Manifesto/manifestoImgContent';
+import { useImageLoader } from './components/constants/manifestoImgContent';
 import { Route, Routes } from 'react-router-dom';
+import { NamingExperimentSection } from './pages/NamingExperimentSection';
 
 function App() {
   const players = [
@@ -118,9 +119,8 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={LandingPage} />
-        <Route path="/naming-experiment" element={<></>} />
+        <Route path="/naming-experiment" element={<NamingExperimentSection/>} />
       </Routes>
-
     </div>
   );
 }

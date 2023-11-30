@@ -3,10 +3,10 @@ import { devices } from '../constants/devices';
 import { useMediaQuery } from 'react-responsive';
 
 // import interactions
-import { Background } from './interactions/Background';
-import { TransformingContent, TransformingTextBox, ImgBox, BackgroundImgBox } from './interactions/TransformingContent'
-import { OpacityHeading, OpacityParagraph, OpacityList, OpacitySubheading, OpacityContent } from './interactions/OpacityContent';
-// import { FadingHeader } from "./interactions/FadingHeader"
+import { Background } from '../../interactions/Background';
+import { TransformingContent, ImgBox, BackgroundImgBox } from '../../interactions/TransformingContent'
+import { TransformingTextBox } from '../../interactions/TransformingTextBox';
+import { OpacityHeading, OpacityParagraph, OpacityList, OpacitySubheading, OpacityContent } from '../../interactions/OpacityContent';
 
 export { ManifestoSection }
 
@@ -21,15 +21,13 @@ function ManifestoSection({ images }) {
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
         //Fading Header  Img1           Img2       3             4 Img Opacity
-        [],
+        [[0.1, 0.5, 0.7], [0, 0.2, 0.8], [0, 0.2, 0.8], [0.8, 0.9, 1], [0, 0.2, 0.9, 1]],
         // 0 Avocado_toast        1 Avocado_1            2 Avocado_2            3 Avocado_3          4 Avocado_4             5 Header Paragraph        6 Paragraph 1           7 Paragraph 2          8 Paragraph 3         9 Galileo        10 1-2 Trans Timings 11 Para 4            12                              13 Mobile Avocado Op    14 Mobile Para 1       15 Mobile Para 2
         [[0.25, 0.3, 0.85, 0.9], [0.2, 0.3, 0.85, 0.9], [0.2, 0.3, 0.85, 0.9], [0.2, 0.3, 0.85, 0.9], [0.25, 0.3, 0.85, 0.9], [-0.1, 0.08, 0.12, 0.2], [0.2, 0.25, 0.4, 1], [0.2, 0.4, 0.6, 1], [0.2, 0.6, 0.8, 1], [0.7, 0.75, 0.85, 0.9], [0.2, 0.25, 0.9, 1], [0.2, 0.8, 0.95, 1], [0.2, 0.25, 0.9, 1], [0.25, 0.25, 0.4, 0.6], [0.2, 0.3, 0.5, 1], [0.2, 0.5, 0.6, 1]],
         //0 Para 1 Trans    1 robots              2 Para 2 Opacity          3 Para 3-1 Opacity       4 Para 3 Trans  5 Beach Robot       6 Para 3-3 Opacity       7 Para 2 Trans        8 Card Move 9 Para 3-2         10                   11 Beach Opacity
-        [[0, 0.125, 0.33], [0, 0.18, 0.28, 0.33], [0.33, 0.46, 0.52, 0.66], [0.61, 0.66, 0.82, 1], [0.61, 0.66, 1], [0.61, 0.95, 1], [0.61, 0.82, 0.95, 1], [0, 0.05, 0.61, 0.66], [0.75, 1], [0.61, 0.66, 0.82, 1], [0, 0.2, 0.385, 0.5], [0.6, 0.61, 0.9, 1]]]
+        [[0, 0.125, 0.33], [0, 0.18, 0.28, 0.33], [0.33, 0.46, 0.52, 0.66], [0.61, 0.66, 0.82, 1], [0.61, 0.66, 1], [0.61, 0.66, 0.82, 1], [0.61, 0.82, 0.95, 1], [0, 0.05, 0.61, 0.66], [0.75, 1], [0.61, 0.66, 0.82, 1], [0, 0.2, 0.385, 0.5], [0.6, 0.61, 0.9, 1]]]
 
     let adjustedTimings = []
-
-    // const header = { subtitleTop_section: "LIPPINCOTT + AI", subtitleTop_subsection: "PERSPECTIVE", title: "We need to talk about AI", subtitleBottom: "By Tom Ajello | [Month] 2023" }
 
     const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0) + startHeight + endblock
     const sh = startHeight / sum
@@ -155,11 +153,11 @@ function ManifestoSection({ images }) {
     )
 
     const desktopBeach = (
-        <OpacityContent scrollInfo={adjustedTimings[2][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 50]} rotate={0} />} positions={[[-175, -40, -40], [0, 0, 0]]} scrollInfo={adjustedTimings[2][5]} alignment={['left', 'bottom']} />} />
+        <OpacityContent scrollInfo={adjustedTimings[2][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 50]} rotate={0} />} positions={[[-175, -80, -40, -40], [0, 0, 0, 0]]} scrollInfo={adjustedTimings[2][5]} alignment={['left', 'bottom']} />} />
     )
 
     const mobileBeach = (
-        <OpacityContent scrollInfo={adjustedTimings[2][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 50]} rotate={0} />} positions={[[-300, -200, -200], [0, 0, 0]]} scrollInfo={adjustedTimings[2][5]} alignment={['left', 'bottom']} />} />
+        <OpacityContent scrollInfo={adjustedTimings[2][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 50]} rotate={0} />} positions={[[-300, -250, -200, -200], [0, 0, 0, 0]]} scrollInfo={adjustedTimings[2][5]} alignment={['left', 'bottom']} />} />
     )
 
     const mobileWeChoose = (
@@ -217,12 +215,6 @@ function ManifestoSection({ images }) {
     return (
         <div style={{ position: "relative", height: "100%", width: "100%" }}>
 
-            {/* HEADER */}
-            {/* <TransitionBackground background={images.manifesto_gradient} height={sectionHeights[0]} startHeight={0} hasTransition={true} />
-            <FadingHeader text={header} scrollInfo={adjustedTimings[0][0]} />
-            <OpacityContent scrollInfo={adjustedTimings[0][4]} child={<TransformingContent child={<ImgBox url={images.manifesto_01} displayDimensions={[80, 80]} rotate={0} />} positions={[[-50, 0, -50], [-10, -10, -60]]} scrollInfo={adjustedTimings[0][1]} alignment={['left', 'top']} />} />
-            <OpacityContent scrollInfo={adjustedTimings[0][4]} child={<TransformingContent child={<ImgBox url={images.manifesto_02} displayDimensions={[100, 90]} rotate={0} />} positions={[[-50, 0, -60], [-5, -5, -65]]} scrollInfo={adjustedTimings[0][2]} alignment={['right', 'bottom']} /> }/> */}
-
             {/* SECTION 1 */}
             <Background background={"#202020"} height={sectionHeights[1]} />
 
@@ -243,7 +235,7 @@ function ManifestoSection({ images }) {
             {isMobile ? mobileBeach : desktopBeach}
             {isMobile ? mobileHowWell : desktopHowWell}
             {isLaptop ? mobileHowPlay : desktopHowPlay}
-            
+
         </div>
     )
 }

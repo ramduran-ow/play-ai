@@ -6,8 +6,8 @@ import { sizes } from './constants/devices';
 import TypeIt from "typeit-react";
 // import useOnScreen from '../useOnScreenHook';
 import PBlockMenu from './PBlockMenu';
-import { OpacityHeading } from './Manifesto/interactions/OpacityContent';
-import { TransformingTextBox } from './Manifesto/interactions/TransformingContent';
+import { OpacityHeading } from '../interactions/OpacityContent';
+import { TransformingTextBox } from '../interactions/TransformingContent';
 // import { TypeAnimation } from 'react-type-animation';
 
 
@@ -140,7 +140,7 @@ const ParagraphBlock = ({
     selectedPlayer,
     glitchImage
 }) => {
-    const [subHeaderVisible, setSubHeaderVisible] = useState(true);
+    const [subHeaderVisible, setSubHeaderVisible] = useState(false);
     const [glitchVisible, setGlitchVisible] = useState(false);
     const ref = useRef(null);
     const contentRef = useRef(null);
@@ -158,7 +158,7 @@ const ParagraphBlock = ({
         setGlitchVisible(true);
         setTimeout(() => {
             setGlitchVisible(false);
-          }, 1000);
+          }, 1500);
     }
 
     // const isVisible = useOnScreen(contentRef);
@@ -183,6 +183,27 @@ const ParagraphBlock = ({
                 </RegenerateBadge>
             </PBlockContentWrapper>
         </PBlockContainer>
+    );
+
+    const SubHeader = (
+        <PBlockSubheader
+            key={subHeaderString}
+            initial="hidden"
+            whileInView="visible"
+            style={{
+                display: subHeaderVisible ? 'block' : 'none'
+            }}
+            transition={{
+                duration: 1, 
+                delay: opacity * 0.5,
+                ease: cubicBezier(0.3,0,0.1,1)
+            }}
+            variants={{
+                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: 200 }
+        }}>
+            {subHeaderString}
+        </PBlockSubheader>    
     );
 
     const NormalContent = (
@@ -220,24 +241,7 @@ const ParagraphBlock = ({
                     }}
                 />
             </PBlockContent>
-            <PBlockSubheader
-                key={subHeaderString}
-                initial="hidden"
-                whileInView="visible"
-                style={{
-                    display: subHeaderVisible ? 'block' : 'none'
-                }}
-                transition={{
-                    duration: 1, 
-                    delay: opacity * 0.5,
-                    ease: cubicBezier(0.3,0,0.1,1)
-                }}
-                variants={{
-                    visible: { opacity: 1, y: 0 },
-                    hidden: { opacity: 0, y: 200 }
-            }}>
-                {subHeaderString}
-            </PBlockSubheader>    
+            {subHeaderVisible && SubHeader}
         </TextWrapper>
     );
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { sizes } from './constants/devices';
+import { NavLink } from 'react-router-dom';
 
-const ArticleCardContainer = styled.a`
+const ArticleCardContainer = styled(NavLink)`
     background-color: white;
     ${props => props.$isGhost && 'background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.00) 100%);'}
     color: ${props => props.$isGhost ? 'white' : 'black'};
@@ -161,6 +162,12 @@ const ArticleCard = ({ headerImg, header, subHeader, articleInfo, link, isGhost 
             );
     }
 
+    const handleClick = () => {
+        window.scrollTo({
+            top: 0,
+          });
+    };
+
     const GhostCard = (
         <ArticleCardContainer $isGhost>
             <div>
@@ -183,7 +190,7 @@ const ArticleCard = ({ headerImg, header, subHeader, articleInfo, link, isGhost 
     );
 
     const NormalCard = (
-        <ArticleCardContainer href={link}>
+        <ArticleCardContainer to={link} onClick={handleClick}>
             <div>
                 <ArticleImg src={headerImg} />
                 <ArticleContent>
