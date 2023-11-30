@@ -44,6 +44,46 @@ function ManifestoSection({ images }) {
     const isLaptop = useMediaQuery({ query: devices.laptop });
     const isMobile = useMediaQuery({ query: devices.mobileL });
 
+    const introParagraphs = (
+        <>
+            <TransformingTextBox positions={[6, 6, 6]} scrollInfo={adjustedTimings[0][0]} alignment={'top'} child={
+                <ScrollingColumn scrollInfo={adjustedTimings[0][0]} scrollIn={false}>
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][6]} simpleFade={true} center baseOpacity={0} text={
+                        [<p>“It will take our jobs.”<br/>“It's the AI apocalypse.”<br/><br/>Today, any consumer of news has seen dire predictions about Artificial Intelligence. And many people, in the creative industries and beyond, are preparing for the worst.</p>]
+                    } />
+                </ScrollingColumn>
+            } />
+            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][2]} alignment={'top'} child={
+                <ScrollingColumn scrollInfo={adjustedTimings[0][2]}>
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][8]} simpleFade={true} center baseOpacity={0} text={
+                        [<p>And while we're all for tossing predictions around like avocado toast recipes on Instagram, what if the truth is somewhere between the fantasy and the fear mongering?</p>]
+                    } />
+                </ScrollingColumn>
+            } />
+            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][3]} alignment={'top'} child={
+                <ScrollingColumn scrollInfo={adjustedTimings[0][3]}>
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][9]} simpleFade={true} center baseOpacity={0} text={
+                        [<p>Here's what we believe:<br/><br/>Exercising caution with any new technology is necessary. But choosing to be cautiously optimistic will open up a world of possibilities for our industry. The only way to understand the potential of new tech is to dive head first and learn.<br/><br/>And to learn, we must PLAY.</p>]
+                    } />
+                </ScrollingColumn>
+            } />
+            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][4]} alignment={'top'} child={
+                <ScrollingColumn scrollInfo={adjustedTimings[0][4]}>
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][10]} simpleFade={true} center baseOpacity={0} text={
+                        [<p>It's certainly clear that AI will change how we do business. But, for anyone that has moved past worrying about doomsday scenarios into early adoption, it's also clear there will be plenty of business to do be done.</p>]
+                    } />
+                </ScrollingColumn>
+            } />
+            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][5]} alignment={'top'} child={
+                <ScrollingColumn scrollInfo={adjustedTimings[0][5]}>
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][11]} simpleFade={true} center baseOpacity={0} text={
+                        [<p>There are plenty of things about AI we  don't know, but one thing do:<br/><br/>AI is not going to take your next job, but a person who knows how to use it just might</p>]
+                    } />
+                </ScrollingColumn>
+            } />
+        </>
+    )
+
     const mobileHowPlay = (
         <TransformingTextBox positions={[127, 10, -40]} scrollInfo={adjustedTimings[2][4]} alignment={'top'} child={
             <>
@@ -217,12 +257,6 @@ function ManifestoSection({ images }) {
 
             {/* SECTION 1 */}
             <Background background={"#202020"} height={sectionHeights[1]} />
-
-            <TransformingTextBox positions={[0, 0, 0, 0]} scrollInfo={adjustedTimings[1][5]} alignment={'center'} child={
-                <OpacityHeading scrollInfo={adjustedTimings[1][5]} simpleFade={true} baseOpacity={0} text={
-                    ["To say the least, Artificial Intelligence has become one of the most transformative things to ever happen to modern society—rivaling everything that's come before it."]
-                } />
-            } />
 
             {/* SECTION 2 */}
             {isMobile ? mobilePara1 : desktopPara1}
