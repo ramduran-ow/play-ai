@@ -14,7 +14,7 @@ export const TextContainer = styled.div`
     margin: auto;
 `
 
-function TransformingTextBox({ child, positions, scrollInfo, alignment, doubled }) {
+function TransformingTextBox({ child, positions, scrollInfo, alignment, doubled, specialWidth }) {
     const { scrollYProgress } = useScroll();
 
     const visibleInfo = [0, scrollInfo[0], scrollInfo[scrollInfo.length - 1], 1]
@@ -23,6 +23,7 @@ function TransformingTextBox({ child, positions, scrollInfo, alignment, doubled 
     const tY = useMotionTemplate`${y}vh`
     let usedWidth = '75rem'
     if (doubled) { usedWidth = '100%' }
+    if (specialWidth !== '') { usedWidth = specialWidth}
 
     if (alignment === 'top') {
         return (
@@ -69,7 +70,8 @@ function TransformingTextBox({ child, positions, scrollInfo, alignment, doubled 
 }
 
 TransformingTextBox.defaultProps = {
-    doubled: false
+    doubled: false,
+    specialWidth: '',
 }
 
 TransformingTextBox.propTypes = {
@@ -77,5 +79,6 @@ TransformingTextBox.propTypes = {
     positions: PropTypes.arrayOf(PropTypes.number),
     scrollInfo: PropTypes.arrayOf(PropTypes.number),
     alignment: PropTypes.string,
-    doubled: PropTypes.bool
+    doubled: PropTypes.bool,
+    specialWidth: PropTypes.string,
 }
