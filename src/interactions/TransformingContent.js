@@ -310,7 +310,7 @@ function VideoBox({ url, displayWidth, child, scrollInfo }) {
                     maxHeight: '90vh',
                     margin: '0rem 3.2rem'
                 }}>
-                {(<motion.video controls autoPlay={false} muted loop
+                {(inView && <motion.video controls autoPlay={false} muted loop // small loading bug is a result of autoPlay={true}
                     style={{ width: '100%', height: '100%', position: 'relative', top: 0, opacity }}>
                     <source src={url} type="video/mp4" />
                     Your browser does not support the video tag.
