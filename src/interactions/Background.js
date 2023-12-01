@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import { useScroll, useTransform, motion } from "framer-motion"
 import { useRef } from 'react'
-export { Background, TransitionBackground }
+export { Background, TransitionBackground, Transition }
 
 function Background({ background, height }) {
     return (
@@ -33,7 +33,7 @@ Background.propTypes = {
     height: PropTypes.number.isRequired,
 }
 
-function TransitionBackground({ background, height, startHeight, endOpacity, preserveRatio, delayed }) {
+function TransitionBackground({ background, transition, height, startHeight, endOpacity, preserveRatio, delayed }) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -71,15 +71,27 @@ function TransitionBackground({ background, height, startHeight, endOpacity, pre
                         width: "100%",
                     }}></div>
             }
-            <motion.div style={{
-                backgroundColor: "#202020",
-                pointerEvents: "none",
-                height: height + "vh",
-                width: "100%",
-                opacity: opacity,
-                position: "absolute",
-                top: startHeight + "vh",
-            }} />
+            {transition.length < 1 ?
+                <motion.div style={{
+                    backgroundColor: "#202020",
+                    pointerEvents: "none",
+                    height: height + "vh",
+                    width: "100%",
+                    opacity: opacity,
+                    position: "absolute",
+                    top: startHeight + "vh",
+                }} />
+                :
+                <motion.div style={{
+                    backgroundImage: "url(" + transition + ")",
+                    pointerEvents: "none",
+                    height: height + "vh",
+                    width: "100%",
+                    opacity: opacity,
+                    position: "absolute",
+                    top: startHeight + "vh",
+                }} />
+            }
         </>
     )
 }
@@ -89,10 +101,12 @@ TransitionBackground.defaultProps = {
     endOpacity: 1,
     preserveRatio: false,
     delayed: [0, 0.5],
+    transition: ''
 }
 
 TransitionBackground.propTypes = {
     background: PropTypes.any,
+    transition: PropTypes.any,
     height: PropTypes.number.isRequired,
     startTransition: PropTypes.number,
     startHeight: PropTypes.number.isRequired,
@@ -100,4 +114,61 @@ TransitionBackground.propTypes = {
     scrollInfo: PropTypes.arrayOf(PropTypes.number),
     preserveRatio: PropTypes.bool,
     delayed: PropTypes.arrayOf(PropTypes.number),
+}
+
+function Transition({ background, scrollInfo, solidBackground }) {
+    const { scrollYProgress } = useScroll();
+
+    const opacity = useTransform(scrollYProgress, scrollInfo, [0, 1, 1])
+    const visible = useTransform(scrollYProgress, [0, scrollInfo[0], scrollInfo[1], scrollInfo[2], 1], ['none', 'none', 'block', 'block', 'none'])
+
+    return (
+        <>
+            {solidBackground &&
+                <motion.div style={{
+                    backgroundColor: "#202020",
+                    pointerEvents: "none",
+                    height: '100%',
+                    width: "100%",
+                    display: visible,
+                    position: "fixed",
+                    top: 0,
+                }} />
+            }
+            { background.length < 1 ? 
+                <motion.div style={{
+                    backgroundColor: "#202020",
+                    pointerEvents: "none",
+                    height: '100%',
+                    width: "100%",
+                    display: visible,
+                    opacity: opacity,
+                    position: "fixed",
+                    top: 0,
+                }} /> 
+                : 
+                <motion.div style={{
+                    backgroundImage: "url(" + background + ")",
+                    pointerEvents: "none",
+                    height: '100%',
+                    width: "100%",
+                    opacity: opacity,
+                    display: visible,
+                    position: "fixed",
+                    top: 0
+                }} />
+            }
+        </>
+    )
+}
+
+Transition.defaultProps = {
+    solidBackground: false,
+    background: ''
+}
+
+Transition.propTypes = {
+    background: PropTypes.any,
+    scrollInfo: PropTypes.arrayOf(PropTypes.number),
+    solidBackground: PropTypes.bool
 }
