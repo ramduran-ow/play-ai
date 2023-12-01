@@ -3,10 +3,9 @@ import { devices } from '../constants/devices.js';
 import { useMediaQuery } from 'react-responsive';
 
 // import interactions
-import { Background, TransitionBackground } from '../interactions/Background'
+import { Background } from '../interactions/Background'
 import { TransformingContent, TransformingTextBox, ImgBox, BackgroundImgBox } from '../interactions/TransformingContent'
-import { OpacityHeading, OpacityParagraph, OpacityList, OpacitySubheading } from '../interactions/OpacityContent';
-import { FadingHeader } from "../interactions/FadingHeader"
+import { OpacityParagraph, OpacityList, OpacitySubheading } from '../interactions/OpacityContent';
 import { ContactCard } from './ContactCard';
 
 export { ManifestoSection }
