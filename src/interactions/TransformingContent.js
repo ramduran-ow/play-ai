@@ -300,9 +300,18 @@ function VideoBox({ url, displayWidth, child, scrollInfo }) {
             transition={{ duration: 0.1 }}
             style={{ width: '100%', textAlign: 'center' }}
         >
-            <div style={{ border: '2px solid black', boxShadow: '0px 0px 0px 2px black inset', borderRadius: '4rem', width: 'fit-content', overflow: 'hidden', display: 'inline-block', position: 'relative' }}>
-                {inView && (<motion.video controls autoPlay={true} muted loop
-                    style={{ maxWidth: `${displayWidth}vw`, maxHeight: '85vh', height: 'auto', position: 'relative', top: 0, opacity }}>
+            <div style={{ 
+                    border: '2px solid black', 
+                    boxShadow: '0px 0px 0px 2px black inset', 
+                    borderRadius: '4rem', width: 'fit-content', 
+                    overflow: 'hidden', display: 'inline-block', 
+                    position: 'relative',
+                    maxWidth: `1220px`, 
+                    maxHeight: '90vh',
+                    margin: '0rem 3.2rem'
+                }}>
+                {(<motion.video controls autoPlay={false} muted loop
+                    style={{ width: '100%', height: '100%', position: 'relative', top: 0, opacity }}>
                     <source src={url} type="video/mp4" />
                     Your browser does not support the video tag.
                 </motion.video>)}
