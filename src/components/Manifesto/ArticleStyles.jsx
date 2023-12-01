@@ -58,7 +58,6 @@ const ArticleSubHeading = styled.h2`
     font-family: 'Noe Display Medium';
     font-weight: 500;
     font-size: 5rem;
-    text-align: left;
     margin: 0 auto 2rem auto;
 
     @media only screen and (max-width: ${sizes.mobileL}) {

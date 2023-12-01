@@ -295,7 +295,7 @@ function VideoBox({ url, displayWidth, child, scrollInfo }) {
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0.99, scale: 1 }}
+            initial={{ opacity: 0.9-9, scale: 1 }}
             animate={controls}
             transition={{ duration: 0.1 }}
             style={{ width: '100%', textAlign: 'center' }}

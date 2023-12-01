@@ -6,7 +6,6 @@ import { PBlockSubheader } from "../components/ParagraphBlock"
 export { OpacityContent, OpacityHeading, OpacityParagraph, OpacityList, OpacitySubheading }
 
 function OpacityContent({ child, scrollInfo, baseOpacity }) {
-    console.log(scrollInfo)
     let opacityTransform = [baseOpacity, 1, 1, baseOpacity]
     if (scrollInfo.length === 6) { opacityTransform = [baseOpacity, baseOpacity, 1, 1, baseOpacity, baseOpacity] }
     const visibleInfo = [0, scrollInfo[0], scrollInfo[scrollInfo.length - 1], 1]
@@ -131,8 +130,8 @@ OpacityList.propTypes = {
 }
 
 //Opacity Subheading
-function OpacitySubheading({ text, scrollInfo, baseOpacity, simpleFade, dark }) {
-    let scrollReference = [scrollInfo[0], scrollInfo[1], scrollInfo[1], scrollInfo[2], scrollInfo[2], scrollInfo[3]]
+function OpacitySubheading({ text, scrollInfo, baseOpacity, simpleFade, dark, center }) {
+    let scrollReference = [scrollInfo[0], halfWay(scrollInfo[0], scrollInfo[1]), scrollInfo[1], scrollInfo[2], halfWay(scrollInfo[2], scrollInfo[3]), scrollInfo[3]]
     let opacityTransform = [baseOpacity, baseOpacity, 1, 1, baseOpacity, baseOpacity]
 
     if (simpleFade) {
@@ -149,11 +148,13 @@ function OpacitySubheading({ text, scrollInfo, baseOpacity, simpleFade, dark }) 
 
     let color = 'black'
     if (dark) { color = 'white' }
+    let align = 'left'
+    if (center) { align = 'center'}
 
     return (
         <>
             {text.map(string =>
-                <motion.div key={string} style={{ opacity: opacity, display: visible, color: color }}>
+                <motion.div key={string} style={{ opacity: opacity, display: visible, color: color, textAlign: align }}>
                     <ArticleSubHeading>
                         {string}
                     </ArticleSubHeading>
@@ -167,6 +168,7 @@ OpacitySubheading.defaultProps = {
     baseOpacity: 0.15,
     dark: true,
     simpleFade: false,
+    center: false,
 }
 
 OpacitySubheading.propTypes = {
@@ -175,6 +177,7 @@ OpacitySubheading.propTypes = {
     baseOpacity: PropTypes.number,
     dark: PropTypes.bool,
     simpleFade: PropTypes.bool,
+    center: PropTypes.bool,
 }
 
 // Opacity Header
