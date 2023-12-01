@@ -7,7 +7,7 @@ import { Background } from '../../interactions/Background';
 import { TransformingContent, ImgBox } from '../../interactions/TransformingContent'
 import { TransformingTextBox } from '../../interactions/TransformingTextBox';
 import { ScrollingColumn } from '../../interactions/ScrollingColumn';
-import { OpacityParagraph, OpacityList, OpacitySubheading, OpacityContent } from '../../interactions/OpacityContent';
+import { OpacityHeading, OpacityParagraph, OpacityList, OpacitySubheading, OpacityContent } from '../../interactions/OpacityContent';
 
 export { ManifestoSection }
 
