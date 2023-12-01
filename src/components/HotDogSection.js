@@ -160,7 +160,7 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
     <>
       <OpacityContent scrollInfo={adjustedTimings[6][1]} baseOpacity={0} child={
         <TransformingContent positions={[[0, 0, 0, -100], [-1, -1, -1, -1]]} scrollInfo={adjustedTimings[6][1]} alignment={['right', 'bottom']} child={
-          <ImgBox url={getImageByKey("toy_pile")} displayDimensions={[50, 50]} rotate={0} />
+          <ImgBox url={getImageByKey("toy_pile")} displayDimensions={[50, 76]} rotate={0} />
         } />
       } />
     </>
@@ -170,17 +170,17 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
     <>
       <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={1} child={
         <TransformingContent positions={[[-20, -20, -20, 40, 40, 40], [-100, -14, -14, -14, -14, 80]]} scrollInfo={adjustedTimings[6][2]} alignment={['right', 'bottom']} child={
-          <ImgBox url={getImageByKey("shadow")} displayDimensions={[70, 70]} rotate={0} />
+          <ImgBox url={getImageByKey("shadow")} displayDimensions={[70, 45]} rotate={0} />
         } />
       } />
        <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={1} child={
         <TransformingContent positions={[[7, 7, 7, 60, 60, 60], [-100, 14, 14, 14, 14, 100]]} scrollInfo={adjustedTimings[6][2]} alignment={['right', 'bottom']} child={
-          <ImgBox url={getImageByKey("hotdog")} displayDimensions={[33, 33]} rotate={0} />
+          <ImgBox url={getImageByKey("hotdog")} displayDimensions={[33, 65]} rotate={0} />
         } />
       } />
       <OpacityContent scrollInfo={adjustedTimings[6][1]} baseOpacity={1} child={
         <TransformingContent positions={[[0, 0, 0, -100], [-100, -1, -1, -1]]} scrollInfo={adjustedTimings[6][1]} alignment={['right', 'bottom']} child={
-          <ImgBox url={getImageByKey("toy_pile")} displayDimensions={[50, 50]} rotate={0} />
+          <ImgBox url={getImageByKey("toy_pile")} displayDimensions={[50, 76]} rotate={0} />
         } />
       } />
     </>
@@ -207,8 +207,8 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
     <>
       <Background background={getImageByKey("naming_gradient")} height={sectionHeights[6]} />
       {/* ANIMATION IN */}
-      <TransformingContent positions={[[15, 15, 15, 15], [15, 15, 15, 15]]} scrollInfo={adjustedTimings[6][1]} alignment={['left', 'top']} child={
-        <OpacitySubheading scrollInfo={adjustedTimings[6][1]} dark={false} simpleFade={true} text={[["So, it's time to play."]]} />
+      <TransformingContent positions={[[15, 15, 15, 15], [100, 15, 15, 15]]} scrollInfo={adjustedTimings[6][1]} alignment={['left', 'top']} child={
+        <OpacitySubheading scrollInfo={adjustedTimings[6][1]} dark={false} simpleFade={true} baseOpacity={1} text={[["So, it's time to play."]]} />
       } />
 
       {isTablet ? mobileToys : desktopToys}
