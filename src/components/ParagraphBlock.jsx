@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import { styled } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 import STRINGS from './constants/strings';
 import { motion, useScroll, cubicBezier, useTransform } from 'framer-motion';
 import { sizes } from './constants/devices';
@@ -9,10 +9,11 @@ import PBlockMenu from './PBlockMenu';
 import { OpacityHeading } from '../interactions/OpacityContent';
 import { TransformingTextBox } from '../interactions/TransformingContent';
 // import { TypeAnimation } from 'react-type-animation';
+// import SpriteSheet from '../images/spritesheet-test.webp'
 
 
 const PBlockContainer = styled(motion.section)`
-    min-height: 200vh;
+    min-height: ${props => props.$sectionHeight}vh;
     position: sticky;
     top: 0;
     // display: flex;
@@ -136,6 +137,21 @@ export const PBlockSubheader = styled(motion.p)`
     }
 `;
 
+// const glitchAnimation = keyframes`
+//     100% { background-position: -4000px; }
+// `;
+
+// const GlitchScreen = styled.div`
+//     height: 1000px;
+//     width: 1000px;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     background: url(${SpriteSheet}) left center;
+//     animation: ${glitchAnimation} 1s steps(3) infinite; 
+// `;
+
 const ParagraphBlock = ({ 
     backgroundImage, 
     contentString, 
@@ -144,12 +160,12 @@ const ParagraphBlock = ({
     opacityArray, 
     opacityOverride, 
     scrollOffset,
-    typed,
     handlePlayerChange,
     hasMenu,
     scrollInfo,
     selectedPlayer,
-    glitchImage
+    glitchImage,
+    sectionHeight
 }) => {
     const [subHeaderVisible, setSubHeaderVisible] = useState(false);
     const [glitchVisible, setGlitchVisible] = useState(false);
@@ -195,6 +211,16 @@ const ParagraphBlock = ({
             </PBlockContentWrapper>
         </PBlockContainer>
     );
+
+    // const GlitchSpriteSheet = (
+    //     <PBlockContainer $backgroundImage={glitchImage}>
+    //         <PBlockContentWrapper>
+    //             <RegenerateBadge>
+    //                 ...regenerating content...
+    //             </RegenerateBadge>
+    //         </PBlockContentWrapper>
+    //     </PBlockContainer>
+    // );
 
     const SubHeader = (
         <PBlockSubheader
@@ -268,6 +294,7 @@ const ParagraphBlock = ({
     const PBlock = (
         <PBlockContainer 
             $backgroundImage={backgroundImage} 
+            $sectionHeight={sectionHeight}
             ref={ref}
         >
             {/* <PBlockBackground $backgroundImage={backgroundImage} /> */}
