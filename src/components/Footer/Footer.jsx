@@ -4,9 +4,9 @@ import FooterModuleTop from './FooterModuleTop';
 
 const Footer = () => {
     return (
-        <footer class="footer">
-            <div class="footer-wrapper">
-            <div class="footer__top">
+        <footer className="footer">
+            <div className="footer-wrapper">
+            <div className="footer__top">
             <FooterModuleTop />
 
             {/* <ul class="footer__grid">
@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
             </ul> */}
           </div>
-          <div class="footer__bottom">
+          <div className="footer__bottom">
             {/* <nav class="footer__nav">
               <ul id="menu-footer-menu" class="menu">
                 <li class="menu-item">
@@ -84,20 +84,20 @@ const Footer = () => {
                 </ul>
               </nav>
             </div> */}
-            <div class="footer__logo">
-              <img class="icon--logo" alt="" src="images/lip-logo.png">
+            <div className="footer__logo">
+              <img className="icon--logo" alt="" src="images/lip-logo.png">
                 {/* <use xlink:href="https://lippincott.com/app/themes/sage/dist/images/sprites.svg#logo"></use> */}
               </img>    
             </div>
-            <nav class="footer__nav footer__nav--secondary">
+            <nav className="footer__nav footer__nav--secondary">
               <ul>
                 <li>
                   <span>&copy; 2023 Lippincott</span>
                 </li>
                 {/* <li class="menu-item menu-site-directory"><a href="https://lippincott.com/site-directory/">Site Directory</a></li> */}
-                <li class="menu-item menu-terms-of-use"><a href="https://lippincott.com/terms/">Terms of Use</a></li>
-                <li class="menu-item menu-privacy-notice"><a href="https://lippincott.com/privacy-policy/">Privacy Notice</a></li>
-                <li class="menu-item menu-cookie-notice"><a href="https://lippincott.com/cookie-policy/">Cookie Notice</a></li>
+                <li className="menu-item menu-terms-of-use"><a href="https://lippincott.com/terms/">Terms of Use</a></li>
+                <li className="menu-item menu-privacy-notice"><a href="https://lippincott.com/privacy-policy/">Privacy Notice</a></li>
+                <li className="menu-item menu-cookie-notice"><a href="https://lippincott.com/cookie-policy/">Cookie Notice</a></li>
                 <li id="teconsent"></li>
               </ul>
             </nav>

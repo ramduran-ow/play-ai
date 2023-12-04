@@ -13,7 +13,7 @@ export { ManifestoSection }
 
 function ManifestoSection({ images }) {
 
-    const startHeight = 740
+    const startHeight = 840
     const endblock = 1320 / window.innerHeight * 100
 
     //Heights
@@ -22,9 +22,9 @@ function ManifestoSection({ images }) {
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
         //0 P1 Motion              1 P2 Motion             2 P3 Motion                3 P4 Motion                4 P5 Motion                 5 P6 Motion           
-        [[-3 / 14, 1 / 14, 5 / 14], [0 / 7, 2 / 7, 8 / 14], [4 / 14, 7 / 14, 10 / 14], [6 / 14, 9 / 14, 12 / 14], [9 / 14, 12 / 14, 15 / 14], [11 / 14, 14 / 14, 17 / 14],
+        [[-6 / 14, 1 / 14, 5 / 14], [0 / 7, 2 / 7, 8 / 14], [4 / 14, 7 / 14, 10 / 14], [6 / 14, 9 / 14, 12 / 14], [9 / 14, 12 / 14, 15 / 14], [11 / 14, 14 / 14, 17 / 14],
         //6 P1 Opacity                                  7 P2 Opacity                      8 P3 Opacity                      9 P4 Opacity                       10 P5 Opacity                       11 P6 Opacity
-        [-3 / 14, 0 / 14, 2 / 14, 5 / 14], [1 / 14, 3 / 14, 5 / 14, 7 / 14], [3 / 14, 6 / 14, 8 / 14, 11 / 14], [5 / 14, 8 / 14, 10 / 14, 13 / 14], [8 / 14, 11 / 14, 13 / 14, 16 / 14], [10 / 14, 13 / 14, 15 / 14, 18 / 14],
+        [-6 / 14, 0 / 14, 2 / 14, 5 / 14], [1 / 14, 3 / 14, 5 / 14, 7 / 14], [3 / 14, 6 / 14, 8 / 14, 11 / 14], [5 / 14, 8 / 14, 10 / 14, 13 / 14], [8 / 14, 11 / 14, 13 / 14, 16 / 14], [10 / 14, 13 / 14, 15 / 14, 18 / 14],
         //12 Avocado Toast Movement          13 Avocado Toast Opacity                           14 Avocado Left Motion
         [1 / 14, 4 / 14, 16 / 14, 18 / 14], [1 / 14, 2 / 14, 3 / 14, 4 / 14, 5 / 14, 21 / 14], [5 / 14, 20 / 14], [11 / 14, 19 / 14]],
         // Empty
@@ -232,12 +232,12 @@ function ManifestoSection({ images }) {
     return (
         <div style={{ position: "relative", height: "100%", width: "100%" }}>
 
-            <Transition scrollInfo={[0, st - 0.1, st - 0.05, st]} />
+            <Transition scrollInfo={[0, st - 0.125, st- 0.075, st + 0.2]} />
 
             {/* SECTION 1 */}
             <Background background={"#202020"} height={sectionHeights[0]} />
             <Background background={"#202020"} height={sectionHeights[1]} />
-            <Transition scrollInfo={[0.59, 0.6, 0.62, 0.7]} background={images.manifesto_gradient} solidBackground />
+            <Transition scrollInfo={[0.59, 0.62, 0.64, 0.7]} background={images.manifesto_gradient} solidBackground />
             {avocados}
             {introParagraphs}
 

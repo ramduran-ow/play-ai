@@ -45,6 +45,7 @@ const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }
                 hasMenu
                 selectedPlayer={player}
                 scrollInfo={[0.3, 0.33, 0.38, 0.4]}
+                sectionHeight={300}
             />
             {/* <TextImageBlock 
                 gradient={options.textImageBlock.gradient}
