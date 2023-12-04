@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import { styled, keyframes } from 'styled-components';
+import { styled } from 'styled-components';
 import STRINGS from './constants/strings';
 import { motion, useScroll, cubicBezier, useTransform } from 'framer-motion';
 import { sizes } from './constants/devices';
