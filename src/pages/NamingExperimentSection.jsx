@@ -25,6 +25,8 @@ import abstract_fullscreen_03A from '../images/naming/abstract_fullscreen_03A.mp
 import abstract_fullscreen_03B from '../images/naming/abstract_fullscreen_03B.mp4'
 import abstract_fullscreen_03C from '../images/naming/abstract_fullscreen_03C.mp4'
 import { TryThis } from '../components/TryThis.jsx';
+import Footer from '../components/Footer/Footer.jsx';
+import ArticleBlock from '../components/ArticleBlock.jsx';
 
 // import assets
 import { getImageByKey } from '../components/constants/imgContent.js';
@@ -37,6 +39,7 @@ function NamingExperimentSection() {
 
     //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13   14   15   16   17   18
     const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 300, 0, 200, 400, 250, 400, 0, 600, 0, 200, 1200]
+    const endblock = 1320 / window.innerHeight * 100
 
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
@@ -49,7 +52,7 @@ function NamingExperimentSection() {
         //3 Video
         [[-0.1, 0.25, 1.2], [-0.1, 1.2]],
         //4 Para O 1             Para O 2               Para O 3               Scroll 1           Scroll 2               Scroll 3           Robot O 1                       Robot O 2                       Robot O 3      
-        [[0, 1/12, 3/12, 2/3], [0, 5/12, 7/12, 1], [0, 9/12, 11/12, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5/6, 1], [0, 0, 1/12, 3/12, 1/3, 2/3], [0, 1/3, 5/12, 7/12, 2/3, 1], [1/3, 2/3, 9/12, 11/12, 1, 1]],
+        [[0, 1/12, 3/12, 2/3], [0, 5/12, 7/12, 1], [0, 9/12, 10/12, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5/6, 1], [0, 0, 1/12, 3/12, 1/3, 2/3], [0, 1/3, 5/12, 7/12, 2/3, 1], [1/3, 2/3, 9/12, 11/12, 1, 1]],
         //5 Fading Section Header
         [[0, 0.2, 0.5, 1], [0, 0.2, 1.5]],
         //6 Video
@@ -77,7 +80,7 @@ function NamingExperimentSection() {
         //17 Video
         [[0, 0.6, 1.3], [0, 1.3]],
         //18 Para O 1         Para O 2                  Para O 3           Scroll 1           Scroll 2               Scroll 3           Robot O 1                       Robot O 2                       Robot O 3      
-        [[0, 0.14, 0.18, 0.66], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5 / 6, 1], [0, 0, 0.14, 0.18, 0.66, 1], [0, 0, 0, 0, 0, 1], [0, 0.66, 0.80, 0.84, 1, 1]],
+        [[0, 0.14, 0.18, 1], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5 / 6, 1], [0, 0, 0.14, 0.6, 0.8, 1], [0, 0, 0, 0, 0, 1], [0, 0.66, 0.80, 0.84, 1, 1]],
     ]
     let adjustedTimings = []
 
@@ -89,7 +92,7 @@ function NamingExperimentSection() {
     const tryText = { header: "Try this experiment out yourself!", body: "" }
 
     //CALCULATING TIMINGS
-    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0)
+    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0) + endblock
     for (let i = 0; i < sectionHeights.length; i++) {
         let start = sectionHeights.slice(0, i).reduce((partialSum, a) => partialSum + a, 0) / sum
         let localSum = sectionHeights[i] / sum
@@ -101,13 +104,8 @@ function NamingExperimentSection() {
     }
 
     //RESPONSIVE SECTIONS
-    // const isLaptop = useMediaQuery({ query: devices.laptop });
     const isMobile = useMediaQuery({ query: devices.mobileL });
     const videoRatio = 0.626
-
-    // const draggable = (
-    //     <Draggable startHeight={0} height={sectionHeights[0]} windowUrl={getImageByKey('naming_03')} maskUrl={getImageByKey('mask')} />
-    // )
 
     //SECTION 2
     const mobileInCase = (
@@ -415,7 +413,7 @@ function NamingExperimentSection() {
     const desktopWeFound = (
         <TransformingTextBox doubled positions={[127, 27, 27, 27]} scrollInfo={adjustedTimings[18][0]} alignment={'top'} child={
             <DoubleColumn>
-                <ColumnImage scrollInfo={adjustedTimings[18][6]} backY={12} fadeOut={false} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
+                <ColumnImage scrollInfo={adjustedTimings[18][6]} backY={12} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
                 <ScrollingColumn scrollInfo={adjustedTimings[18][3]} scrollIn={false}>
                     <OpacitySubheading scrollInfo={adjustedTimings[18][0]} dark={false} text={
                         ["We found the results exciting for a couple of reasons:"]
@@ -431,7 +429,7 @@ function NamingExperimentSection() {
     const desktopButChallenges = (
         <TransformingTextBox doubled positions={[27, 27, 27, 27]} scrollInfo={adjustedTimings[18][1]} alignment={'top'} child={
             <DoubleColumn>
-                <ColumnImage invisible scrollInfo={adjustedTimings[18][7]} backY={12} fadeIn={false} fadeOut={false} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
+                <ColumnImage invisible scrollInfo={adjustedTimings[18][7]} backY={12} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
                 <ScrollingColumn scrollInfo={adjustedTimings[18][4]}>
                     <OpacityParagraph scrollInfo={adjustedTimings[18][1]} dark={false} text={
                         ["BUT, challenges remain: we’ve achieved a route to abstraction, but these are still real words, unlikely to be available in many trademark categories. And the process broke down when we asked GPT to translate these real, dictionary words to more unique approaches like compound or coined names. Also, interestingly, after repeating a couple of times, we saw the results degrade – as though GPT was running out of ideas, or regressing to the notion where “abstract” becomes literally mysterious again…"]
@@ -537,7 +535,10 @@ function NamingExperimentSection() {
             {desktopButChallenges}
             {desktopToKeep}
 
-            <ExperimentNav heightsInfo={[[2, 5], [5, 12], [12, 19]]} sectionHeights={sectionHeights} />
+            <ExperimentNav heightsInfo={[[2, 5], [5, 12], [12, 19]]} sectionHeights={sectionHeights} sum={sum} />
+
+            <ArticleBlock/>
+            <Footer/>
         </div>
     )
 }

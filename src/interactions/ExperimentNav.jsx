@@ -59,10 +59,9 @@ const Drifter = styled.div`
     }
 `
 
-function ExperimentNav({ heightsInfo, sectionHeights }) {
+function ExperimentNav({ heightsInfo, sectionHeights, sum }) {
 
     const { scrollYProgress } = useScroll();
-    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0)
 
     const infos = calculateInfos(heightsInfo, sectionHeights)
     const scrolls = heightsInfo.map((info, index) => ExperimentIndicator(info, sectionHeights, sum, index))
@@ -90,12 +89,13 @@ ExperimentNav.propTypes = {
     child: PropTypes.any,
     baseOpacity: PropTypes.number,
     backY: PropTypes.number,
+    sum: PropTypes.number
 }
 
 function ExperimentIndicator(heightsInfo, sectionHeights, sum, index) {
 
     const { scrollYProgress } = useScroll();
-    const startHeight = sectionHeights.slice(0, heightsInfo[0]).reduce((partialSum, a) => partialSum + a, 0)
+    const startHeight = sectionHeights.slice(0, heightsInfo[0] + 1).reduce((partialSum, a) => partialSum + a, 0)
     const vh = window.innerHeight
     const scrollInfo = heightsInfo.map(function (height) {
         const localSum = sectionHeights.slice(0, height).reduce((partialSum, a) => partialSum + a, 0)
@@ -117,13 +117,14 @@ function ExperimentIndicator(heightsInfo, sectionHeights, sum, index) {
 
 function calculateInfos(heightsInfo, sectionHeights) {
 
-    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0)
+    const endblock = 1320 / window.innerHeight * 100
+    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0) + endblock
 
     let visibleInfo = []
     let visibility = ['none']
     for (let i = 0; i < heightsInfo.length; i++) { visibleInfo = visibleInfo.concat(heightsInfo[i]); visibility = visibility.concat(['none', 'block']) }
     visibleInfo = visibleInfo.map(function (t) {
-        const localSum = sectionHeights.slice(0, t).reduce((partialSum, a) => partialSum + a, 0)
+        const localSum = sectionHeights.slice(0, t).reduce((partialSum, a) => partialSum + a, 0) + endblock
         return localSum / sum
     })
     visibleInfo = [0].concat(visibleInfo.concat([1])); visibility = visibility.concat(['none'])

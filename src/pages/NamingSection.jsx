@@ -20,13 +20,18 @@ import { Go } from '../components/Manifesto/ArticleStyles.jsx';
 import { OpacityContent, OpacityParagraph, OpacitySubheading, OpacityList } from '../interactions/OpacityContent.js';
 import { FadingHeader } from "../interactions/FadingHeader.js"
 import { HotDogSection } from '../components/HotDogSection.js';
+import ArticleBlock from '../components/ArticleBlock.jsx';
+import Footer from '../components/Footer/Footer.jsx'
 
 export { NamingSection }
 
 function NamingSection({ text }) {
+
+    const endblock = 700 / window.innerHeight * 100
+
     //Heights                0    1    2    3    4    5    6    7
     const sectionHeights = [250, 400, 400, 300, 200, 0, 400, 500]
-    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0)
+    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0) + endblock
 
     //Timings 
     const sectionTimings = [
@@ -84,7 +89,7 @@ function NamingSection({ text }) {
         [-0.2, 0.22, 0.27, 1], //Opacity 1
         [-0.2, 0.73, 0.77, 1], //Opacity 2
         [-0.2, -0.2, 0.2, 0.8, 1, 1], // Image Opacity
-        [-0.2, 0.2, 2 / 3],
+        [-0.2, 4 / 10, 1],
         [1 / 3, 3 / 4, 1]
         ]
     ]
@@ -273,20 +278,24 @@ function NamingSection({ text }) {
                 <DoubleColumn>
                     <ColumnImage scrollInfo={adjustedTimings[7][3]} backY={-12} fadeOut={false} child={<ImgBox url={getImageByKey('cute_robot')} displayDimensions={[70, 80]} rotate={0} />} />
                     <div>
-                        <ScrollingColumn scrollOut={false} scrollInfo={adjustedTimings[7][5]}>
-                            <OpacitySubheading scrollInfo={adjustedTimings[7][2]} dark={false} simpleFade={true} baseOpacity={0} text={[<p>So, it’s time to play.</p>]} />
+                        {/* <ScrollingColumn scrollOut={false} scrollInfo={adjustedTimings[7][5]}>
                             <OpacityParagraph scrollInfo={adjustedTimings[7][2]} baseOpacity={0} dark={false} simpleFade={true} text={
                                 [<p>We'll document our learning in real time to the advantage of our clients and the work we deliver. <b>Ultimately, we'll test the hypothesis that this ChatGPT era can supercharge our expertise and creative processes to arrive at stronger names than ever before.</b><br /><br />First up in our list of experiments - name generation.</p>]
                             } />
                             <OpacityParagraph scrollInfo={adjustedTimings[7][2]} dark={false} simpleFade={true} baseOpacity={0} text={[<Go>Let's go →</Go>]} />
-                        </ScrollingColumn>
-                        <ScrollingColumn scrollIn={false} scrollInfo={adjustedTimings[7][4]}>
-                            <OpacityParagraph scrollInfo={adjustedTimings[7][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                        </ScrollingColumn> */}
+                        <ScrollingColumn scrollInfo={adjustedTimings[7][4]}>
+                            <OpacitySubheading scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={[<p>So, it’s time to play.</p>]} />
+                            <OpacityParagraph scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={
                                 [<p>Our team is investing in a series of open, iterative trials to explore the potential new utility of AI to push the bounds of our naming capability, considering…</p>]
                             } />
-                            <OpacityList scrollInfo={adjustedTimings[7][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                            <OpacityList scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={
                                 ["Can we coach AI to deliver more creative ideas than it can at first blush?", "Which use cases is it great at? Where does it have limitations?", "Beyond mere generation, can it help refine, iterate, or even select optimal names?", "How do we balance the risks of AI with the immense upside to our creative capabilities?", "How do we build the Firmi 2.0 to take advantage of the opportunity?"]
                             } />
+                            <OpacityParagraph scrollInfo={adjustedTimings[7][0]} baseOpacity={0} dark={false} simpleFade={true} text={
+                                [<p>We'll document our learning in real time to the advantage of our clients and the work we deliver. <b>Ultimately, we'll test the hypothesis that this ChatGPT era can supercharge our expertise and creative processes to arrive at stronger names than ever before.</b><br /><br />First up in our list of experiments - name generation.</p>]
+                            } />
+                            <OpacityParagraph scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={[<Go>Let's go →</Go>]} />
                         </ScrollingColumn>
                     </div>
                 </DoubleColumn>
@@ -330,6 +339,9 @@ function NamingSection({ text }) {
             {/* Section 7 */}
             <Background background={getImageByKey('naming_gradient')} height={sectionHeights[7]} />
             {isMobile ? mobileRobotSection : desktopRobotSection}
+
+            <ArticleBlock/>
+            <Footer/>
         </div>
     )
 }

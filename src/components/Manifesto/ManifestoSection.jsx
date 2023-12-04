@@ -34,9 +34,9 @@ function ManifestoSection({ images }) {
         //0 Para 1 Trans   1 Para 1 Opacity               2 Para 2 Opacity              3 None     
         [[-1 / 8, 5 / 8], [-1 / 8, 1 / 8, 3 / 8, 5 / 8], [1 / 8, 3 / 8, 5 / 8, 7 / 8], [],
         //4 Para 3 Trans  5 Beach Robot         6 Para 3-2 Opacity
-        [3 / 8, 9 / 8], [0.61, 0.66, 0.9455, 1.125], [3 / 8, 6 / 8, 7 / 8, 9 / 8],
+        [3 / 8, 9 / 8], [0.6, 0.8, 0.9455, 1.125], [3 / 8, 6 / 8, 7 / 8, 9 / 8],
         //7 Para 2 Trans 8 Card     9 Para 3-1                    10 Robots             11 Beach Opacity
-        [1 / 8, 7 / 8], [0.75, 1], [3 / 8, 5 / 8, 6 / 8, 9 / 8], [0, 0.2, 0.5, 0.7], [0.6, 0.61, 1, 1.5],
+        [1 / 8, 7 / 8], [0.75, 1], [3 / 8, 5 / 8, 6 / 8, 9 / 8], [0, 0.2, 0.5, 0.7], [0.6, 0.8, 1, 1.5],
         //12                     13                     14
         [-1 / 8, 2 / 8, 5 / 8], [1 / 8, 4 / 8, 7 / 8], [3 / 8, 6 / 8, 9 / 8]
         ]]
@@ -201,10 +201,10 @@ function ManifestoSection({ images }) {
                 <OpacitySubheading scrollInfo={adjustedTimings[3][9]} dark={false} text={
                     ["How we'll play"]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][9]} dark={false} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][9]} dark={false} baseOpacity={1} text={
                     ["A cross-functional group of Lippincotters (spanning strategy, engineering, design and more) is getting our hands in the dirt to show how we can harness the power of AI in the field of creative consulting. We’ll touch different facets of our work, from brand name generation to customer research to brand expression design and beyond."]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][6]} dark={false} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][6]} dark={false} baseOpacity={1} text={
                     ["We choose creativity-led progress. We choose to believe humans and machines can be powerful together. And we choose not to talk about it from afar—but to test it out, get our hands in the sandbox, and really see what all this means."]
                 } />
             </>
@@ -217,10 +217,10 @@ function ManifestoSection({ images }) {
                 <OpacitySubheading scrollInfo={adjustedTimings[3][9]} dark={false} text={
                     ["How we'll play"]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][9]} dark={false} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][9]} dark={false} baseOpacity={1} text={
                     ["A cross-functional group of Lippincotters (spanning strategy, engineering, design and more) is getting our hands in the dirt to show how we can harness the power of AI in the field of creative consulting. We’ll touch different facets of our work, from brand name generation to customer research to brand expression design and beyond."]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][6]} dark={false} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][6]} dark={false} baseOpacity={1} text={
                     ["We choose creativity-led progress. We choose to believe humans and machines can be powerful together. And we choose not to talk about it from afar—but to test it out, get our hands in the sandbox, and really see what all this means."]
                 } />
             </ScrollingColumn>
