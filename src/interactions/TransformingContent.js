@@ -136,7 +136,7 @@ function TransformingTextBox({ child, positions, scrollInfo, alignment }) {
                 </div>
             </motion.div>
         )
-    } 
+    }
 }
 
 function ImgBox({ url, displayDimensions, rotate, fixWidth, fixHeight }) {

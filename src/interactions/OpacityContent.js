@@ -136,8 +136,9 @@ OpacityList.propTypes = {
 }
 
 //Opacity Subheading
-function OpacitySubheading({ text, scrollInfo, baseOpacity, simpleFade, dark, center }) {
+function OpacitySubheading({ text, scrollInfo, baseOpacity, simpleFade, dark, center, complexFade }) {
     let scrollReference = [scrollInfo[0], halfWay(scrollInfo[0], scrollInfo[1]), scrollInfo[1], scrollInfo[2], halfWay(scrollInfo[2], scrollInfo[3]), scrollInfo[3]]
+    if (complexFade) { scrollReference = [scrollInfo[0], scrollInfo[1], scrollInfo[1], scrollInfo[2], scrollInfo[2], scrollInfo[3]]}
     let opacityTransform = [baseOpacity, baseOpacity, 1, 1, baseOpacity, baseOpacity]
 
     if (simpleFade) {
@@ -175,6 +176,7 @@ OpacitySubheading.defaultProps = {
     dark: true,
     simpleFade: false,
     center: false,
+    complexFade: false,
 }
 
 OpacitySubheading.propTypes = {
@@ -184,6 +186,7 @@ OpacitySubheading.propTypes = {
     dark: PropTypes.bool,
     simpleFade: PropTypes.bool,
     center: PropTypes.bool,
+    complexFade: PropTypes.bool,
 }
 
 // Opacity Header

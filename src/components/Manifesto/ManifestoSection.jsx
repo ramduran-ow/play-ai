@@ -23,20 +23,20 @@ function ManifestoSection({ images }) {
     const sectionTimings = [
         //0 P1 Motion              1 P2 Motion             2 P3 Motion                3 P4 Motion                4 P5 Motion                 5 P6 Motion           
         [[-3 / 14, 1 / 14, 5 / 14], [0 / 7, 2 / 7, 8 / 14], [4 / 14, 7 / 14, 10 / 14], [6 / 14, 9 / 14, 12 / 14], [9 / 14, 12 / 14, 15 / 14], [11 / 14, 14 / 14, 17 / 14],
-        //6 P1 Opacity                      7 P2 Opacity                      8 P3 Opacity                      9 P4 Opacity                       10 P5 Opacity                       11 P6 Opacity
+        //6 P1 Opacity                                  7 P2 Opacity                      8 P3 Opacity                      9 P4 Opacity                       10 P5 Opacity                       11 P6 Opacity
         [-3 / 14, 0 / 14, 2 / 14, 5 / 14], [1 / 14, 3 / 14, 5 / 14, 7 / 14], [3 / 14, 6 / 14, 8 / 14, 11 / 14], [5 / 14, 8 / 14, 10 / 14, 13 / 14], [8 / 14, 11 / 14, 13 / 14, 16 / 14], [10 / 14, 13 / 14, 15 / 14, 18 / 14],
         //12 Avocado Toast Movement          13 Avocado Toast Opacity                           14 Avocado Left Motion
-        [1 / 14, 4 / 14, 16 / 14, 18 / 14], [1 / 14, 2 / 14, 3 / 14, 4 / 14, 5 / 14, 21 / 14], [5 / 14, 20 / 14], [11 / 14, 20 / 14]],
+        [1 / 14, 4 / 14, 16 / 14, 18 / 14], [1 / 14, 2 / 14, 3 / 14, 4 / 14, 5 / 14, 21 / 14], [5 / 14, 20 / 14], [11 / 14, 19 / 14]],
         // Empty
         [],
         //Choose
         [[-1 / 4, 1 / 2, 11 / 4], [-1 / 4, 1 / 4, 3 / 4, 4 / 2]],
         //0 Para 1 Trans   1 Para 1 Opacity               2 Para 2 Opacity              3 None     
-        [[-1 / 8, 5 / 8], [-1 / 8, 1 / 8, 3 / 8, 5 / 8], [1 / 8, 3 / 8, 5 / 8, 7 / 8], [],
+        [[-1 / 8, 5 / 8], [-1 / 8, 7 / 32, 9 / 32, 5 / 8], [1 / 8, 15 / 32, 17 / 32, 7 / 8], [],
         //4 Para 3 Trans  5 Beach Robot         6 Para 3-2 Opacity
         [3 / 8, 9 / 8], [0.6, 0.8, 0.9455, 1.125], [3 / 8, 6 / 8, 7 / 8, 9 / 8],
         //7 Para 2 Trans 8 Card     9 Para 3-1                    10 Robots             11 Beach Opacity
-        [1 / 8, 7 / 8], [0.75, 1], [3 / 8, 5 / 8, 6 / 8, 9 / 8], [0, 0.2, 0.5, 0.7], [0.6, 0.8, 1, 1.5],
+        [1 / 8, 7 / 8], [0.75, 1], [3 / 8, 5 / 8, 6 / 8, 9 / 8], [0.1, 0.3, 0.5, 0.7], [0.6, 0.8, 1, 1.5],
         //12                     13                     14
         [-1 / 8, 2 / 8, 5 / 8], [1 / 8, 4 / 8, 7 / 8], [3 / 8, 6 / 8, 9 / 8]
         ]]
@@ -62,35 +62,35 @@ function ManifestoSection({ images }) {
         <>
             <TransformingTextBox positions={[6, 6, 6]} scrollInfo={adjustedTimings[0][0]} alignment={'top'} specialWidth={'82rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][0]}>
-                    <OpacitySubheading scrollInfo={adjustedTimings[0][6]} simpleFade={true} center baseOpacity={0} text={
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][6]} center baseOpacity={0} text={
                         [<p>“It will take our jobs.”<br />“It's the AI apocalypse.”<br /><br />Today, any consumer of news has seen dire predictions about Artificial Intelligence. And many people, in the creative industries and beyond, are preparing for the worst.</p>]
                     } />
                 </ScrollingColumn>
             } />
             <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][2]} alignment={'top'} specialWidth={'78rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][2]}>
-                    <OpacitySubheading scrollInfo={adjustedTimings[0][8]} simpleFade={true} center baseOpacity={0} text={
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][8]} center baseOpacity={0} text={
                         [<p>And while we're all for tossing predictions around like avocado toast recipes on Instagram, what if the truth is somewhere between the fantasy and the fear mongering?</p>]
                     } />
                 </ScrollingColumn>
             } />
             <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][3]} alignment={'top'} specialWidth={'115rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][3]}>
-                    <OpacitySubheading scrollInfo={adjustedTimings[0][9]} simpleFade={true} center baseOpacity={0} text={
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][9]} center baseOpacity={0} text={
                         [<p>Here's what we believe:<br /><br />Exercising caution with any new technology is necessary. But choosing to be cautiously optimistic will open up a world of possibilities for our industry. The only way to understand the potential of new tech is to dive head first and learn.<br /><br />And to learn, we must PLAY.</p>]
                     } />
                 </ScrollingColumn>
             } />
             <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][4]} alignment={'top'} specialWidth={'100rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][4]}>
-                    <OpacitySubheading scrollInfo={adjustedTimings[0][10]} simpleFade={true} center baseOpacity={0} text={
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][10]} center baseOpacity={0} text={
                         [<p>It's certainly clear that AI will change how we do business. But, for anyone that has moved past worrying about doomsday scenarios into early adoption, it's also clear there will be plenty of business to do be done.</p>]
                     } />
                 </ScrollingColumn>
             } />
             <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][5]} alignment={'top'} specialWidth={'93rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][5]}>
-                    <OpacitySubheading scrollInfo={adjustedTimings[0][11]} simpleFade={true} center baseOpacity={0} text={
+                    <OpacitySubheading scrollInfo={adjustedTimings[0][11]} center baseOpacity={0} text={
                         [<p>There are plenty of things about AI we  don't know, but one thing do:<br /><br />AI is not going to take your next job, but a person who knows how to use it just might</p>]
                     } />
                 </ScrollingColumn>
@@ -133,10 +133,10 @@ function ManifestoSection({ images }) {
     const desktopCreativity = (
         <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[2][0]} alignment={'top'} child={
             <ScrollingColumn scrollInfo={adjustedTimings[2][0]}>
-                <OpacitySubheading scrollInfo={adjustedTimings[2][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacitySubheading scrollInfo={adjustedTimings[2][1]} dark={false} text={
                     ["Creativity creates progress"]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[2][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[2][1]} dark={false} text={
                     [<p>Clamping down now is a bit like the church putting Galileo under house arrest for creating alternative models of the solar system: it's a defensive reflex. While we can't fully predict in abstract how AI will affect our businesses, ongoing and exploratory participation can help us determine how best to integrate it into our daily professional lives.<br /><br />Enough ink has been spilled on the power of AI. The disruption of AI. The hypothesis of how AI will change everything. But who's experimenting? As creatives and consultants have a duty to chart a course beyond convention. In short, we can play.</p>]
                 } />
             </ScrollingColumn>
@@ -146,10 +146,10 @@ function ManifestoSection({ images }) {
     const mobileWeChoose = (
         <TransformingTextBox positions={[27, 27]} scrollInfo={adjustedTimings[3][0]} alignment={'top'} child={
             <ScrollingColumn scrollInfo={adjustedTimings[3][12]}>
-                <OpacitySubheading scrollInfo={adjustedTimings[3][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacitySubheading scrollInfo={adjustedTimings[3][1]} dark={false} baseOpacity={0} text={
                     ["We choose play"]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][1]} dark={false} baseOpacity={0} text={
                     ["These next few months, we're going deep on a grand experiment. We are still in the early stages of understanding AI and its full potential and limitations. By experimenting with AI, we aim to gain a deeper understanding of its capabilities and limitations and make informed decisions about how best to use it. And you get to follow along."]
                 } />
             </ScrollingColumn>
@@ -159,10 +159,10 @@ function ManifestoSection({ images }) {
     const desktopWeChoose = (
         <TransformingTextBox positions={[27, 27]} scrollInfo={adjustedTimings[3][0]} alignment={'top'} child={
             <ScrollingColumn scrollInfo={adjustedTimings[3][12]}>
-                <OpacitySubheading scrollInfo={adjustedTimings[3][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacitySubheading scrollInfo={adjustedTimings[3][1]} dark={false} text={
                     ["We choose play"]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][1]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][1]} dark={false} text={
                     ["These next few months, we're going deep on a grand experiment. We are still in the early stages of understanding AI and its full potential and limitations. By experimenting with AI, we aim to gain a deeper understanding of its capabilities and limitations and make informed decisions about how best to use it. And you get to follow along."]
                 } />
             </ScrollingColumn>
@@ -172,10 +172,10 @@ function ManifestoSection({ images }) {
     const mobileHowWell = (
         <TransformingTextBox positions={[27, 27]} scrollInfo={adjustedTimings[3][7]} alignment={'top'} child={
             <ScrollingColumn scrollInfo={adjustedTimings[3][13]}>
-                <OpacitySubheading scrollInfo={adjustedTimings[3][2]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacitySubheading scrollInfo={adjustedTimings[3][2]} dark={false} text={
                     ["Where we'll play"]
                 } />
-                <OpacityList scrollInfo={adjustedTimings[3][2]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacityList scrollInfo={adjustedTimings[3][2]} dark={false} text={
                     ["Customer & User Research", "Messaging, Writing & Naming", "Value Propositions & Concept Testing", "Art Direction & Design", "Asset Production", "Risk & Governance", "HR & Recruitment"]
                 } />
             </ScrollingColumn>
@@ -185,10 +185,10 @@ function ManifestoSection({ images }) {
     const desktopHowWell = (
         <TransformingTextBox positions={[27, 27]} scrollInfo={adjustedTimings[3][7]} alignment={'top'} child={
             <ScrollingColumn scrollInfo={adjustedTimings[3][13]}>
-                <OpacitySubheading scrollInfo={adjustedTimings[3][2]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacitySubheading scrollInfo={adjustedTimings[3][2]} dark={false} text={
                     ["Where we'll play"]
                 } />
-                <OpacityList scrollInfo={adjustedTimings[3][2]} dark={false} simpleFade={true} baseOpacity={0} text={
+                <OpacityList scrollInfo={adjustedTimings[3][2]} dark={false} text={
                     ["Customer & User Research", "Messaging, Writing & Naming", "Value Propositions & Concept Testing", "Art Direction & Design", "Asset Production", "Risk & Governance", "HR & Recruitment"]
                 } />
             </ScrollingColumn>
@@ -201,10 +201,10 @@ function ManifestoSection({ images }) {
                 <OpacitySubheading scrollInfo={adjustedTimings[3][9]} dark={false} text={
                     ["How we'll play"]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][9]} dark={false} baseOpacity={1} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][9]} dark={false} text={
                     ["A cross-functional group of Lippincotters (spanning strategy, engineering, design and more) is getting our hands in the dirt to show how we can harness the power of AI in the field of creative consulting. We’ll touch different facets of our work, from brand name generation to customer research to brand expression design and beyond."]
                 } />
-                <OpacityParagraph scrollInfo={adjustedTimings[3][6]} dark={false} baseOpacity={1} text={
+                <OpacityParagraph scrollInfo={adjustedTimings[3][6]} dark={false} text={
                     ["We choose creativity-led progress. We choose to believe humans and machines can be powerful together. And we choose not to talk about it from afar—but to test it out, get our hands in the sandbox, and really see what all this means."]
                 } />
             </>
@@ -232,12 +232,12 @@ function ManifestoSection({ images }) {
     return (
         <div style={{ position: "relative", height: "100%", width: "100%" }}>
 
-            <Transition scrollInfo={[st - 0.1, st - 0.05, st]} />
+            <Transition scrollInfo={[0, st - 0.1, st - 0.05, st]} />
 
             {/* SECTION 1 */}
             <Background background={"#202020"} height={sectionHeights[0]} />
             <Background background={"#202020"} height={sectionHeights[1]} />
-            <Transition scrollInfo={[0.59, 0.65, 0.7]} background={images.manifesto_gradient} solidBackground />
+            <Transition scrollInfo={[0.59, 0.6, 0.62, 0.7]} background={images.manifesto_gradient} solidBackground />
             {avocados}
             {introParagraphs}
 

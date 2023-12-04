@@ -119,8 +119,8 @@ TransitionBackground.propTypes = {
 function Transition({ background, scrollInfo, solidBackground }) {
     const { scrollYProgress } = useScroll();
 
-    const opacity = useTransform(scrollYProgress, scrollInfo, [0, 1, 1])
-    const visible = useTransform(scrollYProgress, [0, scrollInfo[0], scrollInfo[1], scrollInfo[2], 1], ['none', 'none', 'block', 'block', 'none'])
+    const opacity = useTransform(scrollYProgress, scrollInfo, [0, 0, 1, 1])
+    const visible = useTransform(scrollYProgress, [0, scrollInfo[0], scrollInfo[1], scrollInfo[2], scrollInfo[3], 1], ['none', 'none', 'block', 'block', 'block', 'none'])
 
     return (
         <>
