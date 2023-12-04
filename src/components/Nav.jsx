@@ -1,25 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { styled } from 'styled-components';
 import { sizes } from './constants/devices';
+import { NavLink } from 'react-router-dom';
 
 const NavContainer = styled.nav`
     position: fixed;
     top: ${props => props.$top};
     transition: top 0.4s ease-out;
     background-color: transparent;
-    // border-bottom: 1px solid black;
     width: 100%;
     height: 100px; 
     z-index: 99999;
     display: flex;
     justify-content: center;
-
-    // @media only screen and (max-width: ${sizes.tablet}) {
-    //     height: 32px;
-    // }
-    // @media only screen and (max-width: ${sizes.mobileL}) {
-    //     height: 50px;
-    // }
 `;
 
 const NavContentWrapper = styled.div`
@@ -67,7 +60,9 @@ const Nav = () => {
         <NavContainer $top={top}>
             <NavContentWrapper>
                 <ImageWrapper>
-                    <Logo src="images/lip-logo-black.png"/>
+                    <NavLink to={'/'}>
+                        <Logo src="images/lip-logo-black.png"/>
+                    </NavLink>
                 </ImageWrapper>
             </NavContentWrapper>
         </NavContainer>
