@@ -49,7 +49,7 @@ const Logo = styled.img`
 const Nav = ({ isLandingPage }) => {
     const [position, setPosition] = useState(window.scrollY);
     const [visible, setVisible] = useState(false);
-    let hideTimeout;
+    // let hideTimeout;
 
     const handleScroll = () => {
         if(isLandingPage) {
