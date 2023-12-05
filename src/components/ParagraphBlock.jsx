@@ -169,7 +169,7 @@ const ParagraphBlock = ({
 }) => {
     const [subHeaderVisible, setSubHeaderVisible] = useState(false);
     const [glitchVisible, setGlitchVisible] = useState(false);
-    const ref = useRef(null);
+    const ref = useRef(null);  
     const contentRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -182,9 +182,11 @@ const ParagraphBlock = ({
     }
 
     const handleBackgroundChange = () => {
+        
         setGlitchVisible(true);
         setTimeout(() => {
             setGlitchVisible(false);
+            //window.scrollTo() <-- use window.innerheight to calculate beginning of new section
           }, 1500);
     }
 
@@ -203,7 +205,7 @@ const ParagraphBlock = ({
     // );
 
     const GlitchImage = (
-        <PBlockContainer $backgroundImage={glitchImage}>
+        <PBlockContainer $backgroundImage={glitchImage} style={{zIndex: 2}}>
             <PBlockContentWrapper>
                 <RegenerateBadge>
                     ...regenerating content...
