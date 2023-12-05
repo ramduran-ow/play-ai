@@ -193,7 +193,7 @@ function ManifestoSection({ images }) {
                 </>
             } />
 
-            <TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 50]} rotate={0} />} positions={[[-175, -75, -75, -40, -35, 100], [0, 0, 0, 0, 0, 0]]} scrollInfo={adjustedTimings[2][5]} alignment={['left', 'bottom']} />
+            <TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 50]} fixHeight rotate={0} />} positions={[[-175, -75, -75, -40, -35, 100], [0, 0, 0, 0, 0, 0]]} scrollInfo={adjustedTimings[2][5]} alignment={['left', 'bottom']} />
             <TransformingTextBox positions={[27, 27, 27, -50]} scrollInfo={adjustedTimings[2][7]} alignment={'top'} child={
                 <>
                     <OpacitySubheading scrollInfo={adjustedTimings[2][2]} dark={false} simpleFade={true} baseOpacity={0} text={

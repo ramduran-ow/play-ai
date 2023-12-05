@@ -37,9 +37,9 @@ function NamingExperimentSection() {
     // load images
     // const images = useNamingImageLoader();
 
-    //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13   14   15   16   17   18
+    //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13  14  15  16  17   18
     const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 300, 0, 200, 400, 250, 400, 0, 600, 0, 200, 1200]
-    const endblock = 1320 / window.innerHeight * 100
+    const endblock = 0// 1320 / window.innerHeight * 100
 
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
@@ -315,7 +315,7 @@ function NamingExperimentSection() {
     //SECTION 13
     const mobileVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03A} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
+            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[13][1]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
@@ -332,7 +332,7 @@ function NamingExperimentSection() {
 
     const desktopVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03A} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
+            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[13][1]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
@@ -350,7 +350,7 @@ function NamingExperimentSection() {
     //SECTION 15
     const mobileVideoAbstract02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 5]]} scrollInfo={adjustedTimings[15][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][4]} child={
+            child={<VideoBox url={abstract_fullscreen_03A} displayWidth={85} scrollInfo={adjustedTimings[15][4]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[15][3]} displayWidth={85} heightRatio={videoRatio} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[15][1]} simpleFade={true} text={
@@ -373,7 +373,7 @@ function NamingExperimentSection() {
 
     const desktopVideoAbstract02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 5]]} scrollInfo={adjustedTimings[15][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][4]} child={
+            child={<VideoBox url={abstract_fullscreen_03A} displayWidth={85} scrollInfo={adjustedTimings[15][4]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[15][3]} displayWidth={85} heightRatio={videoRatio} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[15][1]} simpleFade={true} text={

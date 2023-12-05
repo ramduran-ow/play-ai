@@ -19,6 +19,7 @@ const Indicator = styled.div`
     border-radius: 2.8rem;
     overflow: hidden;
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 
     @media only screen and (max-width: ${sizes.mobileL}) {
         width: 3.4rem;
@@ -117,14 +118,13 @@ function ExperimentIndicator(heightsInfo, sectionHeights, sum, index) {
 
 function calculateInfos(heightsInfo, sectionHeights) {
 
-    const endblock = 1320 / window.innerHeight * 100
-    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0) + endblock
+    const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0)
 
     let visibleInfo = []
     let visibility = ['none']
     for (let i = 0; i < heightsInfo.length; i++) { visibleInfo = visibleInfo.concat(heightsInfo[i]); visibility = visibility.concat(['none', 'block']) }
     visibleInfo = visibleInfo.map(function (t) {
-        const localSum = sectionHeights.slice(0, t).reduce((partialSum, a) => partialSum + a, 0) + endblock
+        const localSum = sectionHeights.slice(0, t).reduce((partialSum, a) => partialSum + a, 0)
         return localSum / sum
     })
     visibleInfo = [0].concat(visibleInfo.concat([1])); visibility = visibility.concat(['none'])

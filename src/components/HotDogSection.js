@@ -16,10 +16,16 @@ export { HotDogSection }
 
 const ContactButton = styled.button`
     margin: 0;
-    width: 20rem;
+    width: 100%;
     height: 5.9rem;
 
     background-color: white;
+    color: black;
+    &:hover {
+      background-color: #202020;
+      color: white;
+    }
+
     border: 1px black solid;
     border-radius: 0.5rem;
 
@@ -29,25 +35,6 @@ const ContactButton = styled.button`
 
     @media only screen and (max-width: ${sizes.mobileL}) {
         width: 13rem;
-        height: 5rem;
-        font-size: 1.4rem;
-    }
-`;
-
-const ExpandingContactButton = styled.button`
-    margin: 0;
-    width: 100%;
-    height: 5.9rem;
-
-    background-color: white;
-    border: 1px black solid;
-    border-radius: 0.5rem;
-
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 2rem;
-
-    @media only screen and (max-width: ${sizes.mobileL}) {
         height: 5rem;
         font-size: 1.4rem;
     }
@@ -173,7 +160,7 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
           <ImgBox url={getImageByKey("shadow")} displayDimensions={[70, 45]} rotate={0} />
         } />
       } />
-       <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={1} child={
+      <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={1} child={
         <TransformingContent positions={[[7, 7, 7, 60, 60, 60], [-100, 14, 14, 14, 14, 100]]} scrollInfo={adjustedTimings[6][2]} alignment={['right', 'bottom']} child={
           <ImgBox url={getImageByKey("hotdog")} displayDimensions={[33, 65]} rotate={0} />
         } />
@@ -196,9 +183,7 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
         style={{ width: "100%", marginBottom: '3.2rem' }}
       />
       <div style={{ width: '100%', textAlign: 'center' }}>
-        <motion.div whileTap={{ scale: 0.95 }} onClick={handleStartOver}>
-          <ContactButton>Start Over</ContactButton>
-        </motion.div>
+        <ContactButton style={{ maxWidth: '20rem' }} onClick={handleStartOver}>Start Over</ContactButton>
       </div>
     </RestaurantContainer>
   );
@@ -213,16 +198,14 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
 
       {isTablet ? mobileToys : desktopToys}
 
-      <TransformingTextBox positions={[100, 0, 0, -120]} doubled scrollInfo={adjustedTimings[6][0]} alignment={'top'} child={
+      <TransformingTextBox positions={[100, -120]} doubled scrollInfo={adjustedTimings[6][0]} alignment={'top'} child={
         <DoubleColumn>
           <div></div>
-          <motion.div className='hotDogMainCont' style={{ maxWidth: '68.2rem', textAlign: 'left', height: '100vh', position: 'relative' }}>
+          <motion.div className='hotDogMainCont' style={{ textAlign: 'left', width: '75rem', position: 'relative' }}>
             <RightColumn>
-              <ArticleSubHeading>{namingStarted ? selectedOption ? "Let me show you what my dreams are made of" : "How did I do? Pick your favorite" : "Let's name that gourmet hot dog restaurant you've always wanted to make"}</ArticleSubHeading>
-              {namingStarted ? (selectedOption ? ( clickableModule ) : (<NamingButtons onOptionClick={handleOptionClick} />)) : (
-                <motion.div whileTap={{ scale: 0.95 }} onClick={() => setNamingStarted(true)} disabled={namingStarted}>
-                  <ContactButton> {namingStarted ? "NAMING STARTED" : "START NAMING"} </ContactButton>
-                </motion.div>
+              <ArticleSubHeading style={{maxWidth: '68rem'}}>{namingStarted ? selectedOption ? "Let me show you what my dreams are made of" : "How did I do? Pick your favorite" : "Let's name that gourmet hot dog restaurant you've always wanted to make"}</ArticleSubHeading>
+              {namingStarted ? (selectedOption ? (clickableModule) : (<NamingButtons onOptionClick={handleOptionClick} />)) : (
+                <ContactButton style={{ maxWidth: '20rem' }} onClick={() => setNamingStarted(true)} disabled={namingStarted}> {namingStarted ? "NAMING STARTED" : "START NAMING"} </ContactButton>
               )}
             </RightColumn>
           </motion.div>
@@ -245,14 +228,14 @@ const NamingButtons = ({ onOptionClick }) => {
     <InsideColumn>
       <div>
         {option1.map((option, index) => (
-          <motion.div key={index} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => onOptionClick(option)} style={{ marginBottom: '3.2rem' }}>
-            <ExpandingContactButton style={{ maxWidth: '32.6rem' }}> {option} </ExpandingContactButton>
+          <motion.div key={index} onClick={() => onOptionClick(option)} style={{ marginBottom: '3.2rem' }}>
+            <ContactButton style={{ maxWidth: '32.6rem' }}> {option} </ContactButton>
           </motion.div>))}
       </div>
       <div>
         {option2.map((option, index) => (
-          <motion.div key={index} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => onOptionClick(option)} style={{ marginBottom: '3.2rem' }}>
-            <ExpandingContactButton style={{ maxWidth: '32.6rem' }}> {option} </ExpandingContactButton>
+          <motion.div key={index} onClick={() => onOptionClick(option)} style={{ marginBottom: '3.2rem' }}>
+            <ContactButton style={{ maxWidth: '32.6rem' }}> {option} </ContactButton>
           </motion.div>))}
       </div>
     </InsideColumn>

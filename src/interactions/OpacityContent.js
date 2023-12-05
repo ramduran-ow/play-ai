@@ -136,8 +136,8 @@ OpacityList.propTypes = {
 }
 
 //Opacity Subheading
-function OpacitySubheading({ text, scrollInfo, baseOpacity, simpleFade, dark, center, complexFade }) {
-    let scrollReference = [scrollInfo[0], halfWay(scrollInfo[0], scrollInfo[1]), scrollInfo[1], scrollInfo[2], halfWay(scrollInfo[2], scrollInfo[3]), scrollInfo[3]]
+function OpacitySubheading({ text, scrollInfo, baseOpacity, simpleFade, dark, center, complexFade, fadeRatio }) {
+    let scrollReference = [scrollInfo[0], halfWay(scrollInfo[0], scrollInfo[1], fadeRatio), scrollInfo[1], scrollInfo[2], halfWay(scrollInfo[2], scrollInfo[3], 1 - fadeRatio), scrollInfo[3]]
     if (complexFade) { scrollReference = [scrollInfo[0], scrollInfo[1], scrollInfo[1], scrollInfo[2], scrollInfo[2], scrollInfo[3]]}
     let opacityTransform = [baseOpacity, baseOpacity, 1, 1, baseOpacity, baseOpacity]
 
@@ -177,6 +177,7 @@ OpacitySubheading.defaultProps = {
     simpleFade: false,
     center: false,
     complexFade: false,
+    fadeRatio: 0.5
 }
 
 OpacitySubheading.propTypes = {
@@ -187,6 +188,7 @@ OpacitySubheading.propTypes = {
     simpleFade: PropTypes.bool,
     center: PropTypes.bool,
     complexFade: PropTypes.bool,
+    fadeRatio: PropTypes.number,
 }
 
 // Opacity Header
@@ -243,6 +245,6 @@ OpacityHeading.propTypes = {
     simpleFade: PropTypes.bool,
 }
 
-function halfWay(a, b) {
-    return (b - a) / 2 + a
+function halfWay(a, b, ratio = 0.5) {
+    return (b - a) * ratio + a
 }

@@ -27,7 +27,7 @@ export { NamingSection }
 
 function NamingSection({ text }) {
 
-    const endblock = 700 / window.innerHeight * 100
+    const endblock = 1320 / window.innerHeight * 100
 
     //Heights                0    1    2    3    4    5    6    7
     const sectionHeights = [250, 400, 400, 300, 200, 0, 400, 500]
@@ -79,7 +79,7 @@ function NamingSection({ text }) {
         [0, 0, 1, 1]],
 
         // [6] Section 6 - hotdog
-        [[0.5, 0.55, 0.75, 1.2],                          //TEXT
+        [[0.5, 1.2],                          //TEXT
         [0, 0.25, 0.3, 0.5],                            //TOYPILE
         [0, 0.25, 0.28, 0.53, 0.75, 1.1],                // hotdog scroll
         [0, 0.25, 0.75, 1.2]],                          //HOTDOG opacity
