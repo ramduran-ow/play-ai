@@ -22,6 +22,7 @@ import { FadingHeader } from "../interactions/FadingHeader.js"
 import { HotDogSection } from '../components/HotDogSection.js';
 import ArticleBlock from '../components/ArticleBlock.jsx';
 import Footer from '../components/Footer/Footer.jsx'
+import Nav from '../components/Nav.jsx';
 
 export { NamingSection }
 
@@ -305,6 +306,8 @@ function NamingSection({ text }) {
 
     return (
         <div style={{ position: "relative", height: "100%", width: "100%" }}>
+            <Nav />
+
             {/* HEADER: Section 0 */}
             <TransitionBackground background={getImageByKey("naming_gradient")} height={sectionHeights[0]} startHeight={0} hasTransition={true} delayed={[0.5, 1]} />
             <TransformingContent child={<OpacityContent baseOpacity={0} scrollInfo={adjustedTimings[0][3]} child={<ImgBox url={getImageByKey("headerShadeExperiment")} displayDimensions={[85, 25]} rotate={0} />} />} positions={[[7.5, 7.5, 7.5, 7.5], [0, 0, 0, 0]]} scrollInfo={adjustedTimings[0][0]} alignment={['left', 'bottom']} />

@@ -118,7 +118,6 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
       <Routes>
         <Route path="/" element={LandingPage} />
         <Route path="/naming-experiments" element={<NamingExperimentSection/>} />

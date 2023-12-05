@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^0.9.483",
+    "@splinetool/runtime": "^0.9.518",
     "@splinetool/viewer": "^0.9.489",
     "@studio-freight/lenis": "^1.0.27",
     "@testing-library/jest-dom": "^5.17.0",
