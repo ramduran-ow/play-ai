@@ -37,7 +37,7 @@ function Hero({ handlePlayerChange, player }) {
   /////////////
   const headerSlides = [
     {
-      player: "https://prod.spline.design/BXGaHUH6bgnmdYQD/scene.splinecode",
+      player: "https://prod.spline.design/Tzm0Yx5E2rLLcBPr/scene.splinecode",
       playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
       playerPNG: "images/players/SymbolBase.png",
       icon: "symbol",
@@ -47,7 +47,7 @@ function Hero({ handlePlayerChange, player }) {
       text:'/Prompt: <b>Futuristic</b>'
     },
     {
-      player: "https://prod.spline.design/tFZcT93-fk0rHYBE/scene.splinecode",
+      player: "https://prod.spline.design/KyFTr0g3yATY22L1/scene.splinecode",
       playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
       playerPNG: "images/players/DogBase.png",
       icon: "dog",
@@ -57,7 +57,7 @@ function Hero({ handlePlayerChange, player }) {
       text: '/Prompt: <b>Dog(e)-Mode</b>'
     },
     {
-      player: "https://prod.spline.design/VQE9YISAlTwDj5Ff/scene.splinecode",
+      player: "https://prod.spline.design/qTXXVPwhqXFHSma5/scene.splinecode",
       playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
       playerPNG: "images/players/QuillBase.png",
       icon: "quill",
@@ -67,7 +67,7 @@ function Hero({ handlePlayerChange, player }) {
       text: '/Prompt: <b>Shakespearinator</b>'
     },
     {
-      player: "https://prod.spline.design/jtAWEZhNQYMpZVNw/scene.splinecode",
+      player: "https://prod.spline.design/bhPY5q3v66X4rUKi/scene.splinecode",
       playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
       playerPNG: "images/players/GuitarBase.png",
       icon: "guitar",
@@ -76,7 +76,7 @@ function Hero({ handlePlayerChange, player }) {
       text: '/Prompt: <b>Heavy Metal-ic</b>'
     },
     {
-      player: "https://prod.spline.design/RnD9t6cTp-QAsGEQ/scene.splinecode",
+      player: "https://prod.spline.design/FsU-V8XgBeQRJ6pD/scene.splinecode",
       playerResetID: "c0f7bdf9-6453-42af-808a-a35519934bc5",
       playerPNG: "images/players/SphereBase.png",
       icon: "sphere",
@@ -161,40 +161,6 @@ function Hero({ handlePlayerChange, player }) {
 
     document.body.appendChild(script);
   }, []);
-  ////////////////////
-  /// PLAYERS VIEW ///
-  ////////////////////
-  const preparePlayersViewers = () => {
-    headerSlides.forEach((data, index) => {
-      playersEl.current[index]._spline.stop();
-      ///
-      playersEl.current[index].addEventListener(
-        "viewport-intersection",
-        (e) => {
-          //console.log(e.detail.intersection);
-          if (e.detail.intersection) {
-            e.target._spline.play();
-            const resetObj = e.target._spline.findObjectById(
-              "c0f7bdf9-6453-42af-808a-a35519934bc5"
-            );
-            resetObj.emitEventReverse("mouseUp");
-          } else {
-            e.target._spline.stop();
-          }
-        }
-      );
-      playersEl.current[index].addEventListener("load-complete", (e) => {
-        SetPlayerSelected(0);
-        e.target._spline.stop();
-      });
-    });
-  };
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      preparePlayersViewers();
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []); // eslint-disable-line
 
   const _getTop = (i) => {    
     if (playersSlidesEl.current[playerSelected]) {
