@@ -53,7 +53,7 @@ function NamingSection({ text }) {
         [0.5, 0.7, 1.0545],  // [7] Dino Day 
         [0.35, 0.4, 0.5, 0.65], // 8
         [0.65, 0.7, 0.8, 1] //9
-        ],                       
+        ],
 
         // [2] Section 2
         //s,   tIn  - tOut tIn - tOut   e
@@ -91,8 +91,8 @@ function NamingSection({ text }) {
         [-0.2, 0.73, 0.77, 1.25], //Opacity 2
         [-0.2, -0.2, 0.2, 0.8, 1, 1.25], // Image Opacity
         [-0.2, 4 / 10, 1.25],
-        [1 / 3, 3 / 4, 1.25]
-        ]
+        [1 / 3, 3 / 4, 1.25],
+        [-0.2, 1.25]]
     ]
     let adjustedTimings = []
 
@@ -275,7 +275,7 @@ function NamingSection({ text }) {
 
     const desktopRobotSection = (
         <>
-            <TransformingTextBox positions={[127, 10, 10, -100]} scrollInfo={adjustedTimings[7][0]} alignment={'top'} doubled child={
+            <TransformingTextBox positions={[127, -100]} scrollInfo={adjustedTimings[7][6]} alignment={'top'} doubled child={
                 <DoubleColumn>
                     <ColumnImage scrollInfo={adjustedTimings[7][3]} backY={-12} fadeOut={false} child={<ImgBox url={getImageByKey('cute_robot')} displayDimensions={[70, 80]} rotate={0} />} />
                     <div>
@@ -343,8 +343,8 @@ function NamingSection({ text }) {
             <Background background={getImageByKey('naming_gradient')} height={sectionHeights[7]} />
             {isMobile ? mobileRobotSection : desktopRobotSection}
 
-            <ArticleBlock/>
-            <Footer/>
+            <ArticleBlock />
+            <Footer />
         </div>
     )
 }

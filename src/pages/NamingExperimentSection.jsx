@@ -39,7 +39,7 @@ function NamingExperimentSection() {
     // const images = useNamingImageLoader();
 
     //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13  14  15  16  17   18
-    const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 300, 0, 200, 400, 250, 400, 0, 600, 0, 200, 1200]
+    const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 300, 0, 200, 200, 250, 400, 0, 600, 0, 200, 900]
     const endblock = 1320 / window.innerHeight * 100
 
     //Timings | Timings are adjusted to start - end of section
@@ -67,7 +67,7 @@ function NamingExperimentSection() {
         //10, Video
         [[0, 0.6, 1.3], [0, 1.3]],
         //11 Para 1 Motion                Transform + Opacity
-        [[-0.2, -0.2, 0.16, 0.77, 1, 1], [-0.2, 0.16, 0.77, 1]],
+        [[-0.2, -0.2, 0.16, 0.77, 1, 1], [-0.2, 0.16, 0.77, 1], [0, 1.2]],
         //12 Fading Section Header
         [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //13 Video
@@ -81,7 +81,7 @@ function NamingExperimentSection() {
         //17 Video
         [[0, 0.6, 1.3], [0, 1.3]],
         //18 Para O 1         Para O 2                  Para O 3           Scroll 1           Scroll 2               Scroll 3           Robot O 1                       Robot O 2                       Robot O 3      
-        [[0, 0.14, 0.18, 1], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5 / 6, 1], [0, 0, 0.14, 0.6, 0.8, 1], [0, 0, 0, 0, 0, 1], [0, 0.66, 0.80, 0.84, 1, 1]],
+        [[0, 0.14, 0.18, 1], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1.25], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5 / 6, 1], [0, 0, 0.14, 0.6, 0.8, 1.25], [0, 0, 0, 0, 0, 1.25], [0, 0.66, 0.80, 0.84, 1, 1.25]],
     ]
     let adjustedTimings = []
 
@@ -296,7 +296,7 @@ function NamingExperimentSection() {
 
     //SECTION 11
     const desktopWhileThese = (
-        <TransformingTextBox doubled positions={[127, 16, 16, -100]} scrollInfo={adjustedTimings[11][1]} alignment={'top'} child={
+        <TransformingTextBox doubled positions={[100, -100]} scrollInfo={adjustedTimings[11][2]} alignment={'top'} child={
             <DoubleColumn>
                 <ColumnImage scrollInfo={adjustedTimings[11][0]} backY={-2} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
                 <div>
@@ -444,7 +444,7 @@ function NamingExperimentSection() {
     )
 
     const desktopToKeep = (
-        <TransformingTextBox doubled positions={[10, 10, 10, -100]} scrollInfo={adjustedTimings[18][2]} alignment={'top'} child={
+        <TransformingTextBox doubled positions={[10, 10, 10, -130]} scrollInfo={adjustedTimings[18][2]} alignment={'top'} child={
             <DoubleColumn>
                 <ColumnImage scrollInfo={adjustedTimings[18][8]} backY={-9.25} fadeIn={false} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
                 <ScrollingColumn scrollInfo={adjustedTimings[18][5]} scrollOut={false} >
