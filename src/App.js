@@ -2,7 +2,6 @@ import './App.css';
 import React, { useState } from 'react';
 import STRINGS from './components/constants/strings';
 import DefaultLanding from './pages/DefaultLanding';
-import Nav from './components/Nav';
 // import Hero from './components/Hero/Hero';
 // import { ManifestoSection } from './components/Manifesto/ManifestoSection';
 import NAMING_STRINGS from './components/constants/textContent';
@@ -118,7 +117,6 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
       <Routes>
         <Route path="/" element={LandingPage} />
         <Route path="/naming-experiments" element={<NamingExperimentSection/>} />

@@ -7,12 +7,23 @@ const NavContainer = styled.nav`
     position: fixed;
     top: ${props => props.$top};
     transition: top 0.4s ease-out;
-    background-color: transparent;
+    // background-color: transparent;
+    background-color: ${props => props.$background};
+    border-bottom: ${props => props.$background === 'white' ? '1px solid black' : 'none'};
     width: 100%;
-    height: 100px; 
+    height: 72px; 
     z-index: 99999;
     display: flex;
     justify-content: center;
+`;
+const BackArrowLinkWrapper = styled(NavLink)`
+    position: absolute;
+    left: 60px;
+    top: 26%;
+    cursor: pointer;
+`;
+
+const BackArrow = styled.img`
 `;
 
 const NavContentWrapper = styled.div`
@@ -35,32 +46,48 @@ const Logo = styled.img`
     width: 100%;
 `;
 
-const Nav = () => {
-    //const [position, setPosition] = useState(window.scrollY);
+const Nav = ({ isLandingPage }) => {
+    const [position, setPosition] = useState(window.scrollY);
     const [visible, setVisible] = useState(false);
+    // let hideTimeout;
 
     const handleScroll = () => {
-        // let moving = window.scrollY;
-        // setVisible(position < moving);
-        // setPosition(moving);
-        setVisible(window.scrollY > 0);
+        if(isLandingPage) {
+            setVisible(window.scrollY > 0);
+        } else {
+            let moving = window.scrollY;
+            setVisible(position < moving);
+            setPosition(moving);
+            // clearTimeout(hideTimeout);
+            // hideTimeout = setTimeout(() => {
+            //     setVisible(true);
+            // }, "3000");
+        }
     };
+
+    const scrollTop = () => window.scrollTo({ top: 0 });
 
     useEffect(()=> {
         window.addEventListener("scroll", handleScroll);
-
         return(() => {
-           window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         })
     })
 
-    const top = visible ? '-100px' : '0';
+    const top = visible ? '-72px' : '0';
+
+    const background = window.scrollY < 1800 ? 'transparent' : 'white';
 
     return (
-        <NavContainer $top={top}>
+        <NavContainer key={background} $top={top} $background={background}>
+            {!isLandingPage && 
+                <BackArrowLinkWrapper to={'/'} onClick={scrollTop}>
+                    <BackArrow src={'images/back-arrow.svg'}/>
+                </BackArrowLinkWrapper>
+            }
             <NavContentWrapper>
                 <ImageWrapper>
-                    <NavLink to={'/'}>
+                    <NavLink to={'/'} onClick={scrollTop}>
                         <Logo src="images/lip-logo-black.png"/>
                     </NavLink>
                 </ImageWrapper>

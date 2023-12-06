@@ -27,6 +27,7 @@ import abstract_fullscreen_03C from '../images/naming/abstract_fullscreen_03C.mp
 import { TryThis } from '../components/TryThis.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import ArticleBlock from '../components/ArticleBlock.jsx';
+import Nav from '../components/Nav.jsx';
 
 // import assets
 import { getImageByKey } from '../components/constants/imgContent.js';
@@ -464,6 +465,7 @@ function NamingExperimentSection() {
 
     return (
         <div style={{ position: "relative", height: "100%", width: "100%" }}>
+            <Nav />
 
             {/* HEADER */}
             <TransformingContent child={<OpacityContent baseOpacity={0} scrollInfo={adjustedTimings[0][1]} child={<ImgBox url={getImageByKey("headerShadeExperiment")} displayDimensions={[85, 25]} rotate={0} />} />} positions={[[7.5, 7.5, 7.5, 7.5], [0, 0, 0, 0]]} scrollInfo={adjustedTimings[0][0]} alignment={['left', 'bottom']} />

@@ -9,10 +9,12 @@ import { ManifestoSection } from '../components/Manifesto/ManifestoSection';
 //import ImageStillBlock from '../components/ImageStillBlock';
 import Hero from '../components/Hero/Hero';
 import STRINGS from '../components/constants/strings';
+import Nav from '../components/Nav';
 
 const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }) => {
     return (
         <div>
+            <Nav isLandingPage />
             <Hero handlePlayerChange={handlePlayerChange} player={player} />
             {/* <ImageStillBlock 
                 backgroundImage={options.pBlock.backgroundImage} 
