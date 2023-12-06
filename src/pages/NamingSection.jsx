@@ -30,7 +30,7 @@ function NamingSection({ text }) {
     const endblock = 1320 / window.innerHeight * 100
 
     //Heights                0    1    2    3    4    5    6    7
-    const sectionHeights = [250, 400, 400, 300, 200, 0, 400, 500]
+    const sectionHeights = [250, 400, 400, 300, 200, 0, 400, 200]
     const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0) + endblock
 
     //Timings 
@@ -48,8 +48,8 @@ function NamingSection({ text }) {
         [-0.1, -0.1, 0.35, 1.0],                      // [3] Paragraph 1           
         [-0.1, 0.35, 0.65, 1.0],                      // [4] Paragraph 2          
         [-0.1, 0.65, 0.95, 1.0],                      // [5] Paragraph 3    
-        [0.35, 0.5, 0.65],                     // [6] Dino Night            
-        [0.65, 0.7, 1.0545],  // [7] Dino Day 
+        [0.3, 0.5, 0.65],                     // [6] Dino Night            
+        [0.5, 0.7, 1.0545],  // [7] Dino Day 
         [0.35, 0.4, 0.5, 0.65], // 8
         [0.65, 0.7, 0.8, 1] //9
         ],                       
@@ -79,18 +79,18 @@ function NamingSection({ text }) {
         [0, 0, 1, 1]],
 
         // [6] Section 6 - hotdog
-        [[0.5, 1.2],                          //TEXT
+        [[0.5, 1.25],                          //TEXT
         [0, 0.25, 0.3, 0.5],                            //TOYPILE
         [0, 0.25, 0.28, 0.53, 0.75, 1.1],                // hotdog scroll
         [0, 0.25, 0.75, 1.2]],                          //HOTDOG opacity
 
         // [7] Section 7
-        [[-0.2, 0.2, 0.8, 1], //Motion
-        [-0.2, 0.22, 0.27, 1], //Opacity 1
-        [-0.2, 0.73, 0.77, 1], //Opacity 2
-        [-0.2, -0.2, 0.2, 0.8, 1, 1], // Image Opacity
-        [-0.2, 4 / 10, 1],
-        [1 / 3, 3 / 4, 1]
+        [[-0.2, 0.2, 0.8, 1.25], //Motion
+        [-0.2, 0.22, 0.27, 1.25], //Opacity 1
+        [-0.2, 0.73, 0.77, 1.25], //Opacity 2
+        [-0.2, -0.2, 0.2, 0.8, 1, 1.25], // Image Opacity
+        [-0.2, 4 / 10, 1.25],
+        [1 / 3, 3 / 4, 1.25]
         ]
     ]
     let adjustedTimings = []
@@ -112,7 +112,7 @@ function NamingSection({ text }) {
             <OpacityContent scrollInfo={adjustedTimings[1][8]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_night")} displayDimensions={[50, 50]} rotate={0} />}
                 positions={[[100, -35, -150], [-2, -2, -2]]} scrollInfo={adjustedTimings[1][6]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
             <OpacityContent scrollInfo={adjustedTimings[1][9]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_day")} displayDimensions={[50, 50]} rotate={0} />}
-                positions={[[100, -35, -200], [0, 0, 0]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
+                positions={[[-100, -20, -15], [0, 0, 0]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
         </>
     );
     const desktopSection1 = (
@@ -120,7 +120,7 @@ function NamingSection({ text }) {
             <OpacityContent scrollInfo={adjustedTimings[1][8]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_night")} displayDimensions={[70, 70]} rotate={0} />}
                 positions={[[100, 45, 40], [0, 0, 0]]} scrollInfo={adjustedTimings[1][6]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
             <OpacityContent scrollInfo={adjustedTimings[1][9]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_day")} displayDimensions={[70, 70]} rotate={0} />}
-                positions={[[100, 45, 40], [0, 0, 0]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
+                positions={[[-100, -20, -15], [0, 0, 0]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
         </>
     );
 
@@ -284,7 +284,7 @@ function NamingSection({ text }) {
                             } />
                             <OpacityParagraph scrollInfo={adjustedTimings[7][2]} dark={false} simpleFade={true} baseOpacity={0} text={[<Go>Let's go →</Go>]} />
                         </ScrollingColumn> */}
-                        <ScrollingColumn scrollInfo={adjustedTimings[7][4]}>
+                        <ScrollingColumn scrollInfo={adjustedTimings[7][4]} scrollIn={false} scrollOut={false}>
                             <OpacitySubheading scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={[<p>So, it’s time to play.</p>]} />
                             <OpacityParagraph scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={
                                 [<p>Our team is investing in a series of open, iterative trials to explore the potential new utility of AI to push the bounds of our naming capability, considering…</p>]

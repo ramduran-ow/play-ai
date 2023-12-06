@@ -8,14 +8,12 @@ function Background({ background, height }) {
         <>
             {typeof background === 'string' && background.charAt(0) === '#' ?
                 <div style={{
-                    // position: "absolute",
                     backgroundColor: background,
                     height: height + "vh",
                     width: "100%",
                     zIndex: 1,
                 }}></div> :
                 <div style={{
-                    // position: "absolute",
                     backgroundImage: "url(" + background + ")",
                     backgroundSize: "100% 100%",
                     backgroundAttachment: "fixed",
@@ -116,7 +114,7 @@ TransitionBackground.propTypes = {
     delayed: PropTypes.arrayOf(PropTypes.number),
 }
 
-function Transition({ background, scrollInfo, solidBackground }) {
+function Transition({ background, scrollInfo, solidBackground, imageBackBackground, startDark }) {
     const { scrollYProgress } = useScroll();
 
     const opacity = useTransform(scrollYProgress, scrollInfo, [0, 0, 1, 1])
@@ -135,7 +133,32 @@ function Transition({ background, scrollInfo, solidBackground }) {
                     top: 0,
                 }} />
             }
-            { background.length < 1 ? 
+            {imageBackBackground !== '' &&
+                <motion.div style={{
+                    backgroundImage: "url(" + imageBackBackground + ")",
+                    backgroundSize: "cover",
+                    backgroundAttachment: "fixed",
+                    pointerEvents: "none",
+                    height: '100%',
+                    width: "100%",
+                    display: visible,
+                    position: "fixed",
+                    top: 0
+                }} />
+            }
+            {startDark &&
+                <motion.div style={{
+                    backgroundColor: "#202020",
+                    pointerEvents: "none",
+                    height: '100%',
+                    width: "100%",
+                    opacity: 0.8,
+                    position: "fixed",
+                    display: visible,
+                    top: 0,
+                }} />
+            }
+            {background.length < 1 ?
                 <motion.div style={{
                     backgroundColor: "#202020",
                     pointerEvents: "none",
@@ -145,10 +168,12 @@ function Transition({ background, scrollInfo, solidBackground }) {
                     opacity: opacity,
                     position: "fixed",
                     top: 0,
-                }} /> 
-                : 
+                }} />
+                :
                 <motion.div style={{
                     backgroundImage: "url(" + background + ")",
+                    backgroundSize: "100% 100%",
+                    backgroundAttachment: "fixed",
                     pointerEvents: "none",
                     height: '100%',
                     width: "100%",
@@ -164,11 +189,15 @@ function Transition({ background, scrollInfo, solidBackground }) {
 
 Transition.defaultProps = {
     solidBackground: false,
-    background: ''
+    background: '',
+    imageBackBackground: '',
+    startDark: false
 }
 
 Transition.propTypes = {
     background: PropTypes.any,
     scrollInfo: PropTypes.arrayOf(PropTypes.number),
-    solidBackground: PropTypes.bool
+    solidBackground: PropTypes.bool,
+    imageBackBackground: PropTypes.any,
+    startDark: PropTypes.bool
 }

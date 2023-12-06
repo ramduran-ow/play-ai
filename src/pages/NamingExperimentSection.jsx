@@ -3,7 +3,7 @@ import { devices } from '../components/constants/devices.js';
 import { useMediaQuery } from 'react-responsive';
 
 // import interactions
-import { Background, TransitionBackground } from '../interactions/Background'
+import { Background, TransitionBackground, Transition } from '../interactions/Background'
 import { TransformingContent, ImgBox, VideoBox } from '../interactions/TransformingContent'
 import { TransformingTextBox } from '../interactions/TransformingTextBox.jsx';
 import { OpacityParagraph, OpacityList, OpacitySubheading, OpacityContent } from '../interactions/OpacityContent';
@@ -39,7 +39,7 @@ function NamingExperimentSection() {
 
     //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13  14  15  16  17   18
     const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 300, 0, 200, 400, 250, 400, 0, 600, 0, 200, 1200]
-    const endblock = 0// 1320 / window.innerHeight * 100
+    const endblock = 1320 / window.innerHeight * 100
 
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
@@ -48,15 +48,15 @@ function NamingExperimentSection() {
         //1 Para 1               Para 2                 Para 3                 Text Motion       Off
         [[-0.2, 0.05, 0.28, 1], [-0.2, 0.38, 0.61, 1], [-0.2, 0.71, 0.95, 1], [-0.2, 0.2, 0.8, 1], [-0.2, 0.1, 0.5, 0.8]],
         //2 Fading Section Header
-        [[0, 0.2, 0.5, 1], [0, 0.2, 1.5]],
+        [[0, 0.2, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //3 Video
         [[-0.1, 0.25, 1.2], [-0.1, 1.2]],
         //4 Para O 1             Para O 2               Para O 3               Scroll 1           Scroll 2               Scroll 3           Robot O 1                       Robot O 2                       Robot O 3      
         [[0, 1/12, 3/12, 2/3], [0, 5/12, 7/12, 1], [0, 9/12, 10/12, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5/6, 1], [0, 0, 1/12, 3/12, 1/3, 2/3], [0, 1/3, 5/12, 7/12, 2/3, 1], [1/3, 2/3, 9/12, 11/12, 1, 1]],
         //5 Fading Section Header
-        [[0, 0.2, 0.5, 1], [0, 0.2, 1.5]],
+        [[0, 0.2, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //6 Video
-        [[0, 0.4, 1.2], [0.6, 0.8, 1, 1.2], [0, 1]],
+        [[-0.1, 0.25, 1.2], [0.6, 0.8, 1, 1.2], [0, 1]],
         //7 Video Text
         [],
         //8, Video
@@ -68,9 +68,9 @@ function NamingExperimentSection() {
         //11 Para 1 Motion                Transform + Opacity
         [[-0.2, -0.2, 0.16, 0.77, 1, 1], [-0.2, 0.16, 0.77, 1]],
         //12 Fading Section Header
-        [[0, 0.4, 0.5, 1], [0, 0.2, 1.5]],
+        [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //13 Video
-        [[0, 0.4, 1.2], [0.6, 0.8, 1, 1.2], [0, 1]],
+        [[-0.1, 0.25, 1.2], [0.6, 0.8, 1, 1.2], [0, 1]],
         //14 Video Text
         [],
         //15 Video
@@ -315,7 +315,7 @@ function NamingExperimentSection() {
     //SECTION 13
     const mobileVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
+            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[13][1]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
@@ -332,7 +332,7 @@ function NamingExperimentSection() {
 
     const desktopVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
+            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[13][1]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
@@ -399,13 +399,13 @@ function NamingExperimentSection() {
     //SECTION 17
     const mobileVideoAbstract03 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 100]]} scrollInfo={adjustedTimings[17][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[17][1]} />}
+            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[17][1]} />}
         />
     );
 
     const desktopVideoAbstract03 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 100]]} scrollInfo={adjustedTimings[17][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[17][1]} />}
+            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[17][1]} />}
         />
     );
 
@@ -478,10 +478,11 @@ function NamingExperimentSection() {
 
             {/* SECTION 2 | HEADER */}
             <TransitionBackground background={getImageByKey("experiment_01")} height={sectionHeights[2]} startHeight={sectionHeights[0] + sectionHeights[1]} endOpacity={0.8} hasTransition={true} preserveRatio />
+            <Background background={getImageByKey('naming_gradient')} height={sectionHeights[3]} />
+            <Transition scrollInfo={adjustedTimings[2][2]} imageBackBackground={getImageByKey('experiment_01')} startDark background={getImageByKey('naming_gradient')}/>
             <FadingSectionHeader text={sectionHeader01} scrollInfo={adjustedTimings[2][0]} />
 
             {/* SECTION 3 | VIDEO 1*/}
-            <Background background={getImageByKey("naming_gradient")} height={sectionHeights[3]} />
             {isMobile ? mobileVideoBaseline01 : desktopVideoBaseline01}
 
             {/* SECTION 4 */}
@@ -492,11 +493,12 @@ function NamingExperimentSection() {
 
             {/* SECTION 5 | HEADER */}
             <TransitionBackground background={getImageByKey("experiment_02")} height={sectionHeights[5]} startHeight={sectionHeights.slice(0, 5).reduce((partialSum, a) => partialSum + a, 0)} endOpacity={0.8} hasTransition={true} preserveRatio />
+            <Background background={getImageByKey("naming_gradient")} height={sectionHeights[10]} />
+            <Transition scrollInfo={adjustedTimings[5][2]} imageBackBackground={getImageByKey('experiment_02')} startDark background={getImageByKey('naming_gradient')}/>
             <FadingSectionHeader text={sectionHeader02} scrollInfo={adjustedTimings[5][0]} />
 
             {/* VIDEO */}
             {/* SECTION 10 | VIDEO */}
-            <Background background={getImageByKey("naming_gradient")} height={sectionHeights[10]} />
             {isMobile ? mobileVideoCoined0203 : desktopVideoCoined0203}
 
             {/* SECTION 8 | VIDEO */}
@@ -513,12 +515,13 @@ function NamingExperimentSection() {
 
             {/* SECTION 12 */}
             <TransitionBackground background={getImageByKey("experiment_03")} height={sectionHeights[12]} startHeight={sectionHeights.slice(0, 12).reduce((partialSum, a) => partialSum + a, 0)} endOpacity={0.8} hasTransition={true} preserveRatio />
+            <Background background={getImageByKey("naming_gradient")} height={sectionHeights[17]} />
+            <Transition scrollInfo={adjustedTimings[12][2]} imageBackBackground={getImageByKey('experiment_03')} startDark background={getImageByKey('naming_gradient')}/>
             <FadingSectionHeader text={sectionHeader03} scrollInfo={adjustedTimings[12][0]} />
 
             {/* VIDEOS */}
 
             {/* SECTION 17 */}
-            <Background background={getImageByKey("naming_gradient")} height={sectionHeights[17]} />
             {isMobile ? mobileVideoAbstract03 : desktopVideoAbstract03}
 
             {/* SECTION 15 */}

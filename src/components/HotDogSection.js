@@ -65,8 +65,7 @@ const RestaurantContainer = styled.div`
 const RightColumn = styled.div`
   height: fit-contents;
   position: absolute;
-  top: 33%;
-  transform: translateY(-50%);
+  top: 0%;
 `
 
 const RestaurantName = styled.h3`
@@ -85,9 +84,8 @@ const RestaurantDesc = styled.p`
 
 const DoubleColumn = styled.div`
     display: grid;
-    grid-template-columns: 40% 52%;
+    grid-template-columns: 40% 60%;
     column-gap: 0%;
-    max-width: 110rem;
     margin: auto;
     padding: 3.2rem;
     text-align: center;
@@ -198,12 +196,12 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
 
       {isTablet ? mobileToys : desktopToys}
 
-      <TransformingTextBox positions={[100, -120]} doubled scrollInfo={adjustedTimings[6][0]} alignment={'top'} child={
+      <TransformingTextBox positions={[100, -100]} doubled scrollInfo={adjustedTimings[6][0]} alignment={'top'} child={
         <DoubleColumn>
-          <div></div>
-          <motion.div className='hotDogMainCont' style={{ textAlign: 'left', width: '75rem', position: 'relative' }}>
+          <div/>
+          <motion.div className='hotDogMainCont' style={{ textAlign: 'left', position: 'relative', height: '100vh' }}>
             <RightColumn>
-              <ArticleSubHeading style={{maxWidth: '68rem'}}>{namingStarted ? selectedOption ? "Let me show you what my dreams are made of" : "How did I do? Pick your favorite" : "Let's name that gourmet hot dog restaurant you've always wanted to make"}</ArticleSubHeading>
+              <ArticleSubHeading style={{maxWidth: '68rem', marginLeft: 0, marginRight: 0}}>{namingStarted ? selectedOption ? "Let me show you what my dreams are made of" : "How did I do? Pick your favorite" : "Let's name that gourmet hot dog restaurant you've always wanted to make"}</ArticleSubHeading>
               {namingStarted ? (selectedOption ? (clickableModule) : (<NamingButtons onOptionClick={handleOptionClick} />)) : (
                 <ContactButton style={{ maxWidth: '20rem' }} onClick={() => setNamingStarted(true)} disabled={namingStarted}> {namingStarted ? "NAMING STARTED" : "START NAMING"} </ContactButton>
               )}
