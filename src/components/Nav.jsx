@@ -11,7 +11,7 @@ const NavContainer = styled.nav`
     background-color: ${props => props.$background};
     border-bottom: ${props => props.$background === 'white' ? '1px solid black' : 'none'};
     width: 100%;
-    height: 72px; 
+    height: 64px; 
     z-index: 99999;
     display: flex;
     justify-content: center;

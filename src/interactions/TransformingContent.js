@@ -288,7 +288,12 @@ function VideoBox({ url, displayWidth, child, scrollInfo }) {
 
     const controls = useAnimation();
     const [hasPlayed, setHasPlayed] = useState(false)
-    useEffect(() => { if (inView && !hasPlayed) { controls.start({ opacity: 1, scale: 1 }); setHasPlayed(true) } }, [inView, controls, hasPlayed])
+    useEffect(() => { 
+        if (inView && !hasPlayed) { 
+            controls.start({ opacity: 1, scale: 1 }); 
+            setHasPlayed(true);
+        };
+    }, [inView, controls, hasPlayed]);
 
     const opacity = useTransform(scrollYProgress, info, [0, 1, 1, 0])
 

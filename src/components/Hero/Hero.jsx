@@ -128,6 +128,7 @@ function Hero({ handlePlayerChange, player }) {
   });
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const opacityControlsProgress = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const opacityControlsArrowProgress = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
   const scaleTopProgress = useTransform(scrollYProgress, [0, 1], [0, 140]);
@@ -330,10 +331,8 @@ function Hero({ handlePlayerChange, player }) {
             ></div> */}
             <p className="prompt" dangerouslySetInnerHTML={{ __html: headerSlides[playerSelected].text }}></p>
           </motion.div>
-          <motion.div className="swiper-button image-swiper-button-next" style={{ opacity: opacityControlsProgress }}  onClick={() => { nexto(); }}>            
-          </motion.div>
-          <motion.div className="swiper-button image-swiper-button-prev" style={{ opacity: opacityControlsProgress }} onClick={() => { prevto(); }}>          
-          </motion.div>
+          <motion.div className="swiper-button image-swiper-button-next" style={{ opacity: opacityControlsArrowProgress }} onClick={() => { nexto(); }} />            
+          <motion.div className="swiper-button image-swiper-button-prev" style={{ opacity: opacityControlsArrowProgress }} onClick={() => { prevto(); }} />         
         </motion.div>
       </div>
       {/* <Menu
