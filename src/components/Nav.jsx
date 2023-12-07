@@ -11,7 +11,7 @@ const NavContainer = styled.nav`
     background-color: ${props => props.$background};
     border-bottom: ${props => props.$background === 'white' ? '1px solid black' : 'none'};
     width: 100%;
-    height: 72px; 
+    height: 64px; 
     z-index: 99999;
     display: flex;
     justify-content: center;
@@ -49,19 +49,14 @@ const Logo = styled.img`
 const Nav = ({ isLandingPage }) => {
     const [position, setPosition] = useState(window.scrollY);
     const [visible, setVisible] = useState(false);
-    // let hideTimeout;
 
     const handleScroll = () => {
         if(isLandingPage) {
             setVisible(window.scrollY > 0);
         } else {
             let moving = window.scrollY;
-            setVisible(position < moving);
+            setVisible(position < moving || position === moving + 1);
             setPosition(moving);
-            // clearTimeout(hideTimeout);
-            // hideTimeout = setTimeout(() => {
-            //     setVisible(true);
-            // }, "3000");
         }
     };
 
@@ -76,7 +71,7 @@ const Nav = ({ isLandingPage }) => {
 
     const top = visible ? '-72px' : '0';
 
-    const background = window.scrollY < 1800 ? 'transparent' : 'white';
+    const background = window.scrollY < 100 ? 'transparent' : 'white';
 
     return (
         <NavContainer key={background} $top={top} $background={background}>

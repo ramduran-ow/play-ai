@@ -282,7 +282,7 @@ const ParagraphBlock = ({
                     key={contentString}
                     options={{
                         strings: [contentString],
-                        speed: 1,
+                        speed: 0.6,
                         waitUntilVisible: true,
                         lifeLike: true,
                         afterComplete: () => setSubHeaderVisible(true)
