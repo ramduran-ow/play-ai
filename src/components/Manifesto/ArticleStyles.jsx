@@ -48,6 +48,7 @@ const ArticleList = styled.li`
     font-size: 2rem;
     text-align: left;
     margin-left: 2rem;
+    list-style: disc;
 
     @media only screen and (max-width: ${sizes.mobileL}) {
         font-size: 1.6rem;

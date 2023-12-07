@@ -123,7 +123,7 @@ OpacityList.defaultProps = {
     baseOpacity: 0.15,
     dark: true,
     simpleFade: false,
-    complexFade: false
+    complexFade: false,
 }
 
 OpacityList.propTypes = {
@@ -132,7 +132,7 @@ OpacityList.propTypes = {
     baseOpacity: PropTypes.number,
     dark: PropTypes.bool,
     simpleFade: PropTypes.bool,
-    complexFade: PropTypes.bool
+    complexFade: PropTypes.bool,
 }
 
 //Opacity Subheading

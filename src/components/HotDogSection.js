@@ -153,13 +153,13 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
 
   const desktopToys = (
     <>
-      <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={1} child={
-        <TransformingContent positions={[[-20, -20, -20, 40, 40, 40], [-100, -14, -14, -14, -14, 80]]} scrollInfo={adjustedTimings[6][2]} alignment={['right', 'bottom']} child={
+      <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={0} child={
+        <TransformingContent positions={[[-20, -20, -20, 40, 40, 71], [-100, -14, -14, -14, -14, -14]]} scrollInfo={adjustedTimings[6][2]} alignment={['right', 'bottom']} child={
           <ImgBox url={getImageByKey("shadow")} displayDimensions={[70, 45]} rotate={0} />
         } />
       } />
-      <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={1} child={
-        <TransformingContent positions={[[7, 7, 7, 60, 60, 60], [-100, 14, 14, 14, 14, 100]]} scrollInfo={adjustedTimings[6][2]} alignment={['right', 'bottom']} child={
+      <OpacityContent scrollInfo={adjustedTimings[6][3]} baseOpacity={0} child={
+        <TransformingContent positions={[[7, 7, 7, 60, 60, 60], [-100, 14, 14, 14, 14, 45]]} scrollInfo={adjustedTimings[6][2]} alignment={['right', 'bottom']} child={
           <ImgBox url={getImageByKey("hotdog")} displayDimensions={[33, 65]} rotate={0} />
         } />
       } />
@@ -201,7 +201,7 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
           <div/>
           <motion.div className='hotDogMainCont' style={{ textAlign: 'left', position: 'relative', height: '100vh' }}>
             <RightColumn>
-              <ArticleSubHeading style={{maxWidth: '68rem', marginLeft: 0, marginRight: 0}}>{namingStarted ? selectedOption ? "Let me show you what my dreams are made of" : "How did I do? Pick your favorite" : "Let's name that gourmet hot dog restaurant you've always wanted to make"}</ArticleSubHeading>
+              <ArticleSubHeading style={{maxWidth: '68rem', marginLeft: 0, marginRight: 0}}>{namingStarted ? selectedOption ? "Let me show you what my dreams are made of" : "How did I do? Pick your favorite and get the full story" : "Let's name that gourmet hot dog restaurant you've always wanted to make"}</ArticleSubHeading>
               {namingStarted ? (selectedOption ? (clickableModule) : (<NamingButtons onOptionClick={handleOptionClick} />)) : (
                 <ContactButton style={{ maxWidth: '20rem' }} onClick={() => setNamingStarted(true)} disabled={namingStarted}> {namingStarted ? "NAMING STARTED" : "START NAMING"} </ContactButton>
               )}
