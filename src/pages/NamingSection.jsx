@@ -45,14 +45,14 @@ function NamingSection({ text }) {
         // [1] Section 1
         [[0, 0.25, 0.3, 0.4],                     // [0] Verizon    
         [0, 0.25, 0.3, 0.4],                      // [1] Sprite             
-        [-0.1, 0.05, 0.8, 1],             // [2] Paragraph 1-2 Transform Timings    
-        [-0.1, -0.1, 0.35, 1.0],                      // [3] Paragraph 1           
-        [-0.1, 0.35, 0.65, 1.0],                      // [4] Paragraph 2          
-        [-0.1, 0.65, 0.95, 1.0],                      // [5] Paragraph 3    
-        [0.3, 0.5, 0.65],                     // [6] Dino Night            
-        [0.5, 0.7, 1.0545],  // [7] Dino Day 
-        [0.35, 0.4, 0.5, 0.65], // 8
-        [0.65, 0.7, 0.8, 1] //9
+        [-0.2, 0.2, 0.8, 1.1],             // [2] Paragraph 1-2 Transform Timings    
+        [-0.2, 0.05, 0.28, 1],                      // [3] Paragraph 1           
+        [-0.2, 0.38, 0.61, 1],                      // [4] Paragraph 2          
+        [-0.2, 0.71, 0.95, 1],                      // [5] Paragraph 3    
+        [0.2, 0.5, 0.7, 1],                     // [6] Dino Night            
+        [0.4, 0.74, 0.85, 1.0545],  // [7] Dino Day 
+        [0.2, 0.4, 0.5, 1], // 8
+        [0.4, 0.7, 0.8, 1] //9
         ],
 
         // [2] Section 2
@@ -82,7 +82,7 @@ function NamingSection({ text }) {
         // [6] Section 6 - hotdog
         [[0.5, 1],                          //TEXT
         [0, 0.25, 0.3, 0.5],                            //TOYPILE
-        [0, 0.25, 0.28, 0.53, 0.75, 1.1],                // hotdog scroll
+        [0, 0.25, 0.28, 0.53, 0.75, 1],                // hotdog scroll
         [0, 0.25, 0.75, 1.2]],                          //HOTDOG opacity
 
         // [7] Section 7
@@ -111,17 +111,17 @@ function NamingSection({ text }) {
     const mobileSection1 = (
         <>
             <OpacityContent scrollInfo={adjustedTimings[1][8]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_night")} displayDimensions={[50, 50]} rotate={0} />}
-                positions={[[100, -35, -150], [-2, -2, -2]]} scrollInfo={adjustedTimings[1][6]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
+                positions={[[100, -35, -35, -150], [-2, -2, -2, -2]]} scrollInfo={adjustedTimings[1][6]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
             <OpacityContent scrollInfo={adjustedTimings[1][9]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_day")} displayDimensions={[50, 50]} rotate={0} />}
-                positions={[[-100, -20, -15], [0, 0, 0]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
+                positions={[[-100, -20, -20, -15], [0, 0, 0, 0]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
         </>
     );
     const desktopSection1 = (
         <>
-            <OpacityContent scrollInfo={adjustedTimings[1][8]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_night")} displayDimensions={[70, 70]} rotate={0} />}
-                positions={[[100, 45, 40], [0, 0, 0]]} scrollInfo={adjustedTimings[1][6]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
-            <OpacityContent scrollInfo={adjustedTimings[1][9]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_day")} displayDimensions={[70, 70]} rotate={0} />}
-                positions={[[-100, -20, -15], [0, 0, 0]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
+            <OpacityContent scrollInfo={adjustedTimings[1][8]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_night")} displayDimensions={[70, 70]} rotate={10} />}
+                positions={[[65, 65, 65, 65], [-100, 5, 5, -100]]} scrollInfo={adjustedTimings[1][6]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
+            <OpacityContent scrollInfo={adjustedTimings[1][9]} child={<TransformingContent child={<ImgBox url={getImageByKey("dino_day")} displayDimensions={[70, 70]} rotate={-10} />}
+                positions={[[5, 5, 5, 5], [-100, 10, 10, -100]]} scrollInfo={adjustedTimings[1][7]} alignment={['left', 'bottom']} prioritizeHeight={true} />} />
         </>
     );
 
@@ -133,10 +133,10 @@ function NamingSection({ text }) {
                     [["Lippincott has been creating standout brand names for 80 years. In those early days, a physical thesaurus was the most valuable naming tool. From those well-worn pages, household names such as Sprite and Wisk emerged, and words were paired together in novel ways to invent the likes of Duracell, Citgo, and Verizon."]]
                 } />
                 <OpacityParagraph scrollInfo={adjustedTimings[1][4]} complexFade text={
-                    ["Those analog days of name development are a distant memory in today’s landscape. In a world with 64.4 million active trademarks, and an average adult vocabulary of 30,000 words, finding a strong, available name is harder than ever – and that tattered thesaurus no longer “sufficiently suffonsifies.”"]
+                    ["Those analog days of name development are a distant memory in today's landscape. In a world with 64.4 million active trademarks, and an average adult vocabulary of 30,000 words, finding a strong, available name is harder than ever – and that tattered thesaurus no longer “sufficiently suffonsifies.”"]
                 } />
                 <OpacityParagraph scrollInfo={adjustedTimings[1][5]} complexFade text={
-                    ["As a result, naming might just be one of the ripest territories for AI enhancement in the world of branding, and we’ve only scratched the surface."]
+                    [<p><b>As a result, naming might just be one of the ripest territories for AI enhancement in the world of branding, and we've only scratched the surface.</b></p>]
                 } />
             </>
         } />
@@ -149,10 +149,10 @@ function NamingSection({ text }) {
                     [["Lippincott has been creating standout brand names for 80 years. In those early days, a physical thesaurus was the most valuable naming tool. From those well-worn pages, household names such as Sprite and Wisk emerged, and words were paired together in novel ways to invent the likes of Duracell, Citgo, and Verizon."]]
                 } />
                 <OpacityParagraph scrollInfo={adjustedTimings[1][4]} complexFade text={
-                    ["Those analog days of name development are a distant memory in today’s landscape. In a world with 64.4 million active trademarks, and an average adult vocabulary of 30,000 words, finding a strong, available name is harder than ever – and that tattered thesaurus no longer “sufficiently suffonsifies.”"]
+                    ["Those analog days of name development are a distant memory in today's landscape. In a world with 64.4 million active trademarks, and an average adult vocabulary of 30,000 words, finding a strong, available name is harder than ever – and that tattered thesaurus no longer “sufficiently suffonsifies.”"]
                 } />
                 <OpacityParagraph scrollInfo={adjustedTimings[1][5]} complexFade text={
-                    ["As a result, naming might just be one of the ripest territories for AI enhancement in the world of branding, and we’ve only scratched the surface."]
+                    [<p><b>As a result, naming might just be one of the ripest territories for AI enhancement in the world of branding, and we've only scratched the surface.</b></p>]
                 } />
             </>
         } />

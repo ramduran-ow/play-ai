@@ -191,7 +191,7 @@ function HotDogSection({ sectionHeights, adjustedTimings }) {
       <Background background={getImageByKey("naming_gradient")} height={sectionHeights[6]} />
       {/* ANIMATION IN */}
       <TransformingContent positions={[[15, 15, 15, 15], [100, 15, 15, 15]]} scrollInfo={adjustedTimings[6][1]} alignment={['left', 'top']} child={
-        <OpacitySubheading scrollInfo={adjustedTimings[6][1]} dark={false} simpleFade={true} baseOpacity={1} text={[["So, it's time to play."]]} />
+        <OpacitySubheading scrollInfo={adjustedTimings[6][1]} dark={false} simpleFade={true} baseOpacity={1} text={[["So, it's time to PLAY."]]} />
       } />
 
       {isTablet ? mobileToys : desktopToys}

@@ -13,7 +13,7 @@ export { ManifestoSection }
 
 function ManifestoSection({ images }) {
 
-    const startHeight = 840
+    const startHeight = 890
     const endblock = 1320 / window.innerHeight * 100
 
     //Heights
@@ -21,10 +21,10 @@ function ManifestoSection({ images }) {
 
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
-        //0 P1 Motion              1 P2 Motion             2 P3 Motion                3 P4 Motion                4 P5 Motion                 5 P6 Motion           
-        [[-6 / 14, 1 / 14, 5 / 14], [0 / 7, 2 / 7, 8 / 14], [4 / 14, 7 / 14, 10 / 14], [6 / 14, 9 / 14, 12 / 14], [9 / 14, 12 / 14, 15 / 14], [11 / 14, 14 / 14, 17 / 14],
-        //6 P1 Opacity                                  7 P2 Opacity                      8 P3 Opacity                      9 P4 Opacity                       10 P5 Opacity                       11 P6 Opacity
-        [-6 / 14, 0 / 14, 2 / 14, 5 / 14], [1 / 14, 3 / 14, 5 / 14, 7 / 14], [3 / 14, 6 / 14, 8 / 14, 11 / 14], [5 / 14, 8 / 14, 10 / 14, 13 / 14], [8 / 14, 11 / 14, 13 / 14, 16 / 14], [10 / 14, 13 / 14, 15 / 14, 18 / 14],
+        //0 P1 Motion                1 P2 Motion             2 P3 Motion                  3 P4 Motion                4 P5 Motion                 5           
+        [[-2 / 12, 1 / 12, 4 / 12], [1 / 12, 4 / 12, 7 / 12], [4 / 12, 7 / 12, 10 / 12], [6 / 12, 9 / 12, 12 / 12], [8 / 12, 11 / 12, 14 / 12], [],
+        //6 P1 Opacity                      7 P2 Opacity                      8 P3 Opacity                      9 P4 Opacity                         10 P5 Opacity                       11
+        [-2 / 12, 1 / 24, 3 / 24, 4 / 12], [1 / 12, 7 / 24, 9 / 24, 7 / 12], [4 / 12, 13 / 24, 15 / 24, 10 / 12], [6 / 12, 17 / 24, 19 / 24, 12 / 12], [8 / 12, 21 / 24, 23 / 24, 14 / 12], [],
         //12 Avocado Toast Movement          13 Avocado Toast Opacity                           14 Avocado Left Motion
         [1 / 14, 4 / 14, 16 / 14, 18 / 14], [1 / 14, 2 / 14, 3 / 14, 4 / 14, 5 / 14, 21 / 14], [5 / 14, 20 / 14], [11 / 14, 18 / 14]],
         // Empty
@@ -63,34 +63,20 @@ function ManifestoSection({ images }) {
             <TransformingTextBox positions={[6, 6, 6]} scrollInfo={adjustedTimings[0][0]} alignment={'top'} specialWidth={'82rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][0]}>
                     <OpacitySubheading scrollInfo={adjustedTimings[0][6]} center fadeRatio={0.8} text={
-                        [<p>“It will take our jobs.”<br />“It's the AI apocalypse.”<br /><br />Today, any consumer of news has seen dire predictions about Artificial Intelligence. And many people, in the creative industries and beyond, are preparing for the worst.</p>]
+                        [<p>“It will take our jobs.”<br/>“It's the AI apocalypse.”<br/><br/>While we're all for tossing predictions around like avocado toast recipes on Instagram, what if the truth is somewhere between the fantasy and the fear mongering?</p>]
                     } />
                 </ScrollingColumn>
             } />
             <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][2]} alignment={'top'} specialWidth={'78rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][2]}>
                     <OpacitySubheading scrollInfo={adjustedTimings[0][8]} center fadeRatio={0.8} text={
-                        [<p>And while we're all for tossing predictions around like avocado toast recipes on Instagram, what if the truth is somewhere between the fantasy and the fear mongering?</p>]
-                    } />
-                </ScrollingColumn>
-            } />
-            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][3]} alignment={'top'} specialWidth={'115rem'} child={
-                <ScrollingColumn scrollInfo={adjustedTimings[0][3]}>
-                    <OpacitySubheading scrollInfo={adjustedTimings[0][9]} center fadeRatio={0.8} text={
                         [<p>Here's what we believe:<br /><br />Exercising caution with any new technology is necessary. But choosing to be cautiously optimistic will open up a world of possibilities for our industry. The only way to understand the potential of new tech is to dive head first and learn.<br /><br />And to learn, we must PLAY.</p>]
                     } />
                 </ScrollingColumn>
             } />
-            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][4]} alignment={'top'} specialWidth={'100rem'} child={
+            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][4]} alignment={'top'} specialWidth={'93rem'} child={
                 <ScrollingColumn scrollInfo={adjustedTimings[0][4]}>
                     <OpacitySubheading scrollInfo={adjustedTimings[0][10]} center fadeRatio={0.8} text={
-                        [<p>It's certainly clear that AI will change how we do business. But, for anyone that has moved past worrying about doomsday scenarios into early adoption, it's also clear there will be plenty of business to do be done.</p>]
-                    } />
-                </ScrollingColumn>
-            } />
-            <TransformingTextBox positions={[27, 27, 27]} scrollInfo={adjustedTimings[0][5]} alignment={'top'} specialWidth={'93rem'} child={
-                <ScrollingColumn scrollInfo={adjustedTimings[0][5]}>
-                    <OpacitySubheading scrollInfo={adjustedTimings[0][11]} center fadeRatio={0.8} text={
                         [<p>There are plenty of things about AI we  don't know, but one thing do:<br /><br />AI is not going to take your next job, but a person who knows how to use it just might</p>]
                     } />
                 </ScrollingColumn>
@@ -232,7 +218,7 @@ function ManifestoSection({ images }) {
     return (
         <div style={{ position: "relative", height: "100%", width: "100%" }}>
 
-            <Transition scrollInfo={[0, st - 0.125, st- 0.075, st + 0.2]} />
+            <Transition scrollInfo={[0, st - 0.165, st - 0.075, st + 0.2]} />
 
             {/* SECTION 1 */}
             <Background background={"#202020"} height={sectionHeights[0]} />
