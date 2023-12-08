@@ -39,7 +39,7 @@ function NamingExperimentSection() {
     // const images = useNamingImageLoader();
 
     //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13  14  15  16  17   18
-    const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 300, 0, 200, 200, 250, 400, 0, 600, 0, 0, 900]
+    const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 400, 0, 200, 200, 250, 400, 0, 600, 0, 0, 900]
     const endblock = 1320 / window.innerHeight * 100
 
     //Timings | Timings are adjusted to start - end of section
@@ -61,7 +61,7 @@ function NamingExperimentSection() {
         //7 Video Text
         [],
         //8, Video
-        [[0, 0.4, 1.2], [0.6, 0.8, 1, 1.1], [0.9, 1, 1.1, 1.1], [0, 1]],
+        [[0, 0.4, 1.2], [0.3, 0.4, 0.7, 0.8], [0.8, 0.9, 1, 1.1], [0, 1], [0.3, 0.4, 1, 1.1]],
         //9 Video Text
         [],
         //10, Video
@@ -71,11 +71,11 @@ function NamingExperimentSection() {
         //12 Fading Section Header
         [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //13 Video
-        [[-0.1, 0.25, 1.2], [0.6, 0.8, 1, 1.2], [0, 1]],
+        [[-0.1, 0.25, 1.2], [0.6, 0.65, 0.75, 0.8], [0.8, 0.85, 0.95, 1.1], [0, 1], [0.6, 0.65, 0.95, 1.1]],
         //14 Video Text
         [],
         //15 Video
-        [[0, 0.4, 1], [0.6, 0.8, 1, 1.1], [0.9, 1, 1.1, 1.1], [0.6, 0.8, 1, 1.1], [0, 1]],
+        [[0, 0.4, 1], [0.3, 0.4, 0.7, 0.8], [0.8, 0.9, 1, 1.1], [0, 1], [0.3, 0.4, 1, 1.1]],
         //16 Video Text
         [],
         //17 Video
@@ -236,8 +236,7 @@ function NamingExperimentSection() {
         <TransformingContent positions={[[0, 0, 0], [5, 5, 5]]} scrollInfo={adjustedTimings[8][0]} alignment={['center', 'center']}
             child={<>
                 <VideoBox url={words_fullscreen_02A} displayWidth={85} scrollInfo={adjustedTimings[8][3]} child={
-                    <VideoTextBox scrollInfo={adjustedTimings[8][1]} child={
-                        <VideoTextBox scrollInfo={adjustedTimings[8][1]} child={
+                    <VideoTextBox scrollInfo={adjustedTimings[8][4]} child={
                             <>
                                 <OpacityParagraph scrollInfo={adjustedTimings[8][1]} simpleFade={true} baseOpacity={0} text={
                                     ["While compound names are indeed common among brand names across all categories (as exemplified by PayPal, YouTube, Salesforce, Facebook, etc.) many of the most famous, aspirational brand names use shorter, more distinctive names. Whether they are coined/invented names (Google, Hulu, Zappos, Xerox) or real, abstract dictionary words (Amazon, Apple, Peloton, Uber), it seems fair to say that ChatGPT is not primed take you there and in fact, requires substantial handholding to do so."]
@@ -245,14 +244,13 @@ function NamingExperimentSection() {
                                 <OpacitySubheading scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} simpleFade={true} text={
                                     ["The lesson learned?"]
                                 } />
-                                <OpacityList scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} text={
+                                <OpacityList scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} simpleFade={true} text={
                                     [<p>We may be better off asking ChatGPT for “words” or “ideas” as opposed to “names” when trying to name a brand, helping it garner results more aligned to the range of possibilities.</p>, <p>Better yet, we can teach it to understand the different types of names through more detailed prompts, in order to be more targeted in our exploration.</p>]
                                 } />
                                 <OpacityParagraph scrollInfo={adjustedTimings[8][2]} simpleFade={true} baseOpacity={0} text={
                                     ["How do we get to more detailed prompts? We can do this by using our name criteria process to pinpoint the most relevant name type for a given brand based on conventions and white space in the category, the intended tone and level of clarity, or even the idea that a certain type of name conveys. When we refined the prompt for a coined name, we ChatGPT was able to provide original, single words that felt more like names:"]
                                 } />
                             </>
-                        } />
                     } />
                 } />
             </>}
@@ -263,15 +261,15 @@ function NamingExperimentSection() {
         <TransformingContent positions={[[0, 0, 0], [5, 5, 5]]} scrollInfo={adjustedTimings[8][0]} alignment={['center', 'center']}
             child={<>
                 <VideoBox url={words_fullscreen_02A} displayWidth={85} scrollInfo={adjustedTimings[8][3]} child={
-                    <VideoTextBox scrollInfo={adjustedTimings[8][1]} child={
+                    <VideoTextBox scrollInfo={adjustedTimings[8][4]} child={
                         <>
                             <OpacityParagraph scrollInfo={adjustedTimings[8][1]} simpleFade={true} baseOpacity={0} text={
                                 ["While compound names are indeed common among brand names across all categories (as exemplified by PayPal, YouTube, Salesforce, Facebook, etc.) many of the most famous, aspirational brand names use shorter, more distinctive names. Whether they are coined/invented names (Google, Hulu, Zappos, Xerox) or real, abstract dictionary words (Amazon, Apple, Peloton, Uber), it seems fair to say that ChatGPT is not primed take you there and in fact, requires substantial handholding to do so."]
                             } />
-                            <OpacitySubheading scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} simpleFade={true} text={
+                            <OpacitySubheading scrollInfo={adjustedTimings[8][2]} baseOpacity={0} simpleFade={true} text={
                                 ["The lesson learned?"]
                             } />
-                            <OpacityList scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} text={
+                            <OpacityList scrollInfo={adjustedTimings[8][2]} baseOpacity={0} simpleFade={true} text={
                                 [<p>We may be better off asking ChatGPT for “words” or “ideas” as opposed to “names” when trying to name a brand, helping it garner results more aligned to the range of possibilities.</p>, <p>Better yet, we can teach it to understand the different types of names through more detailed prompts, in order to be more targeted in our exploration.</p>]
                             } />
                             <OpacityParagraph scrollInfo={adjustedTimings[8][2]} simpleFade={true} baseOpacity={0} text={
@@ -321,8 +319,8 @@ function NamingExperimentSection() {
     //SECTION 13
     const mobileVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
-                <VideoTextBox scrollInfo={adjustedTimings[13][1]} displayWidth={85} child={
+            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][3]} child={
+                <VideoTextBox scrollInfo={adjustedTimings[13][4]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
                             ["Requesting ChatGPT to provide more “abstract” names (in an effort to get to fresher terms) doesn't solve the problem. Rather than leveraging a broader range of ideas and metaphors that could express intelligence in less obvious ways, the tool literally force-fits abstraction into its name options like EngimaTech, Cosmic Technologies and Nebula. "]
@@ -333,10 +331,10 @@ function NamingExperimentSection() {
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
                             [<p>In an attempt to overcome this limitation, we tested a wide array of prompts trying to explain metaphor, abstraction, and thematic imagery, all with similar results. But asking ChatGPT to “imagine” just yielded names like dream, reverie, and… imagine.</p>]
                         } />
-                        <OpacitySubheading scrollInfo={adjustedTimings[13][1]} baseOpacity={0.2} simpleFade={true} text={
+                        <OpacitySubheading scrollInfo={adjustedTimings[13][2]} baseOpacity={0.2} simpleFade={true} text={
                             ["Finally, a breakthrough: “creative chaining”"]
                         } />
-                        <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
+                        <OpacityParagraph scrollInfo={adjustedTimings[13][2]} simpleFade={true} text={
                             [<p>Our “aha moment” was when we came upon the idea to dissect the creative process and literally spell out how it could be sequenced for ChatGPT. If we think about why the name Oracle suggests intelligence, it's because oracles are associated with predicting the future. Predicting the future, is an action that requires omniscience, and therefore it conveys to us a notion of impressive intellect. <b>Making that mental leap requires a chaining of associations, i.e. Intelligence {'>'} insight{'>'} prediction{'>'} oracle, and this seemed like something we could teach ChatGPT to do!</b></p>]
                         } />
                     </div>
@@ -347,8 +345,8 @@ function NamingExperimentSection() {
 
     const desktopVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][2]} child={
-                <VideoTextBox scrollInfo={adjustedTimings[13][1]} displayWidth={85} child={
+            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][3]} child={
+                <VideoTextBox scrollInfo={adjustedTimings[13][4]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
                             ["Requesting ChatGPT to provide more “abstract” names (in an effort to get to fresher terms) doesn't solve the problem. Rather than leveraging a broader range of ideas and metaphors that could express intelligence in less obvious ways, the tool literally force-fits abstraction into its name options like EngimaTech, Cosmic Technologies and Nebula. "]
@@ -359,10 +357,10 @@ function NamingExperimentSection() {
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
                             [<p>In an attempt to overcome this limitation, we tested a wide array of prompts trying to explain metaphor, abstraction, and thematic imagery, all with similar results. But asking ChatGPT to “imagine” just yielded names like dream, reverie, and… imagine.</p>]
                         } />
-                        <OpacitySubheading scrollInfo={adjustedTimings[13][1]} baseOpacity={0.2} simpleFade={true} text={
+                        <OpacitySubheading scrollInfo={adjustedTimings[13][2]} baseOpacity={0.2} simpleFade={true} text={
                             ["Finally, a breakthrough: “creative chaining”"]
                         } />
-                        <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
+                        <OpacityParagraph scrollInfo={adjustedTimings[13][2]} simpleFade={true} text={
                             [<p>Our “aha moment” was when we came upon the idea to dissect the creative process and literally spell out how it could be sequenced for ChatGPT. If we think about why the name Oracle suggests intelligence, it's because oracles are associated with predicting the future. Predicting the future, is an action that requires omniscience, and therefore it conveys to us a notion of impressive intellect. <b>Making that mental leap requires a chaining of associations, i.e. Intelligence {'>'} insight{'>'} prediction{'>'} oracle, and this seemed like something we could teach ChatGPT to do!</b></p>]
                         } />
                     </div>

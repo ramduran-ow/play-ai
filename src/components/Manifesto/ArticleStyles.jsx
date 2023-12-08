@@ -3,7 +3,7 @@ import { sizes } from '../constants/devices.js';
 
 const ArticleHeader = styled.div`
     position: fixed;
-    font-family: 'Noe Display Medium';
+    font-family: 'Noe Display';
     font-weight: 500;
     font-size: 5rem;
     text-align: center;
@@ -56,7 +56,7 @@ const ArticleList = styled.li`
 `;
 
 const ArticleSubHeading = styled.h2`
-    font-family: 'Noe Display Medium';
+    font-family: 'Noe Display';
     font-weight: 500;
     font-size: 5rem;
     margin: 0 auto 2rem auto;
