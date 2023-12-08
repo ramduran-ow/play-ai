@@ -43,7 +43,7 @@ function Hero({ handlePlayerChange, player }) {
       icon: "symbol",
       backGradient:
         "linear-gradient(116deg, rgba(164, 179, 255, 0.40) 1.25%, rgba(189, 203, 255, 0.40) 29.79%, rgba(206, 184, 255, 0.40) 71.6%, rgba(204, 167, 255, 0.40) 100%)",
-      playerShadow: "url('images/shadows/symbol_shadow.png') no-repeat center bottom",
+      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(128, 158, 255,.8),transparent,transparent)",
       text:'/Prompt: <b>Futuristic</b>'
     },
     {
@@ -53,7 +53,7 @@ function Hero({ handlePlayerChange, player }) {
       icon: "dog",
       backGradient:
         "linear-gradient(116deg,#ffde9f 1.25%,#fff2d0 29.54%,#ffe3cf 65.02%,#ffb7a0 100%)",
-      playerShadow: "url(images/shadows/dog_shadow.png) no-repeat center bottom",
+      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(253, 153, 153, .8),transparent,transparent)",
       text: '/Prompt: <b>Dog(e)-Mode</b>'
     },
     {
@@ -63,7 +63,7 @@ function Hero({ handlePlayerChange, player }) {
       icon: "quill",
       backGradient:
         "linear-gradient(116deg, #DDD3F1 1.25%, #EEEDFF 31.59%, #FFDBE1 71.71%, #FBB 100%)",
-      playerShadow: "url(images/shadows/quill_shadow.png) no-repeat center bottom",
+      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(204, 177, 232, .8),transparent,transparent)",
       text: '/Prompt: <b>Shakespearinator</b>'
     },
     {
@@ -72,7 +72,8 @@ function Hero({ handlePlayerChange, player }) {
       playerPNG: "images/players/GuitarBase.png",
       icon: "guitar",
       backGradient:
-        "linear-gradient(116deg, #FFF2D0 1.25%, #F1FFD4 33.14%, #E1FFE6 65.02%, #D4FFF5 100%)",      playerShadow: "url('images/shadows/guitar_shadow.png') no-repeat center bottom",
+        "linear-gradient(116deg, #FFF2D0 1.25%, #F1FFD4 33.14%, #E1FFE6 65.02%, #D4FFF5 100%)",      
+      playerShadow:  "radial-gradient(ellipse at 50% 50%,rgba(123, 149, 217, .8),transparent,transparent)",
       text: '/Prompt: <b>Heavy Metal-ic</b>'
     },
     {
@@ -82,7 +83,7 @@ function Hero({ handlePlayerChange, player }) {
       icon: "sphere",
       backGradient:
         "linear-gradient(116deg, rgba(129, 218, 202, 0.40) 1.25%, rgba(118, 228, 202, 0.40) 29.02%, rgba(149, 236, 255, 0.40) 67.6%, rgba(149, 147, 255, 0.40) 100%)",
-      playerShadow: "url(images/shadows/sphere_shadow.png) no-repeat center bottom",
+      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(190, 152, 238, .8),transparent,transparent)",
       text:'/Prompt: <b>Gen-Zify</b>'
     },
   ];
@@ -331,8 +332,16 @@ function Hero({ handlePlayerChange, player }) {
             ></div> */}
             <p className="prompt" dangerouslySetInnerHTML={{ __html: headerSlides[playerSelected].text }}></p>
           </motion.div>
-          <motion.div className="swiper-button image-swiper-button-next" style={{ opacity: opacityControlsArrowProgress }} onClick={() => { nexto(); }} />            
-          <motion.div className="swiper-button image-swiper-button-prev" style={{ opacity: opacityControlsArrowProgress }} onClick={() => { prevto(); }} />         
+          <motion.div 
+            className="swiper-button image-swiper-button-next" 
+            style={{ opacity: opacityControlsArrowProgress }} 
+            onClick={() => { nexto(); }} 
+          />            
+          <motion.div 
+            className="swiper-button image-swiper-button-prev" 
+            style={{ opacity: opacityControlsArrowProgress }} 
+            onClick={() => { prevto(); }} 
+          />         
         </motion.div>
       </div>
       {/* <Menu
