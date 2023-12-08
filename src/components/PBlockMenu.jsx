@@ -21,10 +21,10 @@ const MenuHeaderWrapper = styled.div`
 const MenuHeader = styled.div`
     padding: .6rem 1.1rem;
     border-radius: 4px;
+    font-family: "Noto Sans";
+    font-weight: 700;
     font-size: 16px;
-    // background-color: white;
-    // opacity: 0.3;
-    background: rgba(255, 255, 255, 0.3);
+    //background: rgba(255, 255, 255, 0.3);
     color: white;
 `;
 
@@ -119,7 +119,7 @@ const PBlockMenu = ({ selectedPlayer, handlePlayerChange, handleSubHeaderChange,
         <PBlockMenuContainer>
             <MenuHeaderWrapper>
                 <MenuHeader>
-                    REGENERATE SCENE
+                    Regenerate Scene:
                 </MenuHeader>
             </MenuHeaderWrapper>
             <MenuItemWrapper>
