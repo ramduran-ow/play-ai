@@ -71,8 +71,6 @@ function VideoBox({ url, child, scrollInfo, autoPlay }) {
         };
     }, [inView, hasPlayed]);
 
-    const video = document.getElementById(url)
-
     return (
         <OuterContainer>
             <VideoContainer>
