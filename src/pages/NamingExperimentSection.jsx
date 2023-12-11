@@ -39,7 +39,7 @@ function NamingExperimentSection() {
     // const images = useNamingImageLoader();
 
     //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13  14  15  16  17   18
-    const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 400, 0, 200, 200, 250, 400, 0, 600, 0, 0, 900]
+    const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 400, 0, 200, 200, 200, 400, 0, 200, 0, 0, 900]
     const endblock = 1320 / window.innerHeight * 100
 
     //Timings | Timings are adjusted to start - end of section
@@ -75,12 +75,12 @@ function NamingExperimentSection() {
         //14 Video Text
         [],
         //15 Video
-        [[0, 0.4, 1], [0.3, 0.4, 0.7, 0.8], [0.8, 0.9, 1, 1.1], [0, 1], [0.3, 0.4, 1, 1.1]],
+        [[0, 0.6, 1.3], [0, 1.3]],
         //16 Video Text
         [],
         //17 Video
         [[0, 0.6, 1.3], [0, 1.3]],
-        //18 Para O 1         Para O 2               Para O 3                  Scroll 1           Scroll 2               Scroll 3                        Robot O 1                     Robot O 2              Robot O 3      
+        //18 Para O 1         Para O 2               Para O 3                  Scroll 1                   Scroll 2           Scroll 3                    Robot O 1                     Robot O 2              Robot O 3      
         [[0, 0.14, 0.18, 1], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1.25], [-5 / 12, 1 / 12, 7 / 12], [0, 1 / 2, 6 / 6], [5 / 12, 11 / 12, 17 / 12], [0, 0, 0.14, 0.6, 0.8, 1.25], [0, 0, 0, 0, 0, 1.25], [0, 0.66, 0.80, 0.84, 1, 1.25]],
     ]
     let adjustedTimings = []
@@ -372,14 +372,14 @@ function NamingExperimentSection() {
     //SECTION 15
     const mobileVideoAbstract02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 100]]} scrollInfo={adjustedTimings[15][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][4]}
+            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][1]}
             />}
         />
     );
 
     const desktopVideoAbstract02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 100]]} scrollInfo={adjustedTimings[15][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][4]}
+            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][1]}
             />}
         />
     );
