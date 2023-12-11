@@ -334,13 +334,17 @@ function Hero({ handlePlayerChange, player }) {
           </motion.div>
           <motion.div 
             className="swiper-button image-swiper-button-next" 
-            style={{ opacity: opacityControlsArrowProgress }} 
-            onClick={() => { nexto(); }} 
+            style={{ 
+              opacity: opacityControlsArrowProgress,
+             }} 
+            onClick={() => { window.scrollY < 1 && nexto(); }} 
           />            
           <motion.div 
             className="swiper-button image-swiper-button-prev" 
-            style={{ opacity: opacityControlsArrowProgress }} 
-            onClick={() => { prevto(); }} 
+            style={{ 
+              opacity: opacityControlsArrowProgress
+             }} 
+            onClick={() => { window.scrollY < 1 && prevto(); }} 
           />         
         </motion.div>
       </div>
