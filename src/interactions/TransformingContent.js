@@ -1,11 +1,10 @@
 import PropTypes from "prop-types"
 import { sizes } from "../components/constants/devices"
 import MediaQuery from "react-responsive"
-import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue, useAnimation } from "framer-motion"
-import React, { useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from "framer-motion"
+import React from 'react';
 
-export { TransformingContent, ImgBox, BackgroundImgBox, VideoBox, ScalingImgBox, RotatingImgBox, TransformingTextBox }
+export { TransformingContent, ImgBox, BackgroundImgBox, ScalingImgBox, RotatingImgBox, TransformingTextBox }
 
 function TransformingContent({ child, positions, scrollInfo, alignment }) {
 
@@ -191,7 +190,7 @@ function ImgBox({ url, displayDimensions, rotate, fixWidth, fixHeight }) {
                             width: "auto",
                         }} />
                 </MediaQuery>
-                <MediaQuery minWidth={sizes.tablet} maxWidth={sizes.laptop}>
+                <MediaQuery minWidth={sizes.tablet} maxWidth={sizes.laptopL}>
                     <img src={url} alt={url}
                         style={{
                             userDrag: "none",
@@ -279,60 +278,6 @@ function BackgroundImgBox({ url, displayDimensions, rotate }) {
         </>
     )
 }
-
-function VideoBox({ url, displayWidth, child, scrollInfo }) {
-
-    const info = [scrollInfo[0], scrollInfo[0], scrollInfo[1], scrollInfo[1]]
-    const [ref, inView] = useInView({ triggerOnce: true });
-    const { scrollYProgress } = useScroll()
-
-    const controls = useAnimation();
-    const [hasPlayed, setHasPlayed] = useState(false)
-    useEffect(() => { 
-        if (inView && !hasPlayed) { 
-            controls.start({ opacity: 1, scale: 1 }); 
-            setHasPlayed(true);
-        };
-    }, [inView, controls, hasPlayed]);
-
-    const opacity = useTransform(scrollYProgress, info, [0, 1, 1, 0])
-
-    return (
-        <motion.div
-            ref={ref}
-            initial={{ opacity: 0.9-9, scale: 1 }}
-            animate={controls}
-            transition={{ duration: 0.1 }}
-            style={{ width: '100%', textAlign: 'center' }}
-        >
-            <div style={{ 
-                    border: '2px solid black', 
-                    boxShadow: '0px 0px 0px 2px black inset', 
-                    borderRadius: '4rem', width: 'fit-content', 
-                    overflow: 'hidden', display: 'inline-block', 
-                    position: 'relative',
-                    maxWidth: `1220px`, 
-                    maxHeight: '90vh',
-                    margin: '0rem 3.2rem'
-                }}>
-                {(<motion.video controls autoPlay={false} muted loop // small loading bug is a result of inView
-                    style={{ width: '100%', height: '100%', position: 'relative', top: 0, opacity }}>
-                    <source src={url} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </motion.video>)}
-                {child}
-            </div>
-        </motion.div>
-    );
-}
-
-VideoBox.propTypes = {
-    url: PropTypes.string,
-    displayWidth: (PropTypes.number).isRequired,
-    prioritizeHeight: PropTypes.bool,
-    scrollInfo: PropTypes.arrayOf(PropTypes.number)
-};
-
 
 function ScalingImgBox({ url, displayDimensions, scrollInfo }) {
     const { scrollYProgress } = useScroll();

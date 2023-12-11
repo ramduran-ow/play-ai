@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 
 // import interactions
 import { Background, TransitionBackground, Transition } from '../interactions/Background'
-import { TransformingContent, ImgBox, VideoBox } from '../interactions/TransformingContent'
+import { TransformingContent, ImgBox } from '../interactions/TransformingContent'
 import { TransformingTextBox } from '../interactions/TransformingTextBox.jsx';
 import { OpacityParagraph, OpacityList, OpacitySubheading, OpacityContent } from '../interactions/OpacityContent';
 // import { Draggable } from '../interactions/Draggable.jsx';
@@ -14,6 +14,7 @@ import { FadingSectionHeader } from '../interactions/FadingSectionHeader';
 import { ColumnImage } from '../interactions/ColumnImage.js';
 import { DoubleColumn } from '../interactions/DoubleColumn.js';
 import { VideoTextBox } from '../interactions/VideoTextBox.js';
+import { VideoBox } from '../interactions/VideoBox.jsx';
 import { ScrollingColumn } from '../interactions/ScrollingColumn.jsx';
 import { ExperimentNav } from '../interactions/ExperimentNav.jsx';
 
@@ -71,7 +72,7 @@ function NamingExperimentSection() {
         //12 Fading Section Header
         [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //13 Video
-        [[-0.1, 0.25, 1.2], [0.6, 0.65, 0.75, 0.8], [0.8, 0.85, 0.95, 1.1], [0, 1], [0.6, 0.65, 0.95, 1.1]],
+        [[-0.1, 0.25, 1.2], [0.6, 0.65, 0.75, 0.8], [0.8, 0.85, 0.95, 1.1], [0, 1], [0.6, 0.65, 1, 1.1]],
         //14 Video Text
         [],
         //15 Video
@@ -81,7 +82,7 @@ function NamingExperimentSection() {
         //17 Video
         [[0, 0.6, 1.3], [0, 1.3]],
         //18 Para O 1         Para O 2               Para O 3                  Scroll 1                   Scroll 2           Scroll 3                    Robot O 1                     Robot O 2              Robot O 3      
-        [[0, 0.14, 0.18, 1], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1.25], [-5 / 12, 1 / 12, 7 / 12], [0, 1 / 2, 6 / 6], [5 / 12, 11 / 12, 17 / 12], [0, 0, 0.14, 0.6, 0.8, 1.25], [0, 0, 0, 0, 0, 1.25], [0, 0.66, 0.80, 0.84, 1, 1.25]],
+        [[0, 0.14, 0.18, 1], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1.25], [-5 / 12, 1 / 12, 7 / 12], [0, 1 / 2, 6 / 6], [5 / 12, 11 / 12, 17 / 12], [0, 0, 0.14, 0.6, 1, 1.1], [0, 0, 0, 0, 0, 1.25], [0, 0.66, 0.80, 0.84, 1, 1.25]],
     ]
     let adjustedTimings = []
 
@@ -438,7 +439,7 @@ function NamingExperimentSection() {
     const desktopToKeep = (
         <TransformingTextBox doubled positions={[10, 10, 10, -130]} scrollInfo={adjustedTimings[18][2]} alignment={'top'} child={
             <DoubleColumn>
-                <ColumnImage scrollInfo={adjustedTimings[18][8]} backY={-9.25} fadeIn={false} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
+                <ColumnImage invisible scrollInfo={adjustedTimings[18][8]} backY={-9.25} fadeIn={false} child={<ImgBox url={getImageByKey("cute_robot")} displayDimensions={[70, 80]} rotate={0} />} />
                 <ScrollingColumn scrollInfo={adjustedTimings[18][5]} scrollOut={false} >
                     <OpacityParagraph scrollInfo={adjustedTimings[18][2]} dark={false} text={
                         [<p><b>To keep GPT in a truly originative space, we need to reset our prompts frequently, and keep pushing toward more freedom of association.</b></p>]

@@ -27,6 +27,7 @@ import shadow from '../../images/naming/shadow.webp'
 import headerShadeExperiment from '../../images/naming/headerShadeExperiment.webp'
 import headerShadeNaming from '../../images/naming/headerShadeNaming.webp'
 import experiment1Overlaid from '../../images/experiments/experiment1Overlaid.webp'
+import playButton from '../../images/naming/playButton.png'
 
 export {getImageByKey}
 
@@ -59,6 +60,7 @@ const imagesNaming = {
   headerShadeExperiment,
   headerShadeNaming,
   experiment1Overlaid,
+  playButton,
 };
 
 function getImageByKey(key) {

@@ -42,7 +42,7 @@ const ContactButton = styled.button`
     border: 1px black solid;
     border-radius: 0.5rem;
 
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans';
     font-weight: 500;
     font-size: 2rem;
 
@@ -57,7 +57,7 @@ const ContactHeader = styled.h2`
     margin: 0 0 3.2rem 0;
     max-width: 45rem;
     line-height: 110%;
-    font-family: 'Noe Display Medium';
+    font-family: 'Noe Display';
     font-weight: 500;
     font-size: 5rem;
 
@@ -69,7 +69,7 @@ const ContactHeader = styled.h2`
 
 const ContactBody = styled.p`
     margin: 0 0 2rem 0;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans';
     font-weight: 400;
     font-size: 2rem;
 
