@@ -28,6 +28,14 @@ import headerShadeExperiment from '../../images/naming/headerShadeExperiment.web
 import headerShadeNaming from '../../images/naming/headerShadeNaming.webp'
 import experiment1Overlaid from '../../images/experiments/experiment1Overlaid.webp'
 import playButton from '../../images/naming/playButton.png'
+import abstract_fullscreen_03A_tn from '../../images/naming/abstract_fullscreen_03A_tn.webp'
+import abstract_fullscreen_03B_tn from '../../images/naming/abstract_fullscreen_03B_tn.webp'
+import abstract_fullscreen_03C_tn from '../../images/naming/abstract_fullscreen_03C_tn.webp'
+import baseline_fullscreen_01_tn from '../../images/naming/baseline_fullscreen_01_tn.webp'
+import coined_fullscreen_02C_tn from '../../images/naming/coined_fullscreen_02C_tn.webp'
+import names_fullscreen_02B_tn from '../../images/naming/names_fullscreen_02B_tn.webp'
+import words_fullscreen_02A_tn from '../../images/naming/words_fullscreen_02A_tn.webp'
+import NameZap1_tn from '../../images/naming/NameZap1_tn.webp'
 
 export {getImageByKey}
 
@@ -61,6 +69,14 @@ const imagesNaming = {
   headerShadeNaming,
   experiment1Overlaid,
   playButton,
+  abstract_fullscreen_03A_tn,
+  abstract_fullscreen_03B_tn,
+  abstract_fullscreen_03C_tn,
+  baseline_fullscreen_01_tn,
+  coined_fullscreen_02C_tn,
+  names_fullscreen_02B_tn,
+  words_fullscreen_02A_tn,
+  NameZap1_tn
 };
 
 function getImageByKey(key) {

@@ -1,9 +1,10 @@
 import PropTypes from "prop-types"
-// import { sizes } from "../components/constants/devices"
+import { sizes } from "../components/constants/devices"
 // import MediaQuery from "react-responsive"
 import { motion, useScroll, useTransform } from "framer-motion"
-import React, { useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React, { useState } from 'react';
+// import { useEffect } from "react";
+// import { useInView } from 'react-intersection-observer';
 import styled from "styled-components";
 
 import playButton from '../images/naming/playButton.png'
@@ -36,13 +37,21 @@ const Video = styled(motion.video)`
 
     muted;
     loop;
-    autoPlay: false;
     plays-inline: true;
 
     ref: ${props => props.$ref};
     autoPlay: ${props => props.$autoPlay};
     controls: ${props => props.$controls};
-    
+    onLoadedData: ${props => props.$onLoadedData};
+`
+
+const Thumbnail = styled.img`
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 `
 
 const Button = styled.img`
@@ -55,33 +64,47 @@ const Button = styled.img`
     height: auto;
 `
 
-function VideoBox({ url, child, scrollInfo, autoPlay }) {
+function VideoBox({ url, child, scrollInfo, autoPlay, thumb }) {
 
-    const info = [scrollInfo[0], scrollInfo[0], scrollInfo[1], scrollInfo[1]]
+    let videoSource = chooseVideoSource(url)
+
+    const videoInfo = [scrollInfo[0], scrollInfo[0], scrollInfo[2], scrollInfo[2]]
+    const buttonInfo = [scrollInfo[0], scrollInfo[0], scrollInfo[1], scrollInfo[1]]
     const { scrollYProgress } = useScroll()
-    const opacity = useTransform(scrollYProgress, info, [0, 1, 1, 0])
+    const videoOpacity = useTransform(scrollYProgress, videoInfo, [0, 1, 1, 0])
+    const buttonOpacity = useTransform(scrollYProgress, buttonInfo, [0, 1, 1, 0])
 
-    const [ref, inView] = useInView({ triggerOnce: true })
-    const [hasPlayed, setHasPlayed] = useState(false)
+    // const [ref, inView] = useInView({ triggerOnce: true })
+    // const [hasPlayed, setHasPlayed] = useState(false)
     const [isPlaying, setIsPlaying] = useState(autoPlay)
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
-    useEffect(() => {
-        if (inView && !hasPlayed) {
-            setHasPlayed(true);
-        };
-    }, [inView, hasPlayed]);
+    // useEffect(() => {
+    //     if (inView && !hasPlayed) {
+    //         setHasPlayed(true);
+    //     };
+    // }, [inView, hasPlayed]);
+
+    const onLoadedData = () => {
+        setIsVideoLoaded(true);
+        console.log(`Loaded: ${videoSource}`)
+    };
 
     return (
         <OuterContainer>
             <VideoContainer>
-                <Video id={url} opacity={opacity} ref={ref} autoPlay={autoPlay} controls
-                    onClick={() => { setIsPlaying(!isPlaying)}}
-                    style={{opacity: opacity}}
-                >
-                    <source src={url} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </Video>
-                {!isPlaying && <Button src={playButton} style={{opacity: opacity}} />}
+                <Video autoPlay={autoPlay} controls
+                    src={videoSource}
+                    onLoadedData={onLoadedData}
+                    onClick={() => { setIsPlaying(!isPlaying) }}
+                    style={{ opacity: videoOpacity }}
+                />
+                <Thumbnail
+                    src={thumb}
+                    alt="thumb"
+                    style={{ opacity: isVideoLoaded ? 0 : 1 }}
+                />
+                {!isPlaying && <Button src={playButton} style={{ opacity: buttonOpacity }} />}
                 {child}
             </VideoContainer>
         </OuterContainer>
@@ -93,8 +116,16 @@ Video.defaultProps = {
 }
 
 VideoBox.propTypes = {
-    url: PropTypes.string,
+    url: PropTypes.arrayOf(PropTypes.string),
     prioritizeHeight: PropTypes.bool,
     scrollInfo: PropTypes.arrayOf(PropTypes.number),
-    autoPlay: PropTypes.bool
+    autoPlay: PropTypes.bool,
+    thumb: PropTypes.string,
 };
+
+function chooseVideoSource(urls) {
+    const screenWidth = window.innerWidth + 'px'
+    if (screenWidth > sizes.laptop) { return urls[0] }
+    if (screenWidth > sizes.tablet) { return urls[1] }
+    return urls[2]
+}

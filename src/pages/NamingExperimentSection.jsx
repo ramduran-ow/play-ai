@@ -17,18 +17,37 @@ import { VideoTextBox } from '../interactions/VideoTextBox.js';
 import { VideoBox } from '../interactions/VideoBox.jsx';
 import { ScrollingColumn } from '../interactions/ScrollingColumn.jsx';
 import { ExperimentNav } from '../interactions/ExperimentNav.jsx';
-
-import baseline_fullscreen_01 from '../images/naming/baseline_fullscreen_01.mp4'
-import words_fullscreen_02A from '../images/naming/words_fullscreen_02A.mp4'
-import names_fullscreen_02B from '../images/naming/names_fullscreen_02B.mp4'
-import coined_fullscreen_02C from '../images/naming/coined_fullscreen_02C.mp4'
-// import abstract_fullscreen_03A from '../images/naming/abstract_fullscreen_03A.mp4'
-import abstract_fullscreen_03B from '../images/naming/abstract_fullscreen_03B.mp4'
-import abstract_fullscreen_03C from '../images/naming/abstract_fullscreen_03C.mp4'
 import { TryThis } from '../components/TryThis.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import ArticleBlock from '../components/ArticleBlock.jsx';
 import Nav from '../components/Nav.jsx';
+
+//Video Imports
+// import abstract_fullscreen_03A from '../images/naming/abstract_fullscreen_03A.mp4'
+
+import baseline_fullscreen_01_2160 from '../images/naming/baseline_fullscreen_01_2160.mp4'
+import baseline_fullscreen_01_720 from '../images/naming/baseline_fullscreen_01_720.mp4'
+import baseline_fullscreen_01_480 from '../images/naming/baseline_fullscreen_01_480.mp4'
+
+import words_fullscreen_02A_2160 from '../images/naming/words_fullscreen_02A_2160.mp4'
+import words_fullscreen_02A_720 from '../images/naming/words_fullscreen_02A_720.mp4'
+import words_fullscreen_02A_480 from '../images/naming/words_fullscreen_02A_480.mp4'
+
+import names_fullscreen_02B_2160 from '../images/naming/names_fullscreen_02B_2160.mp4'
+import names_fullscreen_02B_720 from '../images/naming/names_fullscreen_02B_720.mp4'
+import names_fullscreen_02B_480 from '../images/naming/names_fullscreen_02B_480.mp4'
+
+import coined_fullscreen_02C_2160 from '../images/naming/coined_fullscreen_02C_2160.mp4'
+import coined_fullscreen_02C_720 from '../images/naming/coined_fullscreen_02C_720.mp4'
+import coined_fullscreen_02C_480 from '../images/naming/coined_fullscreen_02C_480.mp4'
+
+import abstract_fullscreen_03B_2160 from '../images/naming/abstract_fullscreen_03B_2160.mp4'
+import abstract_fullscreen_03B_720 from '../images/naming/abstract_fullscreen_03B_720.mp4'
+import abstract_fullscreen_03B_480 from '../images/naming/abstract_fullscreen_03B_480.mp4'
+
+import abstract_fullscreen_03C_2160 from '../images/naming/abstract_fullscreen_03C_2160.mp4'
+import abstract_fullscreen_03C_720 from '../images/naming/abstract_fullscreen_03C_720.mp4'
+import abstract_fullscreen_03C_480 from '../images/naming/abstract_fullscreen_03C_480.mp4'
 
 // import assets
 import { getImageByKey } from '../components/constants/imgContent.js';
@@ -39,8 +58,10 @@ function NamingExperimentSection() {
     // load images
     // const images = useNamingImageLoader();
 
-    //Heights               0    1    2    3    4    5    6    7  8    9  10   11   12   13  14  15  16  17   18
-    const sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 400, 0, 200, 200, 200, 400, 0, 200, 0, 0, 900]
+    const heightsScalar = 0.65
+    //Heights               0    1    2    3    4    5    6    7  8    9  10   11  12   13  14  15  16  17   18
+    let sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 400, 0, 200, 200, 250, 400, 0, 200, 0, 0, 900]
+    sectionHeights = sectionHeights.map(function (x) { return x * heightsScalar })
     const endblock = 1320 / window.innerHeight * 100
 
     //Timings | Timings are adjusted to start - end of section
@@ -50,37 +71,37 @@ function NamingExperimentSection() {
         //1 Para 1               Para 2                 Para 3                 Text Motion       Off
         [[-0.2, 0.05, 0.28, 1], [-0.2, 0.38, 0.61, 1], [-0.2, 0.71, 0.95, 1], [-0.2, 0.2, 0.8, 1], [-0.2, 0.1, 0.5, 0.8]],
         //2 Fading Section Header
-        [[0, 0.2, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
+        [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.3, 0.6, 1.5, 2]],
         //3 Video
-        [[-0.1, 0.25, 1.2], [-0.1, 1.2]],
-        //4 Para O 1             Para O 2               Para O 3               Scroll 1           Scroll 2               Scroll 3           Robot O 1                       Robot O 2                       Robot O 3      
-        [[0, 1 / 12, 3 / 12, 2 / 3], [0, 5 / 12, 7 / 12, 1], [0, 9 / 12, 10 / 12, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5 / 6, 1], [0, 0, 1 / 12, 3 / 12, 1 / 3, 2 / 3], [0, 1 / 3, 5 / 12, 7 / 12, 2 / 3, 1], [1 / 3, 2 / 3, 9 / 12, 11 / 12, 1, 1]],
+        [[-0.1, 0.25, 1.2], [-0.1, 1, 1.2]],
+        //4 Para O 1                  Para O 2               Para O 3                  Scroll 1           Scroll 2               Scroll 3           Robot O 1                             Robot O 2                             Robot O 3      
+        [[0, 1 / 12, 3 / 12, 2 / 3], [0, 5 / 12, 7 / 12, 1], [0, 9 / 12, 9.5 / 12, 1], [0, 1 / 6, 4 / 6], [0 / 6, 1 / 2, 6 / 6], [2 / 6, 5 / 6, 1], [0, 0, 1 / 12, 3 / 12, 1 / 3, 2 / 3], [0, 1 / 3, 5 / 12, 7 / 12, 2 / 3, 1], [1 / 3, 2 / 3, 9 / 12, 11 / 12, 12 / 12, 12 / 12]],
         //5 Fading Section Header
-        [[0, 0.2, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
+        [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //6 Video
-        [[-0.1, 0.25, 1.2], [0.6, 0.8, 1, 1.2], [0, 1]],
+        [[-0.1, 0.25, 1.2], [0.6, 0.8, 1, 1.2], [0, 1, 1]],
         //7 Video Text
         [],
         //8, Video
-        [[0, 0.4, 1.2], [0.3, 0.4, 0.7, 0.8], [0.8, 0.9, 1, 1.1], [0, 1], [0.3, 0.4, 1, 1.1]],
+        [[0, 0.4, 1.2], [0.3, 0.4, 0.7, 0.8], [0.8, 0.9, 1, 1.1], [0, 1, 1], [0.3, 0.4, 1, 1.1]],
         //9 Video Text
         [],
         //10, Video
-        [[0, 0.6, 1.3], [0, 1.3]],
+        [[0, 0.6, 1.3], [0, 1, 1.3]],
         //11 Para 1 Motion                Transform + Opacity
         [[-0.2, -0.2, 0.16, 0.77, 1, 1], [-0.2, 0.16, 0.77, 1], [0, 1.2]],
         //12 Fading Section Header
         [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.5, 0.6, 1.5, 2]],
         //13 Video
-        [[-0.1, 0.25, 1.2], [0.6, 0.65, 0.75, 0.8], [0.8, 0.85, 0.95, 1.1], [0, 1], [0.6, 0.65, 1, 1.1]],
+        [[-0.1, 0.25, 1.2], [0.6, 0.65, 0.75, 0.8], [0.8, 0.85, 0.95, 1.1], [0, 1, 1], [0.6, 0.65, 1, 1.1]],
         //14 Video Text
         [],
         //15 Video
-        [[0, 0.6, 1.3], [0, 1.3]],
+        [[0, 0.6, 1.3], [0, 1, 1.3]],
         //16 Video Text
         [],
         //17 Video
-        [[0, 0.6, 1.3], [0, 1.3]],
+        [[0, 0.6, 1.3], [0, 1, 1.3]],
         //18 Para O 1         Para O 2               Para O 3                  Scroll 1                   Scroll 2           Scroll 3                    Robot O 1                     Robot O 2              Robot O 3      
         [[0, 0.14, 0.18, 1], [0, 0.47, 0.51, 1.00], [0.33, 0.80, 0.84, 1.25], [-5 / 12, 1 / 12, 7 / 12], [0, 1 / 2, 6 / 6], [5 / 12, 11 / 12, 17 / 12], [0, 0, 0.14, 0.6, 1, 1.1], [0, 0, 0, 0, 0, 1.25], [0, 0.66, 0.80, 0.84, 1, 1.25]],
     ]
@@ -158,13 +179,13 @@ function NamingExperimentSection() {
     //SECTION 3
     const mobileVideoBaseline01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 100]]} scrollInfo={adjustedTimings[3][0]} alignment={['center', 'center']}
-            child={<VideoBox url={baseline_fullscreen_01} displayWidth={85} scrollInfo={adjustedTimings[3][1]} />}
+            child={<VideoBox url={[baseline_fullscreen_01_2160, baseline_fullscreen_01_720, baseline_fullscreen_01_480]} thumb={getImageByKey('baseline_fullscreen_01_tn')} displayWidth={85} scrollInfo={adjustedTimings[3][1]} />}
         />
     );
 
     const desktopVideoBaseline01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 100]]} scrollInfo={adjustedTimings[3][0]} alignment={['center', 'center']}
-            child={<VideoBox url={baseline_fullscreen_01} displayWidth={85} scrollInfo={adjustedTimings[3][1]} />}
+            child={<VideoBox url={[baseline_fullscreen_01_2160, baseline_fullscreen_01_720, baseline_fullscreen_01_480]} thumb={getImageByKey('baseline_fullscreen_01_tn')} displayWidth={85} scrollInfo={adjustedTimings[3][1]} />}
         />
     );
 
@@ -202,7 +223,7 @@ function NamingExperimentSection() {
     )
 
     const desktopTheOpportunity = (
-        <TransformingTextBox doubled positions={[27, 27, 27, -100]} scrollInfo={adjustedTimings[4][2]} alignment={'top'} child={
+        <TransformingTextBox doubled positions={[27, 27, 27, -127]} scrollInfo={adjustedTimings[4][2]} alignment={'top'} child={
             <DoubleColumn>
                 <ColumnImage scrollInfo={adjustedTimings[4][8]} backY={25} child={<ImgBox url={getImageByKey("tin_robot3")} displayDimensions={[65, 100]} rotate={0} />} />
                 <ScrollingColumn scrollInfo={adjustedTimings[4][5]} scrollOut={false}>
@@ -221,7 +242,7 @@ function NamingExperimentSection() {
     const videoBaseline02 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[6][0]} alignment={['center', 'center']}
             child={<>
-                <VideoBox url={names_fullscreen_02B} displayWidth={85} scrollInfo={adjustedTimings[6][2]} child={
+                <VideoBox url={[names_fullscreen_02B_2160, names_fullscreen_02B_720, names_fullscreen_02B_480]} thumb={getImageByKey('names_fullscreen_02B_tn')} displayWidth={85} scrollInfo={adjustedTimings[6][2]} child={
                     <VideoTextBox scrollInfo={adjustedTimings[6][1]} child={
                         <OpacityParagraph scrollInfo={adjustedTimings[6][1]} simpleFade={true} baseOpacity={0} text={
                             ["By contrast, when we asked ChatGPT to generate 10 “company names” that abstractly evoke intelligence, it only generated close-in terms, and defaulted to a compound format. This suggested an ingrained understanding of “name” as something that relies on expected category terms and a compound name convention."]
@@ -236,22 +257,22 @@ function NamingExperimentSection() {
     const mobileVideoNames02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 5]]} scrollInfo={adjustedTimings[8][0]} alignment={['center', 'center']}
             child={<>
-                <VideoBox url={words_fullscreen_02A} displayWidth={85} scrollInfo={adjustedTimings[8][3]} child={
+                <VideoBox url={[words_fullscreen_02A_2160, words_fullscreen_02A_720, words_fullscreen_02A_480]} displayWidth={85} thumb={getImageByKey('words_fullscreen_02A_tn')} scrollInfo={adjustedTimings[8][3]} child={
                     <VideoTextBox scrollInfo={adjustedTimings[8][4]} child={
-                            <>
-                                <OpacityParagraph scrollInfo={adjustedTimings[8][1]} simpleFade={true} baseOpacity={0} text={
-                                    ["While compound names are indeed common among brand names across all categories (as exemplified by PayPal, YouTube, Salesforce, Facebook, etc.) many of the most famous, aspirational brand names use shorter, more distinctive names. Whether they are coined/invented names (Google, Hulu, Zappos, Xerox) or real, abstract dictionary words (Amazon, Apple, Peloton, Uber), it seems fair to say that ChatGPT is not primed take you there and in fact, requires substantial handholding to do so."]
-                                } />
-                                <OpacitySubheading scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} simpleFade={true} text={
-                                    ["The lesson learned?"]
-                                } />
-                                <OpacityList scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} simpleFade={true} text={
-                                    [<p>We may be better off asking ChatGPT for “words” or “ideas” as opposed to “names” when trying to name a brand, helping it garner results more aligned to the range of possibilities.</p>, <p>Better yet, we can teach it to understand the different types of names through more detailed prompts, in order to be more targeted in our exploration.</p>]
-                                } />
-                                <OpacityParagraph scrollInfo={adjustedTimings[8][2]} simpleFade={true} baseOpacity={0} text={
-                                    ["How do we get to more detailed prompts? We can do this by using our name criteria process to pinpoint the most relevant name type for a given brand based on conventions and white space in the category, the intended tone and level of clarity, or even the idea that a certain type of name conveys. When we refined the prompt for a coined name, we ChatGPT was able to provide original, single words that felt more like names:"]
-                                } />
-                            </>
+                        <>
+                            <OpacityParagraph scrollInfo={adjustedTimings[8][1]} simpleFade={true} baseOpacity={0} text={
+                                ["While compound names are indeed common among brand names across all categories (as exemplified by PayPal, YouTube, Salesforce, Facebook, etc.) many of the most famous, aspirational brand names use shorter, more distinctive names. Whether they are coined/invented names (Google, Hulu, Zappos, Xerox) or real, abstract dictionary words (Amazon, Apple, Peloton, Uber), it seems fair to say that ChatGPT is not primed take you there and in fact, requires substantial handholding to do so."]
+                            } />
+                            <OpacitySubheading scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} simpleFade={true} text={
+                                ["The lesson learned?"]
+                            } />
+                            <OpacityList scrollInfo={adjustedTimings[8][2]} baseOpacity={0.2} simpleFade={true} text={
+                                [<p>We may be better off asking ChatGPT for “words” or “ideas” as opposed to “names” when trying to name a brand, helping it garner results more aligned to the range of possibilities.</p>, <p>Better yet, we can teach it to understand the different types of names through more detailed prompts, in order to be more targeted in our exploration.</p>]
+                            } />
+                            <OpacityParagraph scrollInfo={adjustedTimings[8][2]} simpleFade={true} baseOpacity={0} text={
+                                ["How do we get to more detailed prompts? We can do this by using our name criteria process to pinpoint the most relevant name type for a given brand based on conventions and white space in the category, the intended tone and level of clarity, or even the idea that a certain type of name conveys. When we refined the prompt for a coined name, we ChatGPT was able to provide original, single words that felt more like names:"]
+                            } />
+                        </>
                     } />
                 } />
             </>}
@@ -261,7 +282,7 @@ function NamingExperimentSection() {
     const desktopVideoNames02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 5]]} scrollInfo={adjustedTimings[8][0]} alignment={['center', 'center']}
             child={<>
-                <VideoBox url={words_fullscreen_02A} displayWidth={85} scrollInfo={adjustedTimings[8][3]} child={
+                <VideoBox url={[words_fullscreen_02A_2160, words_fullscreen_02A_720, words_fullscreen_02A_480]} thumb={getImageByKey('words_fullscreen_02A_tn')} displayWidth={85} scrollInfo={adjustedTimings[8][3]} child={
                     <VideoTextBox scrollInfo={adjustedTimings[8][4]} child={
                         <>
                             <OpacityParagraph scrollInfo={adjustedTimings[8][1]} simpleFade={true} baseOpacity={0} text={
@@ -288,13 +309,13 @@ function NamingExperimentSection() {
     //Section 10
     const mobileVideoCoined0203 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 127]]} scrollInfo={adjustedTimings[10][0]} alignment={['center', 'center']}
-            child={<VideoBox url={coined_fullscreen_02C} displayWidth={85} scrollInfo={adjustedTimings[10][1]} />}
+            child={<VideoBox url={[coined_fullscreen_02C_2160, coined_fullscreen_02C_720, coined_fullscreen_02C_480]} thumb={getImageByKey('coined_fullscreen_02C_tn')} displayWidth={85} scrollInfo={adjustedTimings[10][1]} />}
         />
     );
 
     const desktopVideoCoined0203 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 127]]} scrollInfo={adjustedTimings[10][0]} alignment={['center', 'center']}
-            child={<VideoBox url={coined_fullscreen_02C} displayWidth={85} scrollInfo={adjustedTimings[10][1]} />}
+            child={<VideoBox url={[coined_fullscreen_02C_2160, coined_fullscreen_02C_720, coined_fullscreen_02C_480]} thumb={getImageByKey('coined_fullscreen_02C_tn')} displayWidth={85} scrollInfo={adjustedTimings[10][1]} />}
         />
     );
 
@@ -320,7 +341,7 @@ function NamingExperimentSection() {
     //SECTION 13
     const mobileVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][3]} child={
+            child={<VideoBox url={[abstract_fullscreen_03C_2160, abstract_fullscreen_03C_720, abstract_fullscreen_03C_480]} thumb={getImageByKey('abstract_fullscreen_03C_tn')} displayWidth={85} scrollInfo={adjustedTimings[13][3]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[13][4]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
@@ -346,7 +367,7 @@ function NamingExperimentSection() {
 
     const desktopVideoAbstract01 = (
         <TransformingContent positions={[[0, 0, 0], [-100, 5, 5]]} scrollInfo={adjustedTimings[13][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03C} displayWidth={85} scrollInfo={adjustedTimings[13][3]} child={
+            child={<VideoBox url={[abstract_fullscreen_03C_2160, abstract_fullscreen_03C_720, abstract_fullscreen_03C_480]} thumb={getImageByKey('abstract_fullscreen_03C_tn')} displayWidth={85} scrollInfo={adjustedTimings[13][3]} child={
                 <VideoTextBox scrollInfo={adjustedTimings[13][4]} displayWidth={85} child={
                     <div>
                         <OpacityParagraph scrollInfo={adjustedTimings[13][1]} simpleFade={true} text={
@@ -373,14 +394,14 @@ function NamingExperimentSection() {
     //SECTION 15
     const mobileVideoAbstract02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 100]]} scrollInfo={adjustedTimings[15][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][1]}
+            child={<VideoBox url={[abstract_fullscreen_03B_2160, abstract_fullscreen_03B_720, abstract_fullscreen_03B_480]} thumb={getImageByKey('abstract_fullscreen_03B_tn')} displayWidth={85} scrollInfo={adjustedTimings[15][1]}
             />}
         />
     );
 
     const desktopVideoAbstract02 = (
         <TransformingContent positions={[[0, 0, 0], [5, 5, 100]]} scrollInfo={adjustedTimings[15][0]} alignment={['center', 'center']}
-            child={<VideoBox url={abstract_fullscreen_03B} displayWidth={85} scrollInfo={adjustedTimings[15][1]}
+            child={<VideoBox url={[abstract_fullscreen_03B_2160, abstract_fullscreen_03B_720, abstract_fullscreen_03B_480]} thumb={getImageByKey('abstract_fullscreen_03B_tn')} displayWidth={85} scrollInfo={adjustedTimings[15][1]}
             />}
         />
     );

@@ -4,7 +4,9 @@ import { useMediaQuery } from 'react-responsive';
 
 //import assets
 import { getImageByKey } from '../components/constants/imgContent.js';
-import namezap1 from '../images/naming/NameZap1.mp4'
+import namezap1_2160 from '../images/naming/NameZap1_2160.mp4'
+import namezap1_720 from '../images/naming/NameZap1_720.mp4'
+import namezap1_480 from '../images/naming/NameZap1_480.mp4'
 
 // import interactions
 import { Background, TransitionBackground } from '../interactions/Background.js'
@@ -31,8 +33,10 @@ function NamingSection({ text }) {
 
     const endblock = 1320 / window.innerHeight * 100
 
-    //Heights                0    1    2    3    4    5    6    7
-    const sectionHeights = [250, 400, 400, 300, 200, 0, 400, 200]
+    const heightsScalar = 0.65
+    //Heights                0    1    2    3    4   5    6    7
+    let sectionHeights = [250, 400, 400, 300, 200, 0, 400, 200]
+    sectionHeights = sectionHeights.map(function(x) { return x * heightsScalar})
     const sum = sectionHeights.reduce((partialSum, a) => partialSum + a, 0) + endblock
 
     //Timings 
@@ -71,7 +75,7 @@ function NamingSection({ text }) {
         [0.15, 0.5, 1, 1.7]],
 
         // [4] Section 4
-        [[0, 0.4, 1, 1.2], [0.6, 0.8, 1.2, 1.2], [0, 1.2]],                        // [0] Name Zap Video
+        [[0, 0.4, 1, 1.2], [0.6, 0.8, 1.2, 1.2], [0, 1, 1.2]],                        // [0] Name Zap Video
 
         // [5] Section 5
         [[0, 1],                  //VideoT             
@@ -214,8 +218,8 @@ function NamingSection({ text }) {
 
     const mobileVideo = (
         <>
-            <TransformingContent child={<VideoBox url={namezap1} displayWidth={80} scrollInfo={adjustedTimings[4][2]}
-                child={<VideoTextBox scrollInfo={adjustedTimings[4][1]} displayWidth={80} heightRatio={0.657} child={
+            <TransformingContent child={<VideoBox url={[namezap1_2160, namezap1_720, namezap1_480]} displayWidth={80} scrollInfo={adjustedTimings[4][2]}
+                child={<VideoTextBox scrollInfo={adjustedTimings[4][1]} thumb={getImageByKey('NameZap1_tn')} displayWidth={80} heightRatio={0.657} child={
                     <OpacityParagraph scrollInfo={adjustedTimings[4][1]} simpleFade={true} text={
                         ["The recent explosion of new generative AI represents an opportunity to experiment with ways to supercharge Firmi amping the natural language and machine learning capacity it lacked in early instances to become a more dynamic resource and relevant extension to our teams. We are on a mission to find ways to effectively harness the immense data sources, processing power, and intuitive interface now available, without sacrificing quality, data integrity, security, and ownership rights plaguing many OpenAi tools today."]
                     } />}
@@ -226,8 +230,8 @@ function NamingSection({ text }) {
 
     const desktopVideo = (
         <>
-            <TransformingContent child={<VideoBox url={namezap1} displayWidth={80} scrollInfo={adjustedTimings[4][2]}
-                child={<VideoTextBox scrollInfo={adjustedTimings[4][1]} displayWidth={80} heightRatio={0.657} child={
+            <TransformingContent child={<VideoBox url={[namezap1_2160, namezap1_720, namezap1_480]} displayWidth={80} scrollInfo={adjustedTimings[4][2]}
+                child={<VideoTextBox scrollInfo={adjustedTimings[4][1]} thumb={getImageByKey('NameZap1_tn')} displayWidth={80} heightRatio={0.657} child={
                     <OpacityParagraph scrollInfo={adjustedTimings[4][1]} simpleFade={true} text={
                         ["The recent explosion of new generative AI represents an opportunity to experiment with ways to supercharge Firmi amping the natural language and machine learning capacity it lacked in early instances to become a more dynamic resource and relevant extension to our teams. We are on a mission to find ways to effectively harness the immense data sources, processing power, and intuitive interface now available, without sacrificing quality, data integrity, security, and ownership rights plaguing many OpenAi tools today."]
                     } />}
@@ -237,31 +241,8 @@ function NamingSection({ text }) {
     );
 
     //SECTION 14
-    const mobileVideoText01 = (
-        <>
-            <Background background={'#202020'} height={sectionHeights[5]} />
-            {/* <TransformingContent positions={[[0, 0, 0, 0], [-70, 30, 30, 130]]} scrollInfo={adjustedTimings[5][2]} alignment={['center', 'center']}
-                child={
-                    <OpacityParagraph scrollInfo={adjustedTimings[5][1]} text={
-                        ["The recent explosion of new generative AI represents an opportunity to experiment with ways to supercharge Firmi amping the natural language and machine learning capacity it lacked in early instances to become a more dynamic resource and relevant extension to our teams. We are on a mission to find ways to effectively harness the immense data sources, processing power, and intuitive interface now available, without sacrificing quality, data integrity, security, and ownership rights plaguing many OpenAi tools today."]
-                    } />
-                }
-            /> */}
-        </>
-    )
-
-    const desktopVideoText01 = (
-        <>
-            <Background background={getImageByKey("naming_gradient")} height={sectionHeights[5]} />
-            {/* <TransformingContent positions={[[0, 0, 0], [5, 5, 100]]} scrollInfo={adjustedTimings[5][3]} alignment={['center', 'center']}
-                child={<VideoTextBox scrollInfo={adjustedTimings[5][4]} displayWidth={80} heightRatio={0.657} child={
-                    <OpacityParagraph scrollInfo={adjustedTimings[5][1]} simpleFade={true} text={
-                        ["The recent explosion of new generative AI represents an opportunity to experiment with ways to supercharge Firmi amping the natural language and machine learning capacity it lacked in early instances to become a more dynamic resource and relevant extension to our teams. We are on a mission to find ways to effectively harness the immense data sources, processing power, and intuitive interface now available, without sacrificing quality, data integrity, security, and ownership rights plaguing many OpenAi tools today."]
-                    } />
-                } />}
-            /> */}
-        </>
-    )
+    const mobileVideoText01 = ( <Background background={'#202020'} height={sectionHeights[5]} /> )
+    const desktopVideoText01 = ( <Background background={getImageByKey("naming_gradient")} height={sectionHeights[5]} /> )
 
     const mobileRobotSection = (
         <>
@@ -280,12 +261,6 @@ function NamingSection({ text }) {
                 <DoubleColumn>
                     <ColumnImage scrollInfo={adjustedTimings[7][3]} backY={-12} fadeOut={false} child={<ImgBox url={getImageByKey('cute_robot')} displayDimensions={[70, 80]} rotate={0} />} />
                     <div>
-                        {/* <ScrollingColumn scrollOut={false} scrollInfo={adjustedTimings[7][5]}>
-                            <OpacityParagraph scrollInfo={adjustedTimings[7][2]} baseOpacity={0} dark={false} simpleFade={true} text={
-                                [<p>We'll document our learning in real time to the advantage of our clients and the work we deliver. <b>Ultimately, we'll test the hypothesis that this ChatGPT era can supercharge our expertise and creative processes to arrive at stronger names than ever before.</b><br /><br />First up in our list of experiments - name generation.</p>]
-                            } />
-                            <OpacityParagraph scrollInfo={adjustedTimings[7][2]} dark={false} simpleFade={true} baseOpacity={0} text={[<Go>Let's go →</Go>]} />
-                        </ScrollingColumn> */}
                         <ScrollingColumn scrollInfo={adjustedTimings[7][4]} scrollIn={false} scrollOut={false}>
                             <OpacitySubheading scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={[<p>So, it’s time to play.</p>]} />
                             <OpacityParagraph scrollInfo={adjustedTimings[7][0]} dark={false} simpleFade={true} baseOpacity={0} text={

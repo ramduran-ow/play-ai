@@ -17,7 +17,9 @@ function ManifestoSection({ images }) {
     const endblock = 1320 / window.innerHeight * 100
 
     //Heights
-    const sectionHeights = [600, 50, 100, 600]
+    const heightsScalar = 0.65
+    let sectionHeights = [600, 50, 100, 600]
+    sectionHeights = sectionHeights.map(function(x) { return x * heightsScalar})
 
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
