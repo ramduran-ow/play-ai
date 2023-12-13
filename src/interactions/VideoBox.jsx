@@ -87,7 +87,6 @@ function VideoBox({ url, child, scrollInfo, autoPlay, thumb }) {
 
     const onLoadedData = () => {
         setIsVideoLoaded(true);
-        console.log(`Loaded: ${videoSource}`)
     };
 
     return (

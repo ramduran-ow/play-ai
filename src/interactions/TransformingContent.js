@@ -190,7 +190,7 @@ function ImgBox({ url, displayDimensions, rotate, fixWidth, fixHeight }) {
                             width: "auto",
                         }} />
                 </MediaQuery>
-                <MediaQuery minWidth={sizes.tablet} maxWidth={sizes.laptopL - 1}>
+                <MediaQuery minWidth={sizes.mobileL} maxWidth={sizes.laptopL}>
                     <img src={url} alt={url}
                         style={{
                             userDrag: "none",
