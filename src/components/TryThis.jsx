@@ -79,7 +79,7 @@ const ContactBody = styled.p`
     }
 `;
 
-function TryThis({ text, scrollInfo }) {
+function TryThis({ text, scrollInfo, link }) {
     const { scrollYProgress } = useScroll();
     const visible = useTransform(scrollYProgress, [0, scrollInfo[0], scrollInfo[scrollInfo.length - 1], 1], ['none', 'none', 'block', 'none'])
     const opacity = useTransform(scrollYProgress, scrollInfo, [0, 1, 1, 0])
@@ -91,7 +91,7 @@ function TryThis({ text, scrollInfo }) {
                     <ContactHeader>{text.header}</ContactHeader>
                     <ContactBody>{text.body}</ContactBody>
                     <div style={{ width: '100%', textAlign: 'left' }}>
-                        <ContactButton onClick={() => window.location.href = "mailto:tom.ajello@lippincott.com"} >LET'S GO PLAY</ContactButton>
+                        <ContactButton onClick={() => window.open(link)} >LET'S GO PLAY</ContactButton>
                     </div>
                 </ContactColumn>
             </CardBox>

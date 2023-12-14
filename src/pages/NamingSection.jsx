@@ -31,9 +31,8 @@ export { NamingSection }
 
 function NamingSection({ text }) {
 
-    const endblock = 1320 / window.innerHeight * 100
-
-    const heightsScalar = 0.65
+    const endblock = 1320 / window.innerHeight * 100 //Buffer for Footer
+    const heightsScalar = 0.65 // Section Height Scaling Factor (Used to control Scroll Speed)
     //Heights                0    1    2    3    4   5    6    7
     let sectionHeights = [250, 400, 400, 300, 200, 0, 400, 200]
     sectionHeights = sectionHeights.map(function(x) { return x * heightsScalar})

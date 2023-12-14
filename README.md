@@ -1,3 +1,28 @@
+# Article Page Structure
+
+## Framer JS Scroll Hijacking
+
+The Article Pages were designed to be entirely controlled through Scroll Hijacking. Manage the Position, Opacity, etc of each component, we are using `scrollYProgress` from Framer.js. Unfortunately we were unable to find a way to centrally distribute one `scrollYProgress` hook to each component that needed it so each component dependent on scroll position has its own `scrollYProgress` hook to adjust its properties. 
+
+Each scroll dependent component has a property called `scrollInfo` an array of numbers that contains scrolling "time stamps" that informs the component of relevant scroll positions. `scrollInfo` is a little like defining keyframes in aftereffects or other motion design softwares except instead of timestamps, it uses the scroll position of the user on the page from 0-1. Additional parameters are required based on the individual component
+
+One difficulty we noticed early on was that in a page with multiple sections of text, it became very tedious to define the time stamps for each section. To make this easier, we devised a system of timings to make things slightly more manageable. 
+
+## Section -> Page Scroll Timing
+
+Each page has the following:
+
+`sectionHeights`: An array of numbers describing the background heights of each section
+`sectionTimings`: A 2D Array of numbers. Each element of the array denotes a section, each array within the 1D array contains timing values for an element within a section
+
+These two variables allow the scroll "timestamps" of an element to be described from 0-1 in relation to the start and end of the section it belongs to. Scroll values defined in relationship to each section 0-1 are adjusted to in relationship to the whole page 0-1 before use. Adding up the section heights and `endBlock`, an extra value reflecting the footer height, we arrive at a total sum. Each value in `section timings` is multiplied by its own section height / this sum and added to the sum of sections up to the current section / the sum. The section heights are then multiplied by the scalar `heightsScalar`, a variable added late in our development process that allows us to adjust the experiential scroll speed of the page without adjusting each page height value. What results is an `adjustedTimings` variable that hosts all of the translated global page timings. An element in `adjustedTimings` is what each scroll based component is given.
+
+Note: The manifesto page has an additional `startHeight` value added to the calculation because the manifesto article was moved into the landingPage.
+
+## Mapping Scroll Timings into timing controlled properties
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +93,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+

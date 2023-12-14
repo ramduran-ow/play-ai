@@ -55,20 +55,18 @@ import { getImageByKey } from '../components/constants/imgContent.js';
 export { NamingExperimentSection }
 
 function NamingExperimentSection() {
-    // load images
-    // const images = useNamingImageLoader();
 
-    const heightsScalar = 0.65
+    const heightsScalar = 0.65 // Section Height Scaling Factor (Used to control Scroll Speed)
     //Heights               0    1    2    3    4    5    6    7  8    9  10   11  12   13  14  15  16  17   18
-    let sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 400, 0, 200, 200, 250, 400, 0, 200, 0, 0, 900]
+    let sectionHeights = [250, 400, 250, 200, 600, 250, 300, 0, 400, 0, 200, 200, 250, 400, 0, 200, 0, 0, 900] //Section Scroll Heights (vh)
     sectionHeights = sectionHeights.map(function (x) { return x * heightsScalar })
-    const endblock = 1320 / window.innerHeight * 100
+    const endblock = 1320 / window.innerHeight * 100 //Buffer for Footer
 
     //Timings | Timings are adjusted to start - end of section
     const sectionTimings = [
         //0 Fading Header
         [[0, 0.2, 0.5, 0.8], [0, 0, 0.2, 0.5]],
-        //1 Para 1               Para 2                 Para 3                 Text Motion       Off
+        //1 Para 1               Para 2                 Para 3                 Text Motion          Off
         [[-0.2, 0.05, 0.28, 1], [-0.2, 0.38, 0.61, 1], [-0.2, 0.71, 0.95, 1], [-0.2, 0.2, 0.8, 1], [-0.2, 0.1, 0.5, 0.8]],
         //2 Fading Section Header
         [[0, 0.4, 0.5, 1], [0, 0.2, 1.5], [0.3, 0.6, 1.5, 2]],
@@ -332,7 +330,7 @@ function NamingExperimentSection() {
                         [<p>Let's <b>play</b> on to see how this priming technique can be further expanded and refined to deliver even more interesting results.</p>]
                     } />
                     <br /><br /><br />
-                    <TryThis text={tryText} scrollInfo={adjustedTimings[11][1]} />
+                    <TryThis text={tryText} link={'https://chat.openai.com/share/51f61459-ad17-44a4-a02e-17f9783d90a7'} scrollInfo={adjustedTimings[11][1]} />
                 </div>
             </DoubleColumn>
         } />
@@ -468,7 +466,7 @@ function NamingExperimentSection() {
                     <OpacityParagraph scrollInfo={adjustedTimings[18][2]} dark={false} text={
                         [<p>So we will <b>play</b> on</p>]
                     } />
-                    <TryThis text={tryText} scrollInfo={adjustedTimings[18][2]} />
+                    <TryThis text={tryText} link={'https://chat.openai.com/share/a0f8c32b-2c66-4ac2-8fdf-fd516f885307'} scrollInfo={adjustedTimings[18][2]} />
                 </ScrollingColumn>
             </DoubleColumn>
         } />

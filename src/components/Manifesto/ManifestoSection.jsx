@@ -17,8 +17,8 @@ function ManifestoSection({ images }) {
     const endblock = 1320 / window.innerHeight * 100
 
     //Heights
-    const heightsScalar = 0.65
-    let sectionHeights = [600, 50, 100, 600]
+    const heightsScalar = 0.65 // Section Height Scaling Factor (Used to control Scroll Speed)
+    let sectionHeights = [600, 50, 100, 600] //Section Scroll Heights (vh)
     sectionHeights = sectionHeights.map(function(x) { return x * heightsScalar})
 
     //Timings | Timings are adjusted to start - end of section
@@ -38,7 +38,7 @@ function ManifestoSection({ images }) {
         //4 Para 3 Trans  5 Beach Robot         6 Para 3-2 Opacity
         [3 / 8, 9 / 8], [0.6, 0.7, 0.885, 1.2], [3 / 8, 6 / 8, 7 / 8, 9 / 8],
         //7 Para 2 Trans 8 Card     9 Para 3-1                    10 Robots             11 Beach Opacity
-        [1 / 8, 7 / 8], [0.75, 1], [3 / 8, 5 / 8, 6 / 8, 9 / 8], [0, 0.2, 0.5, 0.7], [0.6, 0.7, 1, 1.5],
+        [1 / 8, 7 / 8], [0.75, 1], [3 / 8, 5 / 8, 6 / 8, 9 / 8], [0, 0.2, 0.5, 0.7], [0.6, 0.7, 0.8, 1],
         //12                     13                     14
         [-1 / 8, 2 / 8, 5 / 8], [1 / 8, 4 / 8, 7 / 8], [3 / 8, 6 / 8, 9 / 8]
         ]]
@@ -111,11 +111,11 @@ function ManifestoSection({ images }) {
     )
 
     const desktopBeach = (
-        <OpacityContent scrollInfo={adjustedTimings[3][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 65]} rotate={0} />} positions={[[-175, -80, -40, -40], [0, 0, 0, 100]]} scrollInfo={adjustedTimings[3][5]} alignment={['left', 'bottom']} />} />
+        <OpacityContent baseOpacity={0} scrollInfo={adjustedTimings[3][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 65]} rotate={0} />} positions={[[-175, -80, -40, -40], [0, 0, 0, 0]]} scrollInfo={adjustedTimings[3][5]} alignment={['left', 'bottom']} />} />
     )
 
     const mobileBeach = (
-        <OpacityContent scrollInfo={adjustedTimings[3][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 65]} rotate={0} />} positions={[[-300, -250, -200, -200], [0, 0, 0, 100]]} scrollInfo={adjustedTimings[3][5]} alignment={['left', 'bottom']} />} />
+        <OpacityContent baseOpacity={0} scrollInfo={adjustedTimings[3][11]} child={<TransformingContent child={<ImgBox url={images.robot_beach} displayDimensions={[174, 65]} rotate={0} />} positions={[[-300, -250, -200, -200], [0, 0, 0, 0]]} scrollInfo={adjustedTimings[3][5]} alignment={['left', 'bottom']} />} />
     )
 
     const desktopCreativity = (
