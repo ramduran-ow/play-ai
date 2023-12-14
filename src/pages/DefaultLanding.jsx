@@ -31,7 +31,7 @@ const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }
                 scrollYArray={[0, 1]}
                 opacityArray={[0, 0.7]}
                 // opacityOverride={0.6}
-                scrollInfo={[0.14, 0.16, 0.22, 0.24]}
+                scrollInfo={[0.14, 0.16, 0.18, 0.20]}
                 sectionHeight={150}
             />
             <ParagraphBlock
