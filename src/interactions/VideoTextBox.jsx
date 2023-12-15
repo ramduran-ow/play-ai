@@ -23,6 +23,7 @@ const VideoTextContainer = styled(motion.div)`
     pointer-events: all;
 `
 
+//Overlay Video Box Text Component
 function VideoTextBox({ child, scrollInfo }) {
 
     const betweens = inBetweens(scrollInfo.slice(1,3))

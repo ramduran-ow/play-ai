@@ -1,8 +1,8 @@
 import PropTypes from "prop-types"
-// import { sizes } from "../constants/devices"
 import styled from "styled-components"
-// import MediaQuery from "react-responsive"
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion"
+// import { sizes } from "../constants/devices"
+// import MediaQuery from "react-responsive"
 
 export { TransformingTextBox }
 
@@ -14,6 +14,19 @@ export const TextContainer = styled.div`
     margin: auto;
 `
 
+const TransformingContainer = styled(motion.div)`
+    position: fixed;
+    width: 100%
+`
+
+const CenterContainer = styled(motion.div)`
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+`
+
 function TransformingTextBox({ child, positions, scrollInfo, alignment, doubled, specialWidth }) {
     const { scrollYProgress } = useScroll();
 
@@ -23,48 +36,31 @@ function TransformingTextBox({ child, positions, scrollInfo, alignment, doubled,
     const tY = useMotionTemplate`${y}vh`
     let usedWidth = '75rem'
     if (doubled) { usedWidth = '100%' }
-    if (specialWidth !== '') { usedWidth = specialWidth}
+    if (specialWidth !== '') { usedWidth = specialWidth }
 
     if (alignment === 'top') {
         return (
-            <motion.div style={{
-                position: "fixed",
-                display: visible,
-                top: tY,
-                width: '100%'
-            }}>
-                <TextContainer style={{maxWidth: usedWidth}}>
+            <TransformingContainer style={{ top: tY, display: visible }}>
+                <TextContainer style={{ maxWidth: usedWidth }}>
                     {child}
                 </TextContainer>
-            </motion.div>
+            </TransformingContainer>
         )
     } else if (alignment === 'bottom') {
         return (
-            <motion.div style={{
-                position: "fixed",
-                display: visible,
-                bottom: tY,
-                width: '100%'
-            }}>
-                <TextContainer style={{maxWidth: usedWidth}}>
+            <TransformingContainer style={{ bottom: tY, display: visible }}>
+                <TextContainer style={{ maxWidth: usedWidth }}>
                     {child}
                 </TextContainer>
-            </motion.div>
+            </TransformingContainer>
         )
     } else if (alignment === 'center') {
         return (
-            <motion.div style={{
-                position: "fixed",
-                display: visible,
-                top: 0,
-                left: 0,
-                height: "100%",
-                width: '100%'
-            }}>
-                <TextContainer style={{maxWidth: usedWidth}}>
+            <CenterContainer style={{ display: visible }}>
+                <TextContainer style={{ maxWidth: usedWidth }}>
                     {child}
                 </TextContainer>
-            </motion.div>
+            </CenterContainer>
         )
     }
 }

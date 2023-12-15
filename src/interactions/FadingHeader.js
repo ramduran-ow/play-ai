@@ -1,8 +1,17 @@
 import PropTypes from "prop-types"
+import styled from "styled-components";
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ContentHeader, ContentSubheader1, ContentSubheader2 } from "../components/ArticleHeader";
 
 export { FadingHeader }
+
+const FadingContainer = styled(motion.div)`
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+`
 
 function FadingHeader({ text, scrollInfo, startOn }) {
     let opacityInfo = [0.1, 1, 0.1]
@@ -25,17 +34,9 @@ function FadingHeader({ text, scrollInfo, startOn }) {
         </div>
 
     return (
-        <motion.div style={{
-            position: "fixed",
-            width: "100%",
-            height: "fit-content",
-            top: "50%",
-            transform: "translateY(-50%)",
-            opacity: opacity,
-            display: visible
-        }}>
+        <FadingContainer style={{ opacity: opacity, display: visible }}>
             {content}
-        </motion.div>
+        </FadingContainer>
     )
 }
 

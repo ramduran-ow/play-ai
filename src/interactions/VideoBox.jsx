@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
 import { sizes } from "../components/constants/devices"
-// import MediaQuery from "react-responsive"
 import { motion, useScroll, useTransform } from "framer-motion"
 import React, { useState } from 'react';
+import styled from "styled-components";
 // import { useEffect } from "react";
 // import { useInView } from 'react-intersection-observer';
-import styled from "styled-components";
+// import MediaQuery from "react-responsive"
 
 import playButton from '../images/naming/playButton.png'
 

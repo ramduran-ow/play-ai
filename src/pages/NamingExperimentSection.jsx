@@ -13,7 +13,7 @@ import { FadingHeader } from "../interactions/FadingHeader"
 import { FadingSectionHeader } from '../interactions/FadingSectionHeader';
 import { ColumnImage } from '../interactions/ColumnImage.js';
 import { DoubleColumn } from '../interactions/DoubleColumn.js';
-import { VideoTextBox } from '../interactions/VideoTextBox.js';
+import { VideoTextBox } from '../interactions/VideoTextBox.jsx';
 import { VideoBox } from '../interactions/VideoBox.jsx';
 import { ScrollingColumn } from '../interactions/ScrollingColumn.jsx';
 import { ExperimentNav } from '../interactions/ExperimentNav.jsx';

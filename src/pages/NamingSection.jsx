@@ -13,7 +13,7 @@ import { Background, TransitionBackground } from '../interactions/Background.js'
 import { TransformingContent, ImgBox, ScalingImgBox, RotatingImgBox } from '../interactions/TransformingContent.js'
 import { TransformingTextBox } from '../interactions/TransformingTextBox.jsx';
 import { AnchoredTransformingContent } from '../interactions/AnchoredTransformingContent.jsx';
-import { VideoTextBox } from '../interactions/VideoTextBox.js';
+import { VideoTextBox } from '../interactions/VideoTextBox.jsx';
 import { VideoBox } from '../interactions/VideoBox.jsx';
 import { DoubleColumn } from '../interactions/DoubleColumn.js';
 import { ColumnImage } from '../interactions/ColumnImage.js';

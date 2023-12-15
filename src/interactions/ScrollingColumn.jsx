@@ -13,10 +13,7 @@ function ScrollingColumn({ children, scrollInfo, scrollIn, scrollOut }) {
     const scroll = useTransform(scrollYProgress, scrollInfo, [sIn, 0, sOut])
 
     return (
-        <motion.div style={{
-            translateY: scroll,
-            width: '100%'
-        }}>
+        <motion.div style={{ translateY: scroll, width: '100%' }}>
             {children}
         </motion.div>
     )

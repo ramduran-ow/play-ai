@@ -17,11 +17,7 @@ function OpacityContent({ child, scrollInfo, baseOpacity }) {
     const visible = useTransform(scrollYProgress, visibleInfo, ['none', 'none', 'inline', 'none'])
 
     return (
-        <motion.div style={{
-            position: "fixed",
-            opacity: opacity,
-            display: visible
-        }}>
+        <motion.div style={{ position: "fixed", opacity: opacity, display: visible }}>
             {child}
         </motion.div>
     )
