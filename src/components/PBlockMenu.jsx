@@ -101,7 +101,7 @@ const PBlockMenu = ({ selectedPlayer, handlePlayerChange, handleSubHeaderChange,
                         if(selectedPlayer !== index) {
                             handleBackgroundChange()
                             handlePlayerChange(index)
-                            handleSubHeaderChange(false)
+                            //handleSubHeaderChange(false)
                             
                         }
                     }

@@ -3,12 +3,12 @@ import { styled } from 'styled-components';
 import STRINGS from './constants/strings';
 import { motion, useScroll, cubicBezier, useTransform } from 'framer-motion';
 import { sizes } from './constants/devices';
-import TypeIt from "typeit-react";
+// import TypeIt from "typeit-react";
 // import useOnScreen from '../useOnScreenHook';
 import PBlockMenu from './PBlockMenu';
 import { OpacityHeading } from '../interactions/OpacityContent';
 import { TransformingTextBox } from '../interactions/TransformingContent';
-// import { TypeAnimation } from 'react-type-animation';
+import { TypeAnimation } from 'react-type-animation';
 // import SpriteSheet from '../images/spritesheet-test.webp'
 
 
@@ -167,7 +167,7 @@ const ParagraphBlock = ({
     glitchImage,
     sectionHeight
 }) => {
-    const [subHeaderVisible, setSubHeaderVisible] = useState(false);
+    //const [subHeaderVisible, setSubHeaderVisible] = useState(true);
     const [glitchVisible, setGlitchVisible] = useState(false);
     const ref = useRef(null);  
     const contentRef = useRef(null);
@@ -177,9 +177,9 @@ const ParagraphBlock = ({
       });
     const opacity = useTransform(scrollYProgress, scrollYArray, opacityArray);
 
-    const handleSubHeaderChange = (newState) => {
-        setSubHeaderVisible(newState);
-    }
+    // const handleSubHeaderChange = (newState) => {
+    //     setSubHeaderVisible(newState);
+    // }
 
     const handleBackgroundChange = () => {
         
@@ -242,15 +242,18 @@ const ParagraphBlock = ({
             //     hidden: { opacity: 0, y: 200 }
             // }}
         >
-            <TypeIt
-                key={subHeaderString}
-                options={{
-                    strings: [subHeaderString],
-                    speed: 1,
-                    waitUntilVisible: true,
-                    lifeLike: true,
-                }}
-            />
+                <TypeAnimation
+                    key={subHeaderString}
+                    splitter={(str) => str.split(/(?= )/)}
+                    sequence={[
+                        2600,
+                        subHeaderString,
+                        
+                    ]}
+                    speed={60}
+                    omitDeletionAnimation={true}
+                    repeat={1}
+                />
         </PBlockSubheader>    
     );
 
@@ -268,17 +271,19 @@ const ParagraphBlock = ({
                     visible: { opacity: 1 },
                     hidden: { opacity: 0 }
             }}>
-                {/* <TypeAnimation
+                <TypeAnimation
                     key={contentString}
+                    splitter={(str) => str.split(/(?= )/)}
                     sequence={[
                         contentString,
-                        1000,
+                        1000
                     ]}
-                    speed={90}
+                    speed={60}
+                    omitDeletionAnimation={true}
                     repeat={1}
-                /> */}
+                />
                 {/* {contentString} */}
-                <TypeIt
+                {/* <TypeIt
                     key={contentString}
                     options={{
                         strings: [contentString],
@@ -287,9 +292,9 @@ const ParagraphBlock = ({
                         lifeLike: true,
                         afterComplete: () => setSubHeaderVisible(true)
                     }}
-                />
+                /> */}
             </PBlockContent>
-            {subHeaderVisible && SubHeader}
+            {SubHeader}
         </TextWrapper>
     );
 
@@ -321,7 +326,7 @@ const ParagraphBlock = ({
                     <PBlockMenu 
                         selectedPlayer={selectedPlayer} 
                         handlePlayerChange={handlePlayerChange}
-                        handleSubHeaderChange={handleSubHeaderChange}
+                        //handleSubHeaderChange={handleSubHeaderChange}
                         handleBackgroundChange={handleBackgroundChange}
                     />
                 }
