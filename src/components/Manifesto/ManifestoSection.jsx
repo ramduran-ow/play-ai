@@ -225,7 +225,7 @@ function ManifestoSection({ images }) {
             {/* SECTION 1 */}
             <Background background={"#202020"} height={sectionHeights[0]} />
             <Background background={"#202020"} height={sectionHeights[1]} />
-            <Transition scrollInfo={[0.59, 0.62, 0.64, 0.7]} background={images.manifesto_gradient} solidBackground />
+            <Transition scrollInfo={[0.6, 0.65, 0.68, 0.73]} background={images.manifesto_gradient} solidBackground />
             {avocados}
             {introParagraphs}
 
