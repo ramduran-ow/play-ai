@@ -21,7 +21,7 @@ Note: The manifesto page has an additional `startHeight` value added to the calc
 
 ## Mapping Scroll Timings into timing controlled properties
 
-
+Framer.js provides the function `useTransform()`. It takes three values: a value to track, an array of values to reference the tracked value, and an array of values to transform to. To make convert `scrollYProgress` to opacity for example, we would use `useTransform()` with `scrollInfo` or a modified version transforming to an array of matching length. EX. `useTransform(scrollYProgress, scrollInfo, [0, 1, 1, 0])` 
 
 # Getting Started with Create React App
 
