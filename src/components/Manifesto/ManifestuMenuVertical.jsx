@@ -70,7 +70,7 @@ const Label = styled.p`
   ${(props) => props.$isActive && "border-bottom: 1px solid white"};
 `;
 
-const PBlockMenuVertical = ({
+const ManifestuMenuVertical = ({
   selectedPlayer,
   handlePlayerChange,
   handleSubHeaderChange,
@@ -118,12 +118,12 @@ const PBlockMenuVertical = ({
 
   return (
     <PBlockMenuContainer>
-      <MenuHeaderWrapper>
+      {/*<MenuHeaderWrapper>
         <MenuHeader>Regenerate Scene:</MenuHeader>
-      </MenuHeaderWrapper>
+  </MenuHeaderWrapper>*/}
       <MenuItemWrapper>{menuItems}</MenuItemWrapper>
     </PBlockMenuContainer>
   );
 };
 
-export default PBlockMenuVertical;
+export default ManifestuMenuVertical;
