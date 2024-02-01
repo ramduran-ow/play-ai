@@ -1,0 +1,43 @@
+/* Newsletter ================================== */
+.newsletter {
+    background-color: var(--Lippincott-Black);
+    padding: 120px 0;
+}
+.newsletterInput {
+    max-width: 640px;
+}
+
+
+/* Site links ============================== */
+.siteLinks {
+    max-width: 420px;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.siteLinksContainer,
+.socialLinks {
+    min-width: 194px;
+}
+
+.siteLinksContainer ul,
+.socialLinks ul {
+    margin: 0;
+    padding: 0;
+}
+
+.siteLinksContainer ul > li { text-align: left; }
+.siteLinksContainer ul > li + li { margin-top: 24px; }
+
+.siteLinksContainer ul > li a {
+    color: white;
+    font-family: "Noe Display";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+}
+
+.socialLinks ul {
+    gap: 20px;
+}

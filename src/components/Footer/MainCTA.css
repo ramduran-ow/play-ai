@@ -1,0 +1,28 @@
+/* Main CTA ======================= */
+.mainCTA {
+    background-color: var(--Lippincott-Gray-10);
+    padding: 96px 0;
+}
+
+.mainCTA .dFlex {
+    gap: 40px;
+}
+
+.mainCTA h2 {
+    color: #FFF;
+    font-family: "Noe Display";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    margin: 0;
+}
+
+.mainCTA span {
+    color: #FFF;
+    font-family: "Noto Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+}

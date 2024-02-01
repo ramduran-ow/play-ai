@@ -1,0 +1,189 @@
+/* Defining colors and variables ================== */
+:root {   
+  --light-gray: #252525;
+  --Lippincott-Gray-4: #ADADAD;
+  --Lippincott-Gray-5: #8F8F8F;
+  --Lippincott-Gray-7: #252525;
+  --Lippincott-Gray-8: #202020;
+  --Lippincott-Gray-10: #111;
+  --Lippincott-Black: #191919;
+  --Lippincott-Lavender-Medium: #BA9CFF;
+}
+
+@font-face {
+  font-family: "Roobert PRO";
+  src: url('../../fonts/RoobertPRO-Medium.otf') format('opentype');
+}
+
+/* Defining structure ============================= */
+.dFlex { display: flex; }
+.spaceBetween { justify-content: space-between; }
+.alignItemsCenter { align-items: center; }
+.alignItemsStart { align-items: flex-start; }
+.flexColumn { flex-direction: column; }
+
+.footerWrapper {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px
+}
+
+/* Footer forms ==================================== */
+/* Global styles */
+.footerForm label {
+  color: white;
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footerForm input {
+  background: transparent;
+  border: 0;
+  padding: 10px 0;
+  width: 100%;
+  color: white;
+  font-family: "Noe Display";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+}
+
+.footerForm input::placeholder {
+  color: var(--Lippincott-Gray-4);
+  font-family: "Noto Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+}
+
+.footerForm input:focus-visible {
+  outline: 0;
+}
+
+.footerForm > div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footerForm textarea {
+  border-radius: 8px;
+  background: var(--Lippincott-Gray-7);
+  border-color: transparent;
+  margin-top: 16px;
+  padding: 16px;
+
+  color: white;
+  font-family: "Noto Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.footerForm textarea:focus-visible {
+  outline: 0;
+  border-color: white;
+}
+
+/* Specific styles */
+.joinUsForm {
+  max-width: 588px;
+  border-bottom: 1px solid white;
+  margin-top: 54px;
+}
+
+.joinUsForm button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 12px;
+}
+
+.contactForm {
+  width: 532px;
+}
+
+.contactForm > div + div {
+  margin-top: 48px;
+}
+.contactForm > button {
+  margin-top: 16px;
+  margin-left: auto;
+}
+
+.contactForm input {
+  border-bottom: 1px solid white;
+  padding-bottom: 0;
+}
+
+/* Buttons ===================================== */
+.gradientButton {
+  width: 250px;
+  display: flex;
+  padding: 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  background: linear-gradient(107deg, #575FA9 0%, #AC25E3 98.97%);
+  border: 0;
+  cursor: pointer;
+
+  color: #FFF;
+  font-family: "Noto Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.gradientButton:hover {
+  color: white;
+}
+
+/* Titles ===================================== */
+.noe50px {
+  color: white;
+  font-family: "Noe Display";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  margin: 0;
+  text-align: left;
+}
+
+.noe60px {
+  color: #FFF;
+  font-family: "Noe Display";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 106%;
+  margin: 0;
+}
+
+/* Responsive ================================= */
+@media (min-width: 768px) {
+  .footerWrapper {
+    padding-left: 30px;
+    padding-right: 30px
+  }
+}
+
+@media (min-width: 1024px) {
+  .footerWrapper {
+    padding-left: 20px;
+    padding-right: 20px
+  }
+}
