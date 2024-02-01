@@ -1,3 +1,4 @@
+import "./Manifesto.css";
 // import universal
 import { devices } from '../constants/devices';
 import { useMediaQuery } from 'react-responsive';
@@ -218,7 +219,7 @@ function ManifestoSection({ images }) {
     let st = startHeight / sum
 
     return (
-        <div style={{ position: "relative", height: "100%", width: "100%" }}>
+        <section className='manifesto'>
 
             <Transition scrollInfo={[0, st - 0.165, st - 0.075, st + 0.2]} />
 
@@ -241,6 +242,6 @@ function ManifestoSection({ images }) {
             {isMobile ? mobileHowWell : desktopHowWell}
             {isLaptop ? mobileHowPlay : desktopHowPlay}
 
-        </div>
+        </section>
     )
 }

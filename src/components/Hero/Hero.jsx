@@ -9,29 +9,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // FRAMER MOTION //
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-
-//import Menu from "./Menu";
 
 function Hero({ handlePlayerChange, player }) {
   const [playerSelected, SetPlayerSelected] = useState(0);
   //const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    console.log("playerSelected updated in Hero")
+    console.log("playerSelected updated in Hero");
     handlePlayerChange(playerSelected);
   }, [playerSelected]); // eslint-disable-line
 
   useEffect(() => {
-
     SetPlayerSelected(player);
-    _changeItem(player)
+    _changeItem(player);
   }, [player]); // eslint-disable-line
+
   /////////////
   // PLAYERS //
   /////////////
@@ -43,8 +37,9 @@ function Hero({ handlePlayerChange, player }) {
       icon: "symbol",
       backGradient:
         "linear-gradient(116deg, rgba(164, 179, 255, 0.40) 1.25%, rgba(189, 203, 255, 0.40) 29.79%, rgba(206, 184, 255, 0.40) 71.6%, rgba(204, 167, 255, 0.40) 100%)",
-      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(128, 158, 255,.8),transparent,transparent)",
-      text:'/Prompt: <b>Futuristic</b>'
+      playerShadow:
+        "radial-gradient(ellipse at 50% 50%,rgba(128, 158, 255,.8),transparent,transparent)",
+      text: "/Prompt: <b>Futuristic</b>",
     },
     {
       player: "https://prod.spline.design/KyFTr0g3yATY22L1/scene.splinecode",
@@ -53,8 +48,9 @@ function Hero({ handlePlayerChange, player }) {
       icon: "dog",
       backGradient:
         "linear-gradient(116deg,#ffde9f 1.25%,#fff2d0 29.54%,#ffe3cf 65.02%,#ffb7a0 100%)",
-      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(253, 153, 153, .8),transparent,transparent)",
-      text: '/Prompt: <b>Dog(e)-Mode</b>'
+      playerShadow:
+        "radial-gradient(ellipse at 50% 50%,rgba(253, 153, 153, .8),transparent,transparent)",
+      text: "/Prompt: <b>Dog(e)-Mode</b>",
     },
     {
       player: "https://prod.spline.design/qTXXVPwhqXFHSma5/scene.splinecode",
@@ -63,8 +59,9 @@ function Hero({ handlePlayerChange, player }) {
       icon: "quill",
       backGradient:
         "linear-gradient(116deg, #DDD3F1 1.25%, #EEEDFF 31.59%, #FFDBE1 71.71%, #FBB 100%)",
-      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(204, 177, 232, .8),transparent,transparent)",
-      text: '/Prompt: <b>Shakespearinator</b>'
+      playerShadow:
+        "radial-gradient(ellipse at 50% 50%,rgba(204, 177, 232, .8),transparent,transparent)",
+      text: "/Prompt: <b>Shakespearinator</b>",
     },
     {
       player: "https://prod.spline.design/bhPY5q3v66X4rUKi/scene.splinecode",
@@ -72,9 +69,10 @@ function Hero({ handlePlayerChange, player }) {
       playerPNG: "images/players/GuitarBase.png",
       icon: "guitar",
       backGradient:
-        "linear-gradient(116deg, #FFF2D0 1.25%, #F1FFD4 33.14%, #E1FFE6 65.02%, #D4FFF5 100%)",      
-      playerShadow:  "radial-gradient(ellipse at 50% 50%,rgba(123, 149, 217, .8),transparent,transparent)",
-      text: '/Prompt: <b>Heavy Metal-ic</b>'
+        "linear-gradient(116deg, #FFF2D0 1.25%, #F1FFD4 33.14%, #E1FFE6 65.02%, #D4FFF5 100%)",
+      playerShadow:
+        "radial-gradient(ellipse at 50% 50%,rgba(123, 149, 217, .8),transparent,transparent)",
+      text: "/Prompt: <b>Heavy Metal-ic</b>",
     },
     {
       player: "https://prod.spline.design/FsU-V8XgBeQRJ6pD/scene.splinecode",
@@ -83,8 +81,9 @@ function Hero({ handlePlayerChange, player }) {
       icon: "sphere",
       backGradient:
         "linear-gradient(116deg, rgba(129, 218, 202, 0.40) 1.25%, rgba(118, 228, 202, 0.40) 29.02%, rgba(149, 236, 255, 0.40) 67.6%, rgba(149, 147, 255, 0.40) 100%)",
-      playerShadow: "radial-gradient(ellipse at 50% 50%,rgba(190, 152, 238, .8),transparent,transparent)",
-      text:'/Prompt: <b>Gen-Zify</b>'
+      playerShadow:
+        "radial-gradient(ellipse at 50% 50%,rgba(190, 152, 238, .8),transparent,transparent)",
+      text: "/Prompt: <b>Gen-Zify</b>",
     },
   ];
   ///////////////////
@@ -108,20 +107,6 @@ function Hero({ handlePlayerChange, player }) {
     sliderRef.current.swiper.slideToLoop(i);
   };
 
-  // SELECT Player //
-  // const content = useRef(null);
-  // const selectPlayer = () => {
-  //   window.scrollTo({ top: window.innerHeight * 2, behavior: "smooth" })
-  // };
-
-  // const selectPlayerScroll = () => {
-  //   let pageHeight = window.innerHeight;
-  //   window.scrollBy({
-  //     top: pageHeight * 2,
-  //     behavior: "smooth",
-  //   });
-  // };
-
   // FRAMER SCROLL ANIMATIONS //
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -129,28 +114,16 @@ function Hero({ handlePlayerChange, player }) {
   });
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const opacityControlsProgress = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const opacityControlsArrowProgress = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const opacityControlsArrowProgress = useTransform(
+    scrollYProgress,
+    [0, 0.2],
+    [1, 0]
+  );
 
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
   const scaleTopProgress = useTransform(scrollYProgress, [0, 1], [0, 140]);
 
   const topProgress = useTransform(scrollYProgress, [0, 1], [0, -1000]);
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", listenToScroll);
-  //   return () => window.removeEventListener("scroll", listenToScroll);
-  // }, []);
-
-  // const listenToScroll = () => {
-  //   let heightToHideFrom = 2000;
-  //   const winScroll =
-  //     document.body.scrollTop || document.documentElement.scrollTop;
-  //   if (winScroll > heightToHideFrom) {
-  //     setIsVisible(true);
-  //   } else {
-  //     setIsVisible(false);
-  //   }
-  // };
 
   // SPLINE VIEWER //
   useEffect(() => {
@@ -164,7 +137,7 @@ function Hero({ handlePlayerChange, player }) {
     document.body.appendChild(script);
   }, []);
 
-  const _getTop = (i) => {    
+  const _getTop = (i) => {
     if (playersSlidesEl.current[playerSelected]) {
       if (
         playersSlidesEl.current[i].id ===
@@ -173,10 +146,10 @@ function Hero({ handlePlayerChange, player }) {
         return playerSelected === i ? topProgress : 0;
       }
     }
-  }
+  };
 
   return (
-    <div className="hero">
+    <section className="hero">
       <div className="header-players" ref={ref}>
         <motion.div
           className="players-slider"
@@ -203,7 +176,7 @@ function Hero({ handlePlayerChange, player }) {
             className="player-shadow"
             style={{ opacity: opacityControlsProgress }}
             animate={{
-              background: headerSlides[playerSelected].playerShadow
+              background: headerSlides[playerSelected].playerShadow,
             }}
             transition={{ duration: 0.5 }}
           ></motion.div>
@@ -224,15 +197,15 @@ function Hero({ handlePlayerChange, player }) {
             keyboard={{
               enabled: true,
             }}
-            modules={[Keyboard]}            
+            modules={[Keyboard]}
             className="hero-swiper"
             ref={sliderRef}
             navigation={{
               nextEl: "image-swiper-button-next",
               prevEl: "image-swiper-button-prev",
-              disabledClass: "swiper-button-disabled"
+              disabledClass: "swiper-button-disabled",
             }}
-          >   
+          >
             {headerSlides.map((data, index) => (
               <SwiperSlide
                 key={index}
@@ -263,14 +236,15 @@ function Hero({ handlePlayerChange, player }) {
                     height: "100%",
                     position: "absolute",
                     top: _getTop(index),
-                    opacity: playerSelected === -1 ? 1 : opacityControlsProgress,
+                    opacity:
+                      playerSelected === -1 ? 1 : opacityControlsProgress,
                   }}
                 >
                   <div
                     style={{
                       position: "absolute",
                       width: "100%",
-                      height: "100%",                      
+                      height: "100%",
                     }}
                   >
                     <spline-viewer
@@ -279,26 +253,7 @@ function Hero({ handlePlayerChange, player }) {
                       loading={"eager"}
                       ref={(element) => playersEl.current.push(element)}
                     ></spline-viewer>
-                    {/* <Spline scene={data.player} onLoad={onLoad} /> */}
                   </div>
-{/* 
-                  <div
-                    style={{
-                      position: "absolute",
-                      width: "100%",
-                      height: "100%",
-                      display: playerSelected !== index ? "block" : "none",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        background:
-                          "url(" + data.playerPNG + ") no-repeat center center",
-                      }}
-                    ></div>
-                  </div> */}
                 </motion.div>
               </SwiperSlide>
             ))}
@@ -308,53 +263,34 @@ function Hero({ handlePlayerChange, player }) {
             className="navigation"
             style={{ opacity: opacityControlsProgress }}
           >
-            {/* <div
-              className="navigation_prev"
-              onClick={() => {
-                prevto();
+            <p
+              className="prompt"
+              dangerouslySetInnerHTML={{
+                __html: headerSlides[playerSelected].text,
               }}
-            ></div>
-            <motion.div
-              className="navigation_select"
-              whileHover={{
-                backgroundColor: "#000000",
-                color: "#FFFFFF",
-              }}
-              onClick={selectPlayerScroll}
-            >
-              Select player
-            </motion.div>
-            <div
-              className="navigation_next"
-              onClick={() => {
-                nexto();
-              }}
-            ></div> */}
-            <p className="prompt" dangerouslySetInnerHTML={{ __html: headerSlides[playerSelected].text }}></p>
+            ></p>
           </motion.div>
-          <motion.div 
-            className="swiper-button image-swiper-button-next" 
-            style={{ 
+          <motion.div
+            className="swiper-button image-swiper-button-next"
+            style={{
               opacity: opacityControlsArrowProgress,
-             }} 
-            onClick={() => { window.scrollY < 1 && nexto(); }} 
-          />            
-          <motion.div 
-            className="swiper-button image-swiper-button-prev" 
-            style={{ 
-              opacity: opacityControlsArrowProgress
-             }} 
-            onClick={() => { window.scrollY < 1 && prevto(); }} 
-          />         
+            }}
+            onClick={() => {
+              window.scrollY < 1 && nexto();
+            }}
+          />
+          <motion.div
+            className="swiper-button image-swiper-button-prev"
+            style={{
+              opacity: opacityControlsArrowProgress,
+            }}
+            onClick={() => {
+              window.scrollY < 1 && prevto();
+            }}
+          />
         </motion.div>
       </div>
-      {/* <Menu
-        items={headerSlides}
-        selected={playerSelected}
-        onChange={(i) => _changeItem(i)}
-        isVisible={isVisible}
-      /> */}
-    </div>
+    </section>
   );
 }
 
