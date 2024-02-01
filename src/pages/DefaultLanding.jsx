@@ -61,7 +61,7 @@ const DefaultLanding = ({
                 header={options.textImageBlock.header}
                 content={options.textImageBlock.content}
             /> */}
-      <ManifestoSection images={manifestoImages} handlePlayerChange={handlePlayerChange} selectedPlayer={player} />
+      <ManifestoSection images={manifestoImages} />
       <ArticleBlock />
       <Footer />
     </div>
