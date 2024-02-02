@@ -5,6 +5,7 @@ import { sizes } from "../constants/devices";
 const PBlockMenuContainer = styled.nav`
   position: sticky;
   top: 0;
+  z-index: 100;
   font-family: "noto-sans-display-semiconden", sans-serif;
   font-weight: 400;
   font-style: normal;
