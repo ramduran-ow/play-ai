@@ -3,13 +3,17 @@ import { styled } from "styled-components";
 import { sizes } from "../constants/devices";
 
 const PBlockMenuContainer = styled.nav`
+  position: sticky;
+  top: 0;
   font-family: "noto-sans-display-semiconden", sans-serif;
   font-weight: 400;
   font-style: normal;
   display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
+  flex-direction: row;
   padding: 0rem 3.2rem;
+  width: fit-content;
+  left: 100%;
+  height: 100vh
 `;
 const MenuHeaderWrapper = styled.div`
   display: flex;
@@ -31,8 +35,9 @@ const MenuHeader = styled.div`
 const MenuItemWrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 5.4rem;
+  gap: 1.4rem;
 
   @media only screen and (max-width: 950px) {
     max-width: 696px;
@@ -70,7 +75,7 @@ const Label = styled.p`
   ${(props) => props.$isActive && "border-bottom: 1px solid white"};
 `;
 
-const ManifestuMenuVertical = ({
+const ManifestoMenuVertical = ({
   selectedPlayer,
   handlePlayerChange,
   handleSubHeaderChange,
@@ -118,12 +123,9 @@ const ManifestuMenuVertical = ({
 
   return (
     <PBlockMenuContainer>
-      {/*<MenuHeaderWrapper>
-        <MenuHeader>Regenerate Scene:</MenuHeader>
-  </MenuHeaderWrapper>*/}
       <MenuItemWrapper>{menuItems}</MenuItemWrapper>
     </PBlockMenuContainer>
   );
 };
 
-export default ManifestuMenuVertical;
+export default ManifestoMenuVertical;

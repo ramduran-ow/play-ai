@@ -20,11 +20,11 @@ import {
 } from "../../interactions/OpacityContent";
 
 // Vertical Menu
-import ManifestuMenuVertical from "./ManifestuMenuVertical";
+import ManifestuMenuVertical from "./ManifestoMenuVertical";
 
 export { ManifestoSection };
 
-const ManifestoSection = ({ images, handlePlayerChange, selectedPlayer }) => {
+const ManifestoSection = ({ images }) => {
   const startHeight = 790;
   const endblock = (1320 / window.innerHeight) * 100;
 
@@ -611,15 +611,7 @@ const ManifestoSection = ({ images, handlePlayerChange, selectedPlayer }) => {
 
   let st = startHeight / sum;
 
-  const [glitchVisible, setGlitchVisible] = useState(false);
-  const handleBackgroundChange = () => {
-    setGlitchVisible(true);
-    setTimeout(() => {
-      setGlitchVisible(false);
-      //window.scrollTo() <-- use window.innerheight to calculate beginning of new section
-    }, 1500);
-  };
-
+ 
   return (
     <section className="manifesto">
       <Transition scrollInfo={[0, st - 0.165, st - 0.075, st + 0.2]} />
@@ -634,13 +626,6 @@ const ManifestoSection = ({ images, handlePlayerChange, selectedPlayer }) => {
       />
       {avocados}
       {introParagraphs}
-
-      {/*<ManifestuMenuVertical
-        selectedPlayer={selectedPlayer}
-        handlePlayerChange={handlePlayerChange}
-        //handleSubHeaderChange={handleSubHeaderChange}
-        handleBackgroundChange={handleBackgroundChange}
-  />*/}
 
 
       {/* SECTION 2 */}

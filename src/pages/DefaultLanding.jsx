@@ -4,6 +4,7 @@ import ParagraphBlock from "../components/ParagraphBlock";
 import ArticleBlock from "../components/ArticleBlock";
 import Footer from "../components/Footer/FooterV2";
 import { ManifestoSection } from "../components/Manifesto/ManifestoSection";
+import { ManifestoBlack } from "../components/Manifesto/ManifestoBlack";
 // import { styled } from 'styled-components';
 // import { TransitionBackground } from '../components/Manifesto/interactions/Background';
 //import ImageStillBlock from '../components/ImageStillBlock';
@@ -61,7 +62,16 @@ const DefaultLanding = ({
                 header={options.textImageBlock.header}
                 content={options.textImageBlock.content}
             /> */}
-      <ManifestoSection images={manifestoImages} />
+      <ManifestoBlack
+        images={manifestoImages}
+        handlePlayerChange={handlePlayerChange}
+        selectedPlayer={player}
+      />
+      {/*<ManifestoSection
+        images={manifestoImages}
+        handlePlayerChange={handlePlayerChange}
+        selectedPlayer={player}
+        />*/}
       <ArticleBlock />
       <Footer />
     </div>
