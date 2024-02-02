@@ -1,10 +1,10 @@
 import React from "react";
 import ParagraphBlock from "../components/ParagraphBlock";
 // import TextImageBlock from '../components/TextImageBlock';
-import ArticleBlock from "../components/ArticleBlock";
 import Footer from "../components/Footer/FooterV2";
 //import { ManifestoSection } from "../components/Manifesto/ManifestoSection";
 import { ManifestoBlack } from "../components/Manifesto/ManifestoBlack";
+import RobotsModule from '../components/Robots/RobotsModule';
 // import { styled } from 'styled-components';
 // import { TransitionBackground } from '../components/Manifesto/interactions/Background';
 //import ImageStillBlock from '../components/ImageStillBlock';
@@ -70,7 +70,7 @@ const DefaultLanding = ({
       {/*<ManifestoSection
         images={manifestoImages}
         />*/}
-      <ArticleBlock />
+      <RobotsModule />
       <Footer />
     </div>
   );
