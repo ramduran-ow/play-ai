@@ -10,6 +10,7 @@ import { useRef, useEffect, useState } from "react";
 
 export { ManifestoBlack };
 const ManifestoBlack = ({ images, handlePlayerChange, selectedPlayer }) => {
+  /// BLOCKS ///
   const HereIsWhat = () => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
@@ -64,7 +65,7 @@ const ManifestoBlack = ({ images, handlePlayerChange, selectedPlayer }) => {
             WebkitUserSelect: "none",
             msUserSelect: "none",
             height: "auto",
-            y: avocadoToast
+            y: avocadoToast,
           }}
         />
         <motion.img
@@ -90,6 +91,47 @@ const ManifestoBlack = ({ images, handlePlayerChange, selectedPlayer }) => {
     );
   };
 
+  const Plenty = () => {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({ target: ref });
+    const avocadoHalf = useTransform(scrollYProgress, [0, 1], [-100, 200]);
+
+    return (
+      <div className="manifesto-black_paragraph">
+        <motion.div style={{ width: "44%", margin: "auto" }} ref={ref}>
+          <p>
+            There are plenty of things about AI we don’t know, but one thing do:
+          </p>
+          <p>
+            AI is not going to take your next job, but a person who knows how to
+            use it just might.
+          </p>
+        </motion.div>
+        <motion.img
+          src={images.avocado_1}
+          alt={images.avocado_1}
+          style={{
+            position: "absolute",
+            width: "auto",
+            maxWidth: "200px",
+            right: "14rem",
+            zIndex: "0",
+            userDrag: "none",
+            WebkitUserDrag: "none",
+            userSelect: "none",
+            MozUserSelect: "none",
+            WebkitUserSelect: "none",
+            msUserSelect: "none",
+            height: "auto",
+            rotate: "33deg",
+            y: avocadoHalf,
+          }}
+        />
+      </div>
+    );
+  };
+
+  /// ANIMATIONS ///
   /// INVIEW ///
   const [p1, inView1, entry1] = useInView({
     threshold: 0.5,
@@ -189,6 +231,7 @@ const ManifestoBlack = ({ images, handlePlayerChange, selectedPlayer }) => {
       </motion.div>
 
       <HereIsWhat />
+
       <motion.div
         style={{ width: "60%", margin: "auto" }}
         className="manifesto-black_paragraph"
@@ -202,44 +245,10 @@ const ManifestoBlack = ({ images, handlePlayerChange, selectedPlayer }) => {
         </div>
       </motion.div>
 
-      <div className="manifesto-black_paragraph">
-        <motion.div
-          style={{ width: "44%", margin: "auto" }}
-          animate={inView4 ? "visible" : "hidden"}
-          variants={variants}
-          transition={{ duration: 1, ease: "easeOut" }}
-          ref={p4}
-        >
-          <p>
-            There are plenty of things about AI we don’t know, but one thing do:
-          </p>
-          <p>
-            AI is not going to take your next job, but a person who knows how to
-            use it just might.
-          </p>
-        </motion.div>
-        <motion.img
-          src={images.avocado_1}
-          alt={images.avocado_1}
-          style={{
-            position: "absolute",
-            width: "auto",
-            maxWidth: "200px",
-            right: "14rem",
-            zIndex: "0",
-            userDrag: "none",
-            WebkitUserDrag: "none",
-            userSelect: "none",
-            MozUserSelect: "none",
-            WebkitUserSelect: "none",
-            msUserSelect: "none",
-            height: "auto",
-            rotate: "33deg",
-            //transform: isInView ? "translatey(200px)" : "translatey(-200px)",
-            //transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-          }}
-        />
-      </div>
+      <Plenty />
+
+      
+
     </section>
   );
 };
