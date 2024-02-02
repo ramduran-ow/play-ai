@@ -1,13 +1,8 @@
 import React from 'react';
-import ParagraphBlock from '../components/ParagraphBlock';
-// import TextImageBlock from '../components/TextImageBlock';
-import ArticleBlock from '../components/ArticleBlock';
-import Footer from '../components/Footer/FooterV2';
-import { ManifestoSection } from '../components/Manifesto/ManifestoSection';
-// import { styled } from 'styled-components';
-// import { TransitionBackground } from '../components/Manifesto/interactions/Background';
-//import ImageStillBlock from '../components/ImageStillBlock';
 import Hero from '../components/Hero/Hero';
+import ParagraphBlock from '../components/ParagraphBlock';
+import RobotsModule from '../components/Robots/RobotsModule';
+import Footer from '../components/Footer/FooterV2';
 import STRINGS from '../components/constants/strings';
 import Nav from '../components/Nav';
 
@@ -15,7 +10,7 @@ const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }
     return (
         <div>
             <Nav isLandingPage />
-            <Hero handlePlayerChange={handlePlayerChange} player={player} />
+            {/* <Hero handlePlayerChange={handlePlayerChange} player={player} /> */}
             {/* <ImageStillBlock 
                 backgroundImage={options.pBlock.backgroundImage} 
                 scrollOffset={["start start", "end end"]}
@@ -56,8 +51,7 @@ const DefaultLanding = ({ player, options, manifestoImages, handlePlayerChange }
                 header={options.textImageBlock.header}
                 content={options.textImageBlock.content}
             /> */}
-            <ManifestoSection images={manifestoImages} />
-            <ArticleBlock />
+            <RobotsModule />
             <Footer />
         </div>
     );
