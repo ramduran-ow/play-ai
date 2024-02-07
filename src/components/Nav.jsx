@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { sizes } from './constants/devices';
 import { NavLink } from 'react-router-dom';
 
-const NavContainer = styled.nav`
+const NavContainer = styled.div`
     position: fixed;
     top: ${props => props.$top};
     transition: top 0.4s ease-out;
@@ -12,7 +12,7 @@ const NavContainer = styled.nav`
     border-bottom: ${props => props.$background === 'white' ? '1px solid black' : 'none'};
     width: 100%;
     height: 64px; 
-    z-index: 99999;
+    z-index: 99;
     display: flex;
     justify-content: center;
 `;
@@ -69,7 +69,7 @@ const Nav = ({ isLandingPage }) => {
         })
     })
 
-    const top = visible ? '-72px' : '0';
+    const top = visible ? '-74px' : '74px';
 
     const background = window.scrollY < 100 ? 'transparent' : 'white';
 

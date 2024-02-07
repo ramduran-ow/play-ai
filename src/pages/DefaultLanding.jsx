@@ -11,6 +11,7 @@ import RobotsModule from '../components/Robots/RobotsModule';
 import Hero from "../components/Hero/Hero";
 import STRINGS from "../components/constants/strings";
 import Nav from "../components/Nav";
+import MainMenu from "../components/MainMenu/ModuleMainMenu";
 
 const DefaultLanding = ({
   player,
@@ -20,6 +21,7 @@ const DefaultLanding = ({
 }) => {
   return (
     <div>
+      <MainMenu />
       <Nav isLandingPage />
       <Hero handlePlayerChange={handlePlayerChange} player={player} />
       {/* <ImageStillBlock 
